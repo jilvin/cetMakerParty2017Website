@@ -1,2 +1,2 @@
-# cetMakerParty2017ElegantFrontend
-Better designed website for CET Maker Party 2017.
+# cetMakerParty2017Website
+Website for CET Maker Party 2017.
