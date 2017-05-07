@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
 
-  <title>CET Maker Party 2017</title>
+  <title>CET Maker Party</title>
   <meta name="description" content="Maker Party of College of Engineering Trivandrum, a joint venture by all the clubs of the college.">
   <meta name="author" content="Webmaster, CET Maker Party">
 
