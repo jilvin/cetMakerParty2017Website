@@ -27,3 +27,6 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 *.stTheme.cache
 *.sublime-workspace
 *.sublime-project
+
+## Specific to cetMakerParty2017Website project.
+application/config/database.php
