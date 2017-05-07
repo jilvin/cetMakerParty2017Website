@@ -22,10 +22,7 @@ class Main extends CI_Controller {
 			Created to change theme for the website randomly.
 			Update of workCount is very impotant.
 		*/
-		$workCount = 2;
-		$work = array("monalisa", "specialRelativity");
-		$workCategory = array("art", "tech");
-		$workColorTheme = array("black", "black");
+		require 'required/works.php';
 
 		if(is_null($this->session->userdata('selectedTheme'))){
 			$selected = rand(0,$workCount-1);
@@ -41,7 +38,7 @@ class Main extends CI_Controller {
 
 		$this->load->view('templates/header');
 		$this->load->view('templates/topMenuSection');
-    $this->load->view('showcase/'.$workCategory[$selected].'/'.$work[$selected]);
+    $this->load->view('showcase/'.$workCategory[$selected].'/'.$work[$selected].'/showcase');
   	$this->load->view('templates/footer');
 	}
 }

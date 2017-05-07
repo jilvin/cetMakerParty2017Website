@@ -18,6 +18,14 @@ class Contentnotice extends CI_Controller {
 	 */
 	public function index()
 	{
-		redirect(base_url());
+		require 'required/works.php';
+
+		if(is_null($this->session->userdata('selectedTheme'))){
+			redirect(base_url());
+		}
+		else {
+			$selected = $this->session->userdata('selectedTheme');
+			$this->load->view('showcase/'.$workCategory[$selected].'/'.$work[$selected].'/contentnotice');
+		}
 	}
 }
