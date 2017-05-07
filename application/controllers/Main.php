@@ -18,9 +18,29 @@ class Main extends CI_Controller {
 	 */
 	public function index()
 	{
+		/*
+			Created to change theme for the website randomly.
+			Update of workCount is very impotant.
+		*/
+		$workCount = 2;
+		$work = array("monalisa", "specialRelativity");
+		$workCategory = array("art", "tech");
+		$workColorTheme = array("black", "black");
+
+		if(is_null($this->session->userdata('selectedTheme'))){
+			$selected = rand(0,$workCount-1);
+			echo $selected;
+
+			/*setup session*/
+			$this->session->set_userdata('selectedTheme',$selected);
+		}
+		else {
+			$selected = $this->session->userdata('selectedTheme');
+			echo "session selected ".$selected;
+		}
+
 		$this->load->view('templates/header');
-    $this->load->view('homedisplay/arts/monalisa');
-    $this->load->view('content/content');
+    $this->load->view('showcase/'.$workCategory[$selected].'/'.$work[$selected]);
   	$this->load->view('templates/footer');
 	}
 }
