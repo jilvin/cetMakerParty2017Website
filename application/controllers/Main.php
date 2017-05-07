@@ -29,14 +29,14 @@ class Main extends CI_Controller {
 
 		if(is_null($this->session->userdata('selectedTheme'))){
 			$selected = rand(0,$workCount-1);
-			echo $selected;
+			//echo $selected;
 
 			/*setup session*/
 			$this->session->set_userdata('selectedTheme',$selected);
 		}
 		else {
 			$selected = $this->session->userdata('selectedTheme');
-			echo "session selected ".$selected;
+			//echo "session selected ".$selected;
 		}
 
 		$this->load->view('templates/header');

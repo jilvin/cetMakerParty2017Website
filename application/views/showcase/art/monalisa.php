@@ -1,1 +1,2 @@
-monalisa
+<body id="showcaseMonalisa">
+</body>
