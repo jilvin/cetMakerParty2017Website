@@ -1,8 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
-class Welcome extends CI_Controller {
-
+class Main extends CI_Controller {
 	/**
 	 * Index Page for this controller.
 	 *
@@ -20,6 +18,9 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		$this->load->view('templates/header');
+    $this->load->view('homedisplay/arts/monalisa');
+    $this->load->view('content/content');
+  	$this->load->view('templates/footer');
 	}
 }
