@@ -37,7 +37,6 @@ class Main extends CI_Controller {
 		}
 
 		$this->load->view('templates/header');
-		$this->load->view('templates/topMenuSection');
     $this->load->view('showcase/'.$workCategory[$selected].'/'.$work[$selected].'/showcase');
   	$this->load->view('templates/footer');
 	}
