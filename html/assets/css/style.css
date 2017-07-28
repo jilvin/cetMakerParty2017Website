@@ -1,1 +1,28 @@
-@import url('https://fonts.googleapis.com/css?family=Great+Vibes|Pacifico');
+@import url('https://fonts.googleapis.com/css?family=Berkshire+Swash|Pacifico');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Pacifico');
+#headingText
+{
+  margin-left: 10px;
+  top: 4px;
+  position: relative;
+}
+
+#headingCollegeText
+{
+  margin-left: 10px;
+  top: 1px;
+  position: relative;
+}
+
+#headingText a
+{
+  color: #ECECEC;
+  font-family: 'Pacifico', cursive;
+}
+
+#headingCollegeText a
+{
+  color: #E3E3E3;
+  /*font-family: 'Berkshire Swash', cursive;*/
+  font-family: 'Open Sans', sans-serif;
+}
