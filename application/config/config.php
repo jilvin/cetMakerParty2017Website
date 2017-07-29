@@ -26,7 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 if($_SERVER['HTTP_HOST'] == 'localhost' || $_SERVER['HTTP_HOST'] == '127.0.0.1')
 {
 
-  $config['base_url'] = '';
+  $config['base_url'] = 'http://'.$_SERVER['HTTP_HOST'].'/cetMakerParty2017Website/html/';
 
 }
 else
