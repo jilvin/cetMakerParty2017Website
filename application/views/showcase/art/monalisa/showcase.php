@@ -3,3 +3,5 @@
 
 <div id="showcaseMonalisa">
 </div>
+
+<script src="<?php echo base_url();?>assets/js/sub/monalisa.js"></script>
