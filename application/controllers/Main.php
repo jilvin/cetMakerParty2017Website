@@ -37,7 +37,11 @@ class Main extends CI_Controller {
 		}
 
 		$this->load->view('templates/header');
+		$this->load->view('templates/henosis');
+		$this->load->view('templates/contentStart');
     $this->load->view('showcase/'.$workCategory[$selected].'/'.$work[$selected].'/showcase');
+		$this->load->view('templates/contentEnd');
+		$this->load->view('templates/menu');
   	$this->load->view('templates/footer');
 	}
 }
