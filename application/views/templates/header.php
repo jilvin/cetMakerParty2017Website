@@ -9,7 +9,7 @@
   <meta name="author" content="Webmaster, CET Maker Party">
 
   <meta property="og:title" content="CET Maker Party" />
-  <meta property="og:description" content="Official website of Maker Party - College of Engineering Trivandrum, a joint venture by all the clubs of the college." />
+  <meta property="og:description" content="Official website of CET Maker Party." />
   <meta property="og:image" content="<?php echo base_url();?>favicon.png" />
 
   <!--[if lt IE 9]>
