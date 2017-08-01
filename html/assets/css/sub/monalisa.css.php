@@ -26,19 +26,21 @@ body
 {
   font-size: 14px;
   /*background: #cc0000;*/
-  background-color: rgba(255, 0, 0, 0.9);
+  /*background-color: rgba(255, 0, 0, 0.9);*/
+  color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(255, 255, 255, 0.9);
   padding-top: 8px;
   padding-bottom: 9px;
   padding-left: 9px;
   padding-right: 9px;
-  color: #FFFFFF;
+  /*color: #FFFFFF;*/
   margin-right: 0px;
   width: -moz-max-content;
   left: 0px;
   position: absolute;
   bottom: 102px;
-  font-family: 'Montserrat', sans-serif;
-  /*font-family: 'Raleway', sans-serif;*/
+  /*font-family: 'Montserrat', sans-serif;*/
+  font-family: 'Raleway', sans-serif;
   /*font-family: 'Open Sans', sans-serif;*/
 }
 
@@ -46,19 +48,21 @@ body
 {
   font-size: 12px;
   /*background: #cc0000;*/
-  background-color: rgba(255, 0, 0, 0.9);
+  /*background-color: rgba(255, 0, 0, 0.9);*/
+  color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(255, 255, 255, 0.9);
   padding-top: 11.3px;
   padding-bottom: 12.3px;
   padding-left: 9px;
   padding-right: 9px;
-  color: #FFFFFF;
+  /*color: #FFFFFF;*/
   margin-right: 0px;
   width: -moz-max-content;
   left: 0px;
   position: absolute;
   bottom: 50px;
-  font-family: 'Montserrat', sans-serif;
-  /*font-family: 'Raleway', sans-serif;*/
+  /*font-family: 'Montserrat', sans-serif;*/
+  font-family: 'Raleway', sans-serif;
   /*font-family: 'Open Sans', sans-serif;*/
 }
 
@@ -66,18 +70,21 @@ body
 {
   font-size: 12px;
   /*background: #cc0000;*/
-  background-color: rgba(255, 0, 0, 0.9);
+  /*background-color: rgba(255, 0, 0, 0.9);*/
+  color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(255, 255, 255, 0.9);
   padding-top: 8px;
   padding-bottom: 9px;
   padding-left: 9px;
   padding-right: 9px;
-  color: #FFFFFF;
+  /*color: #FFFFFF;*/
   margin-right: 0px;
   width: -moz-max-content;
   left: 0px;
   position: absolute;
   bottom: 10px;
-  font-family: 'Montserrat', sans-serif;
+  /*font-family: 'Montserrat', sans-serif;*/
+  font-family: 'Raleway', sans-serif;
   text-decoration: underline;
 }
 
@@ -141,19 +148,19 @@ body
 
   #showcaseHeading
   {
-    color: #ECECEC;
+    color: rgba(0, 0, 0, 0.4);
     font-size: 20px;
   }
 
   #showcaseSubHeading
   {
-    color: #ECECEC;
+    color: rgba(0, 0, 0, 0.4);
     font-size: 16px;
   }
 
   #aShowcaseActionButton
   {
-    color: #ECECEC;
+    color: rgba(0, 0, 0, 0.4);
     font-size: 16px;
   }
 }
@@ -162,21 +169,21 @@ body
 {
   #showcaseHeading
   {
-    color: #ECECEC;
+    color: rgba(0, 0, 0, 0.4);
     font-size: 28px;
     bottom: 114px;
   }
 
   #showcaseSubHeading
   {
-    color: #ECECEC;
+    color: rgba(0, 0, 0, 0.4);
     font-size: 20px;
     bottom: 57px;
   }
 
   #aShowcaseActionButton
   {
-    color: #ECECEC;
+    color: rgba(0, 0, 0, 0.4);
     font-size: 20px;
   }
 }
