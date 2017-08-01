@@ -24,9 +24,9 @@ body
 
 #showcaseHeading
 {
-  font-size: 16px;
+  font-size: 14px;
   /*background: #cc0000;*/
-  background-color: rgba(255, 0, 0, 0.7);
+  background-color: rgba(255, 0, 0, 0.9);
   padding-top: 8px;
   padding-bottom: 9px;
   padding-left: 9px;
@@ -46,7 +46,7 @@ body
 {
   font-size: 12px;
   /*background: #cc0000;*/
-  background-color: rgba(255, 0, 0, 0.7);
+  background-color: rgba(255, 0, 0, 0.9);
   padding-top: 11.3px;
   padding-bottom: 12.3px;
   padding-left: 9px;
@@ -66,7 +66,7 @@ body
 {
   font-size: 12px;
   /*background: #cc0000;*/
-  background-color: rgba(255, 0, 0, 0.7);
+  background-color: rgba(255, 0, 0, 0.9);
   padding-top: 8px;
   padding-bottom: 9px;
   padding-left: 9px;
@@ -78,6 +78,7 @@ body
   position: absolute;
   bottom: 10px;
   font-family: 'Montserrat', sans-serif;
+  text-decoration: underline;
 }
 
 @media screen and (max-width: 320px) and (max-height: 320px)
@@ -91,14 +92,34 @@ body
     background-position: center center;
   }
 
+  #showcaseMonalisa
+  {
+    bottom: -10px;
+  }
+
   #showcaseHeading
   {
     color: #FFFFFF;
+    font-size: 12px;
+    padding-top: 11px;
+    padding-bottom: 12px;
+    bottom: 43px;
+    width: 100vw;
   }
 
   #showcaseSubHeading
   {
     color: #FFFFFF;
+    font-size: 12px;
+    bottom: 0px;
+  }
+
+  #aShowcaseActionButton
+  {
+    color: #FFFFFF;
+    font-size: 12px;
+    left: unset;
+    right: -100vw;
   }
 }
 
@@ -134,5 +155,51 @@ body
   {
     color: #ECECEC;
     font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 1600px) and (min-height: 900px)
+{
+  #showcaseHeading
+  {
+    color: #ECECEC;
+    font-size: 28px;
+    bottom: 114px;
+  }
+
+  #showcaseSubHeading
+  {
+    color: #ECECEC;
+    font-size: 20px;
+    bottom: 57px;
+  }
+
+  #aShowcaseActionButton
+  {
+    color: #ECECEC;
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 3000px) and (min-height: 1800px)
+{
+  #showcaseHeading
+  {
+    color: #ECECEC;
+    font-size: 36px;
+    bottom: 129px;
+  }
+
+  #showcaseSubHeading
+  {
+    color: #ECECEC;
+    font-size: 28px;
+    bottom: 66px;
+  }
+
+  #aShowcaseActionButton
+  {
+    color: #ECECEC;
+    font-size: 28px;
   }
 }
