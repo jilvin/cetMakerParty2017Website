@@ -35,7 +35,9 @@ body
   padding-right: 9px;
   /*color: #FFFFFF;*/
   margin-right: 0px;
-  width: -moz-max-content;
+  width: intrinsic;           /* Safari/WebKit uses a non-standard name */
+  width: -moz-max-content;    /* Firefox/Gecko */
+  width: -webkit-max-content;
   left: 0px;
   position: absolute;
   bottom: 102px;
@@ -57,7 +59,9 @@ body
   padding-right: 9px;
   /*color: #FFFFFF;*/
   margin-right: 0px;
-  width: -moz-max-content;
+  width: intrinsic;           /* Safari/WebKit uses a non-standard name */
+  width: -moz-max-content;    /* Firefox/Gecko */
+  width: -webkit-max-content;
   left: 0px;
   position: absolute;
   bottom: 50px;
@@ -79,7 +83,9 @@ body
   padding-right: 9px;
   /*color: #FFFFFF;*/
   margin-right: 0px;
-  width: -moz-max-content;
+  width: intrinsic;           /* Safari/WebKit uses a non-standard name */
+  width: -moz-max-content;    /* Firefox/Gecko */
+  width: -webkit-max-content;
   left: 0px;
   position: absolute;
   bottom: 10px;
