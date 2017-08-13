@@ -8,3 +8,4 @@
   <!-- <h4 id="showcaseSubHeading">Start working on yours.</h4> -->
 
 <script src="<?php echo base_url();?>assets/js/sub/monalisa.js"></script>
+</div>

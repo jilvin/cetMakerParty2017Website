@@ -31,7 +31,7 @@ body
   background-color: rgba(255, 255, 255, 0.9);
   padding-top: 8px;
   padding-bottom: 9px;
-  padding-left: 9px;
+  padding-left: 15px;
   padding-right: 9px;
   /*color: #FFFFFF;*/
   margin-right: 0px;
@@ -55,7 +55,7 @@ body
   background-color: rgba(255, 255, 255, 0.9);
   padding-top: 11.3px;
   padding-bottom: 12.3px;
-  padding-left: 9px;
+  padding-left: 15px;
   padding-right: 9px;
   /*color: #FFFFFF;*/
   margin-right: 0px;
@@ -79,7 +79,7 @@ body
   background-color: rgba(255, 255, 255, 0.9);
   padding-top: 8px;
   padding-bottom: 9px;
-  padding-left: 9px;
+  padding-left: 15px;
   padding-right: 9px;
   /*color: #FFFFFF;*/
   margin-right: 0px;
@@ -107,32 +107,35 @@ body
 
   #showcaseMonalisa
   {
-    bottom: -10px;
+    bottom: 0px;
   }
 
   #showcaseHeading
   {
-    color: #FFFFFF;
+    /*color: #FFFFFF;*/
     font-size: 12px;
     padding-top: 11px;
     padding-bottom: 12px;
-    bottom: 43px;
+    bottom: 33px;
     width: 100vw;
   }
 
   #showcaseSubHeading
   {
-    color: #FFFFFF;
+    /*color: #FFFFFF;*/
     font-size: 12px;
-    bottom: 0px;
+    bottom: -10px;
   }
 
   #aShowcaseActionButton
   {
-    color: #FFFFFF;
+    /*color: #FFFFFF;*/
     font-size: 12px;
     left: unset;
     right: -100vw;
+    bottom: 0px;
+    padding-top: 10.2px;
+    padding-bottom: 10.15px;
   }
 }
 
