@@ -40,33 +40,36 @@ $( document ).ready(function()
 
   if(windowWidth >= 768)
   {
-    var menuLeftColumnHeight = $('#menuLeftColumn').height();
-    var menuLeftColumnCalculatedTop = ((menuRowHeight/2) - (menuLeftColumnHeight/2));
+    var socialMediaBrandingSectionOuterHeight = $('#socialMediaBrandingSection').outerHeight();
+    // var socialMediaBrandingSectionOuterHeight = 0;
+
+    var menuLeftColumnOuterHeight = $('#menuLeftColumn').outerHeight();
+    var menuLeftColumnCalculatedTop = ((menuRowHeight/2) - (menuLeftColumnOuterHeight/2));
     document.getElementById("menuLeftColumn").style.top = menuLeftColumnCalculatedTop+"px";
 
-    var menuLeftColumnULHeight = $('#menuLeftColumnUL').height();
-    var menuLeftColumnULCalculatedTop = ((menuLeftColumnHeight/2) - (menuLeftColumnULHeight/2));
+    var menuLeftColumnULOuterHeight = $('#menuLeftColumnUL').outerHeight();
+    var menuLeftColumnULCalculatedTop = ((menuLeftColumnOuterHeight/2) - (menuLeftColumnULOuterHeight/2));
     document.getElementById("menuLeftColumnUL").style.top = menuLeftColumnULCalculatedTop+"px";
 
-    var menuCenterColumnHeight = $('#menuCenterColumn').height();
-    var menuCenterColumnCalculatedTop = ((menuRowHeight/2) - (menuCenterColumnHeight/2));
+    var menuCenterColumnOuterHeight = $('#menuCenterColumn').outerHeight();
+    var menuCenterColumnCalculatedTop = ((menuRowHeight/2) - ((menuCenterColumnOuterHeight-socialMediaBrandingSectionOuterHeight)/2));
     document.getElementById("menuCenterColumn").style.top = menuCenterColumnCalculatedTop+"px";
 
-    var menuCenterColumnULHeight = $('#menuCenterColumnUL').height();
-    var menuCenterColumnULCalculatedTop = ((menuCenterColumnHeight/2) - (menuCenterColumnULHeight/2));
+    var menuCenterColumnULOuterHeight = $('#menuCenterColumnUL').outerHeight();
+    var menuCenterColumnULCalculatedTop = ((menuCenterColumnOuterHeight/2) - (menuCenterColumnULOuterHeight/2));
     document.getElementById("menuCenterColumnUL").style.top = menuCenterColumnULCalculatedTop+"px";
 
-    var menuRightColumnHeight = $('#menuRightColumn').height();
-    var menuRightColumnCalculatedTop = ((menuRowHeight/2) - (menuRightColumnHeight/2));
+    var menuRightColumnOuterHeight = $('#menuRightColumn').outerHeight();
+    var menuRightColumnCalculatedTop = ((menuRowHeight/2) - (menuRightColumnOuterHeight/2));
     document.getElementById("menuRightColumn").style.top = menuRightColumnCalculatedTop+"px";
 
-    var menuRightColumnULHeight = $('#menuRightColumnUL').height();
-    var menuRightColumnULCalculatedTop = ((menuRightColumnHeight/2) - (menuRightColumnULHeight/2));
+    var menuRightColumnULOuterHeight = $('#menuRightColumnUL').outerHeight();
+    var menuRightColumnULCalculatedTop = ((menuRightColumnOuterHeight/2) - (menuRightColumnULOuterHeight/2));
     document.getElementById("menuRightColumnUL").style.top = menuRightColumnULCalculatedTop+"px";
 
     var css = document.createElement("style");
     css.type = "text/css";
-    css.innerHTML = "#menuLeftColumn::after { top: -"+(menuLeftColumnULHeight/2)+"px; }";
+    css.innerHTML = "#menuLeftColumn::after { top: -"+(menuLeftColumnULOuterHeight/2)+"px; }";
     document.head.appendChild(css);
 
     // for menu -- end

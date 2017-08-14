@@ -175,8 +175,66 @@
   width: 30vw;
 }
 
+#socialMediaBrandingSection
+{
+  display: block;
+  padding-top: 15px;
+  padding-bottom: 4px;
+}
+
+#fbBranding
+{
+  font-size: 24px;
+  color: #3B5998;
+  /*color: #9f9f9f;*/
+}
+
+#spanFbBranding
+{
+  padding-right: 4px;
+}
+
+#twitterBranding
+{
+  font-size: 24px;
+  color: #1DA1F2;
+  /*color: #9f9f9f;*/
+}
+
+#spanTwitterBranding
+{
+  padding-left: 4px;
+}
+
 @media screen and (min-width: 768px) and (min-height: 400px)
 {
+  #socialMediaBrandingSection
+  {
+    display: block;
+    padding-top: 4vw;
+    padding-bottom: 0px;
+  }
+
+  #fbBranding
+  {
+    font-size: 3vw;
+  }
+
+  #spanFbBranding
+  {
+    padding-right: 0.5vw;
+  }
+
+  #twitterBranding
+  {
+    font-size: 3vw;
+  }
+
+  #spanTwitterBranding
+  {
+    padding-left: 0.5vw;
+  }
+
   #container2
   {
     font-size: 2.5vw;
