@@ -8,10 +8,10 @@ function containersHeightWidthFix()
 {
   var windowHeight = $(window).height();
   var windowWidth = $(window).width();
-  document.getElementById("container1").style.height = windowHeight;
-  document.getElementById("container1").style.width = windowWidth;
-  document.getElementById("container2").style.height = windowHeight;
-  document.getElementById("container2").style.width = windowWidth;
+  document.getElementById("container1").style.height = windowHeight+"px";
+  document.getElementById("container1").style.width = windowWidth+"px";
+  document.getElementById("container2").style.height = windowHeight+"px";
+  document.getElementById("container2").style.width = windowWidth+"px";
 }
 
 $( document ).ready(function()
