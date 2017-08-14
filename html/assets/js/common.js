@@ -4,12 +4,33 @@ henosisInit(2, "visibility");
 
 // for henosis initialization -- end
 
-// for menu -- start
+function containersHeightWidthFix()
+{
+  var windowHeight = $(window).height();
+  var windowWidth = $(window).width();
+  document.getElementById("container1").style.height = windowHeight;
+  document.getElementById("container1").style.width = windowWidth;
+  document.getElementById("container2").style.height = windowHeight;
+  document.getElementById("container2").style.width = windowWidth;
+}
 
 $( document ).ready(function()
 {
+  // fix for android -- start
+
+  var isAndroid = ua.indexOf("android") > -1;
+
+  if(isAndroid)
+  {
+    containersHeightWidthFix();
+  }
+
+  // fix for android -- end
+
   var windowWidth = $(window).width();
   var windowHeight = $(window).height();
+
+  // for menu -- start
 
   var menuRowHeight = $('#menuRow').height();
   // console.log("menuRowHeight : "+menuRowHeight);
@@ -47,7 +68,8 @@ $( document ).ready(function()
     css.type = "text/css";
     css.innerHTML = "#menuLeftColumn::after { top: -"+(menuLeftColumnULHeight/2)+"px; }";
     document.head.appendChild(css);
+
+    // for menu -- end
+
   }
 });
-
-// for menu -- end
