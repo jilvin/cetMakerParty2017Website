@@ -56,7 +56,177 @@
 
 #container1, #container2
 {
-  display: none;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
 }
 
 /*for henosis -- end*/
+
+/*for menu -- start*/
+
+#container2
+{
+  width: 100vw;
+  height: 100vh;
+  background-color: #FFFFFF;
+  font-family: 'Raleway', sans-serif;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+#menuRow
+{
+  position: relative;
+}
+
+#menuLeftColumn
+{
+  display: block;
+  /*padding-top: 10px;*/
+  /*padding-bottom: 10px;*/
+}
+
+#menuCenterColumn
+{
+  display: block;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#menuRightColumn
+{
+  display: block;
+  /*padding-top: 10px;*/
+  /*padding-bottom: 10px;*/
+}
+
+#menuLeftColumnUL
+{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#menuLeftColumnUL > li
+{
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+#menuLeftColumnUL > li:last-child
+{
+  padding-bottom: 15px;
+}
+
+#menuLeftColumn::after
+{
+  display: block;
+  margin: auto;
+  content: "";
+  background-color: #9f9f9f;
+  height: 1px;
+  width: 30vw;
+}
+
+#menuCenterColumnUL
+{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#menuCenterColumnUL a, #menuCenterColumnUL a:hover
+{
+  color: rgba(0, 0, 0, 0.4);
+  text-decoration: underline;
+}
+
+#menuCenterColumnUL > li
+{
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+#menuRightColumnUL
+{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#menuRightColumnUL > li
+{
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+#menuRightColumnUL > li:first-child
+{
+  padding-top: 15px;
+}
+
+#menuRightColumn::before
+{
+  display: block;
+  margin: auto;
+  content: "";
+  background-color: #9f9f9f;
+  height: 1px;
+  width: 30vw;
+}
+
+@media screen and (min-width: 768px) and (min-height: 400px)
+{
+  #container2
+  {
+    font-size: 2.5vw;
+  }
+}
+
+@media screen and (min-width: 768px)
+{
+  #menuLeftColumnUL > li:last-child
+  {
+    padding-bottom: 5px;
+  }
+
+  #menuRightColumnUL > li:first-child
+  {
+    padding-top: 5px;
+  }
+
+  #menuLeftColumn::after
+  {
+    display: block;
+    margin: auto;
+    content: "";
+    background-color: #9f9f9f;
+    width: 1px;
+    height: 30vh;
+    float: right;
+    position: relative;
+  }
+
+  #menuLeftColumn, #menuLeftColumnUL, #menuCenterColumn, #menuCenterColumnUL, #menuRightColumn, #menuRightColumnUL
+  {
+    position: relative;
+  }
+
+  #menuCenterColumn
+  {
+    padding: 0px;
+  }
+
+  #menuRightColumn::before
+  {
+    display: block;
+    margin: auto;
+    content: "";
+    background-color: #9f9f9f;
+    width: 1px;
+    height: 30vh;
+    float: left;
+  }
+}
+
+/*for menu -- end*/

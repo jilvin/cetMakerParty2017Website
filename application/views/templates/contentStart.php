@@ -1,5 +1,5 @@
 
-<div class="container-fluid" id="container1" style="display: none;">
+<div class="container-fluid" id="container1" style="visibility: hidden;">
 
 <div id="headerRow">
   <h4 id="headingText"><a href="<?php echo base_url();?>" style="text-decoration: none;">Maker Party</a></h4>
