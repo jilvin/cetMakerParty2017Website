@@ -8,13 +8,13 @@
     </div>
     <div id="menuCenterColumn" class="col-sm-4 text-center">
       <ul id="menuCenterColumnUL">
-        <li><a href="<?php echo base_url();?>">Home</a></li>
-        <li><a href="<?php echo base_url();?>works">Works</a></li>
-        <li><a href="<?php echo base_url();?>experiences">Experiences</a></li>
-        <li><a href="<?php echo base_url();?>past">Past</a></li>
-        <li><a href="<?php echo base_url();?>team">Team</a></li>
+        <li><a href="<?php echo base_url();?>" class="resumeHenosis">Home</a></li>
+        <li><a href="<?php echo base_url();?>works" class="resumeHenosis">Works</a></li>
+        <li><a href="<?php echo base_url();?>experiences" class="resumeHenosis">Experiences</a></li>
+        <li><a href="<?php echo base_url();?>past" class="resumeHenosis">Past</a></li>
+        <li><a href="<?php echo base_url();?>team" class="resumeHenosis">Team</a></li>
         <span id="menuUserSection">
-          <li><a href="<?php echo base_url();?>user_authentication">Login</a></li>
+          <li><a href="<?php echo base_url();?>user_authentication" class="resumeHenosis">Login</a></li>
         </span>
         <span id="socialMediaBrandingSection">
           <span id="spanFbBranding"><a target="_blank" title="Follow us on Facebook" href="https://www.facebook.com/cetmakerparty"><i class="fa fa-facebook-official" id="fbBranding"></i></a></span>

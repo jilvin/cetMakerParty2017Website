@@ -12,13 +12,13 @@ if (!empty($this->session->userdata['userData']['id'])){
   {
     echo '<div id="loginrow" class="row">
     <div class="col-md-6">
-    <a href="'.$authUrlf.'">
+    <a href="'.$authUrlf.'" class="resumeHenosis">
     <img id="flogin" class="img-responsive" src="'.base_url().'assets/images/flogin.png" alt=""/>
     </a>
     </div>
     ';
     echo '<div class="col-md-6">
-    <a href="'.$authUrlg.'">
+    <a href="'.$authUrlg.'" class="resumeHenosis">
     <img id="glogin" class="img-responsive" src="'.base_url().'assets/images/glogin.png" alt=""/>
     </a>
     </div>

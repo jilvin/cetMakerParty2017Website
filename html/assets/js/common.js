@@ -1,6 +1,66 @@
+// for session data management -- start
+
+function writeCookie(name,value,minutes) {
+    var date, expires;
+    if (minutes) {
+        date = new Date();
+        date.setTime(date.getTime()+(minutes*60*1000));
+        expires = "; expires=" + date.toGMTString();
+            }else{
+        expires = "";
+    }
+    document.cookie = name + "=" + value + expires + "; path=/";
+}
+
+function readCookie(name) {
+    var i, c, ca, nameEQ = name + "=";
+    ca = document.cookie.split(';');
+    for(i=0;i < ca.length;i++) {
+        c = ca[i];
+        while (c.charAt(0)==' ') {
+            c = c.substring(1,c.length);
+        }
+        if (c.indexOf(nameEQ) == 0) {
+            return c.substring(nameEQ.length,c.length);
+        }
+    }
+    return '';
+}
+
+// for session data management -- end
+
+// for henosis to resume states -- start
+// https://stackoverflow.com/questions/2257631/how-to-create-a-session-using-javascript
+
+function saveHenosisState()
+{
+  var windowWidth = $(window).width();
+  var windowHeight = $(window).height();
+  writeCookie("windowWidth", windowWidth, 30); // 30 minutes
+  writeCookie("windowHeight", windowHeight, 30); // 30 minutes
+  writeCookie("henosisCX", document.getElementById("henosis").getAttribute("cx"), 30); // 30 minutes
+  writeCookie("henosisCY", document.getElementById("henosis").getAttribute("cy"), 30); // 30 minutes
+}
+
+var resumeHenosis = document.getElementsByClassName("resumeHenosis");
+
+for (var i = 0; i < resumeHenosis.length; i++)
+{
+  resumeHenosis[i].addEventListener('click', saveHenosisState, false);
+}
+
+// for henosis to resume states -- end
+
 // for henosis initialization -- start
 
-henosisInit(2, "visibility");
+if(readCookie("henosisCX") != '' && readCookie("henosisCY") != '' && readCookie("windowWidth") == $(window).width() && readCookie("windowHeight") == $(window).height())
+{
+  henosisInit(2, "visibility", readCookie("henosisCX"), readCookie("henosisCY"));
+}
+else
+{
+  henosisInit(2, "visibility");
+}
 
 // for henosis initialization -- end
 
