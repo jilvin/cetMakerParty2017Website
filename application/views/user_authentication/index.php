@@ -7,12 +7,10 @@ if (!empty($this->session->userdata['userData']['id'])){
   }
 }
 ?>
-<body id="singlecolored">
   <?php
   if(!empty($authUrlf) && !empty($authUrlg))
   {
-    echo '<div class="container">
-    <div id="loginrow" class="row">
+    echo '<div id="loginrow" class="row">
     <div class="col-md-6">
     <a href="'.$authUrlf.'">
     <img id="flogin" class="img-responsive" src="'.base_url().'assets/images/flogin.png" alt=""/>
@@ -23,7 +21,6 @@ if (!empty($this->session->userdata['userData']['id'])){
     <a href="'.$authUrlg.'">
     <img id="glogin" class="img-responsive" src="'.base_url().'assets/images/glogin.png" alt=""/>
     </a>
-    </div>
     </div>
     </div>';
   }

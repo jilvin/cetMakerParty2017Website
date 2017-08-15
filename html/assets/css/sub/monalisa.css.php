@@ -6,6 +6,18 @@ require("../../../CONSTANTS.php");
 ?>
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Montserrat');
 
+#headingText a
+{
+  color: #ECECEC;
+  font-family: 'Pacifico', cursive;
+}
+
+#headingCollegeText a
+{
+  color: #E3E3E3;
+  font-family: 'Open Sans', sans-serif;
+}
+
 #showcaseMonalisa
 {
   left: 0px;

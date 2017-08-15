@@ -23,13 +23,13 @@
 
 #headingText a
 {
-  color: #ECECEC;
+  color: #AAAAAA;
   font-family: 'Pacifico', cursive;
 }
 
 #headingCollegeText a
 {
-  color: #E3E3E3;
+  color: #A3A3A3;
   font-family: 'Open Sans', sans-serif;
 }
 
@@ -141,7 +141,7 @@
   text-decoration: underline;
 }
 
-#menuCenterColumnUL > li
+#menuCenterColumnUL li
 {
   padding-top: 5px;
   padding-bottom: 5px;

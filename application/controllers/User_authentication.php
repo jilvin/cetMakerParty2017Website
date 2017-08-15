@@ -162,7 +162,13 @@ class User_Authentication extends CI_Controller
       $data['authUrlf'] =  $this->facebook->login_url();
     }
 
+    $this->load->view('templates/header');
+		$this->load->view('templates/henosis');
+		$this->load->view('templates/contentStart');
     // Load login & profile view
     $this->load->view('user_authentication/index',$data);
+    $this->load->view('templates/contentEnd');
+    $this->load->view('templates/menu');
+    $this->load->view('templates/footer');
   }
 }
