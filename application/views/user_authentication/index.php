@@ -10,19 +10,63 @@ if (!empty($this->session->userdata['userData']['id'])){
   <?php
   if(!empty($authUrlf) && !empty($authUrlg))
   {
-    echo '<div id="loginrow" class="row">
-    <div class="col-md-6">
-    <a href="'.$authUrlf.'" class="resumeHenosis">
-    <img id="flogin" class="img-responsive" src="'.base_url().'assets/images/flogin.png" alt=""/>
-    </a>
+    // echo '<div id="loginrow" class="row">
+    // <div class="col-md-6">
+    // <a href="'.$authUrlf.'" class="resumeHenosis">
+    // <img id="flogin" class="img-responsive" src="'.base_url().'assets/images/flogin.png" alt=""/>
+    // </a>
+    // </div>
+    // <div class="col-md-6">
+    // <a href="'.$authUrlg.'" class="resumeHenosis">
+    // <img id="glogin" class="img-responsive" src="'.base_url().'assets/images/glogin.png" alt=""/>
+    // </a>
+    // </div>
+    // </div>';
+    echo '<link rel="stylesheet" type="text/css" href="'.base_url().'assets/css/sub/user_authentication.css.php">
+    <div id="loginSection">
+    <div id="loginSectionRow" class="row">
+    <div id="loginSectionHeaderRow">
+      <h4 id="headingText"><a href="<?php echo base_url();?>" style="text-decoration: none;">Maker Party</a></h4>
     </div>
-    ';
-    echo '<div class="col-md-6">
-    <a href="'.$authUrlg.'" class="resumeHenosis">
-    <img id="glogin" class="img-responsive" src="'.base_url().'assets/images/glogin.png" alt=""/>
-    </a>
-    </div>
-    </div>';
+      <h3>Please Log In, or <a href="#">Sign Up</a></h3>
+      </div>
+      <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6">
+          <a id="facebookButton" href="'.$authUrlf.'" class="btn btn-lg btn-primary btn-block">Facebook</a>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6">
+          <a id="googleButton" href="'.$authUrlg.'" class="btn btn-lg btn-info btn-block">Google</a>
+        </div>
+      </div>
+          </div>
+        <script src="'.base_url().'assets/js/sub/user_authentication.js" defer></script>';
+
+      // echo '<div class="login-or">
+      //   <hr class="hr-or">
+      //   <span class="span-or">or</span>
+      // </div>
+      //
+      // <form role="form">
+      //   <div class="form-group">
+      //     <label for="inputUsernameEmail">Username or email</label>
+      //     <input type="text" class="form-control" id="inputUsernameEmail">
+      //   </div>
+      //   <div class="form-group">
+      //     <a class="pull-right" href="#">Forgot password?</a>
+      //     <label for="inputPassword">Password</label>
+      //     <input type="password" class="form-control" id="inputPassword">
+      //   </div>
+      //   <div class="checkbox pull-right">
+      //     <label>
+      //       <input type="checkbox">
+      //       Remember me </label>
+      //   </div>
+      //   <button type="submit" class="btn btn btn-primary">
+      //     Log In
+      //   </button>
+      // </form>';
+
+    // echo '</div>';
   }
   else if(empty($authUrlf))
   {
