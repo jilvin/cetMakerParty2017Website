@@ -26,9 +26,9 @@ if (!empty($this->session->userdata['userData']['id'])){
     <div id="loginSection">
     <div id="loginSectionRow" class="row">
     <div id="loginSectionHeaderRow">
-      <h4 id="headingText"><a href="<?php echo base_url();?>" style="text-decoration: none;">Maker Party</a></h4>
+      <h3 id="headingText"><a href="'.base_url().'" style="text-decoration: none;">Maker Party</a></h3>
     </div>
-      <h3>Please Log In, or <a href="#">Sign Up</a></h3>
+      <h3 id="loginSectionLineText">Sign in to manage your art.</h3>
       </div>
       <div class="row">
         <div class="col-xs-6 col-sm-6 col-md-6">

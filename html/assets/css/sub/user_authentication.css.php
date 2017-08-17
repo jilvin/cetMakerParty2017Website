@@ -6,12 +6,12 @@ require("../../../CONSTANTS.php");
 ?>
 <!-- @import url('https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Montserrat'); -->
 
-#loginSection {
+#loginSection
+{
   max-width: 320px;
   margin: 0 auto;
   position: absolute;
   font-family: Raleway;
-  padding-bottom: 8px;
 }
 
 #loginSection .login-or {
@@ -44,22 +44,55 @@ require("../../../CONSTANTS.php");
 
 #loginSection h3 {
   text-align: center;
-  /*line-height: 300%;*/
+  /*line-height: 300%;
+  font-size: 18px;*/
 }
 
 #facebookButton
 {
   background-color: #3B5998;
   border-color: #3B5998;
+  font-size: 16px;
 }
 
 #googleButton
 {
   background-color: #EA4335;
   border-color: #EA4335;
+  font-size: 16px;
 }
 
 #loginSectionHeaderRow
 {
   text-align: center;
+}
+
+#loginSection h3#headingText
+{
+  margin-top: 0px;
+}
+
+#loginSection h3#loginSectionLineText
+{
+  margin-top: 27px;
+  margin-bottom: 30px;
+}
+
+@media screen and (max-width: 300px)
+{
+  #loginSection h3#loginSectionLineText {
+    font-size: 18px;
+  }
+
+  #facebookButton
+  {
+    padding: 4px 6px;
+    font-size: 14px;
+  }
+
+  #googleButton
+  {
+    padding: 4px 6px;
+    font-size: 14px;
+  }
 }
