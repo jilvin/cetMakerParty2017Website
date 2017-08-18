@@ -7,8 +7,8 @@ require("../../../CONSTANTS.php");
 
 #applySection
 {
-  /*color: rgba(0, 0, 0, 0.4);*/
-  color: #333333;
+  color: rgba(0, 0, 0, 0.6);
+  /*color: #333333;*/
 }
 
 #applyButtonsRow
@@ -25,4 +25,20 @@ require("../../../CONSTANTS.php");
 #applyLine
 {
   padding: 10px;
+}
+
+#inputWorkName
+{
+  padding: 5px;
+  border-radius: 0px;
+  border: 1px grey;
+  margin-top: 10px;
+}
+
+#textareaWorkDescription
+{
+  padding: 5px;
+  border-radius: 0px;
+  border: 1px grey;
+  margin-top: 10px;
 }

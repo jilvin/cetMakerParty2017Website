@@ -5,10 +5,10 @@
   </div>
   <div id="applyButtonsRow" class="row">
     <div id="workApplyButton" class="col-xs-6">
-      <h4>Work</h4>
+      <h4><a href="<?php echo base_url();?>apply/work">Work</a></h4>
     </div>
     <div id="experienceApplyButton" class="col-xs-6">
-      <h4>Experience</h4>
+      <h4><a href="<?php echo base_url();?>apply/experience">Experience</a></h4>
     </div>
   </div>
 </div>
