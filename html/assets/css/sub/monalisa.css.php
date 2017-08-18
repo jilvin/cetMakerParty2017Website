@@ -65,8 +65,10 @@ body
   /*background-color: rgba(255, 0, 0, 0.9);*/
   color: rgba(0, 0, 0, 0.4);
   background-color: rgba(255, 255, 255, 0.9);
-  padding-top: 11.3px;
-  padding-bottom: 12.3px;
+  /*padding-top: 11.3px;
+  padding-bottom: 12.3px;*/
+  padding-top: 9.1px;
+  padding-bottom: 10.1px;
   padding-left: 15px;
   padding-right: 9px;
   /*color: #FFFFFF;*/
@@ -89,8 +91,10 @@ body
   /*background-color: rgba(255, 0, 0, 0.9);*/
   color: rgba(0, 0, 0, 0.4);
   background-color: rgba(255, 255, 255, 0.9);
-  padding-top: 8px;
-  padding-bottom: 9px;
+  /*padding-top: 8px;
+  padding-bottom: 9px;*/
+  padding-top: 7px;
+  padding-bottom: 8.25px;
   padding-left: 15px;
   padding-right: 9px;
   /*color: #FFFFFF;*/
