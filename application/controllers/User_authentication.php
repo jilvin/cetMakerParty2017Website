@@ -168,7 +168,14 @@ class User_Authentication extends CI_Controller
     // Load login & profile view
     $this->load->view('user_authentication/index',$data);
     $this->load->view('templates/contentEnd');
-    $this->load->view('templates/menu');
+    if($this->session->userdata('userData'))
+		{
+			$this->load->view('templates/loggedInMenu');
+		}
+		else
+		{
+			$this->load->view('templates/menu');
+		}
     $this->load->view('templates/footer');
   }
 }

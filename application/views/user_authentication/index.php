@@ -94,8 +94,11 @@ if (!empty($this->session->userdata['userData']['id'])){
           //echo '<p><b>Gender : </b>' . $userData['gender'].'</p>';
           //echo '<p><b>Locale : </b>' . $userData['locale'].'</p>';
           //echo '<p><b>FB Profile Link : </b>' . $userData['profile_url'].'</p>';
-          echo '<p><b>Your account is linked with : </b>Facebook</p>';
-          echo '<p><b><a href="'.base_url().'user_authentication/logout">Logout with Facebook</a></b></p>';
+          // echo '<p><b>Your account is linked with : </b>Facebook</p>';
+          echo '<br>';
+          echo '<p><a href="'.base_url().'user_authentication/works/mine">My Works</a></p>';
+          echo '<p><a href="'.base_url().'user_authentication/experiences/mine">My Experiences</a></p>';
+          echo '<p><a href="'.base_url().'user_authentication/logout">Logout</a></p>';
           echo '</div>';
           ?>
         </div>
@@ -120,8 +123,11 @@ if (!empty($this->session->userdata['userData']['id'])){
       //if(!empty($userData['levelcheckintime'])){
       // echo '<p><b>Current level check in time : </b>'.$levelcheckintime.'</p>';
       //echo '<p><b>Google+ Link : </b>' . $userData['profile_url'].'</p>';
-      echo '<p><b>Your account is linked with : </b>Google</p>';
-      echo '<p><b><a href="'.base_url().'user_authentication/logout">Logout with Google</a></b></p>';
+      // echo '<p><b>Your account is linked with : </b>Google</p>';
+      echo '<br>';
+      echo '<p><a href="'.base_url().'user_authentication/works/mine">My Works</a></p>';
+      echo '<p><a href="'.base_url().'user_authentication/experiences/mine">My Experiences</a></p>';
+      echo '<p><a href="'.base_url().'user_authentication/logout">Logout</a></p>';
       echo '</div>';
       echo '</div>';
       echo '</div>';

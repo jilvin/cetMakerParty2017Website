@@ -1,5 +1,22 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Pacifico|Raleway');
 
+body
+{
+  font-family: 'Raleway', sans-serif;
+}
+
+a
+{
+  color: rgba(0, 0, 0, 0.8);
+  /*text-decoration: underline;*/
+}
+
+a:hover
+{
+  color: rgba(0, 0, 0, 0.8);
+  text-decoration: underline;
+}
+
 #headerRow
 {
   padding-top: 6px;
@@ -178,7 +195,7 @@
 #socialMediaBrandingSection
 {
   display: block;
-  padding-top: 15px;
+  padding-top: 9px;
   padding-bottom: 4px;
 }
 
