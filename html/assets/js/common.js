@@ -1,30 +1,30 @@
 // for session data management -- start
 
 function writeCookie(name,value,minutes) {
-    var date, expires;
-    if (minutes) {
-        date = new Date();
-        date.setTime(date.getTime()+(minutes*60*1000));
-        expires = "; expires=" + date.toGMTString();
-            }else{
-        expires = "";
-    }
-    document.cookie = name + "=" + value + expires + "; path=/";
+  var date, expires;
+  if (minutes) {
+    date = new Date();
+    date.setTime(date.getTime()+(minutes*60*1000));
+    expires = "; expires=" + date.toGMTString();
+  }else{
+    expires = "";
+  }
+  document.cookie = name + "=" + value + expires + "; path=/";
 }
 
 function readCookie(name) {
-    var i, c, ca, nameEQ = name + "=";
-    ca = document.cookie.split(';');
-    for(i=0;i < ca.length;i++) {
-        c = ca[i];
-        while (c.charAt(0)==' ') {
-            c = c.substring(1,c.length);
-        }
-        if (c.indexOf(nameEQ) == 0) {
-            return c.substring(nameEQ.length,c.length);
-        }
+  var i, c, ca, nameEQ = name + "=";
+  ca = document.cookie.split(';');
+  for(i=0;i < ca.length;i++) {
+    c = ca[i];
+    while (c.charAt(0)==' ') {
+      c = c.substring(1,c.length);
     }
-    return '';
+    if (c.indexOf(nameEQ) == 0) {
+      return c.substring(nameEQ.length,c.length);
+    }
+  }
+  return '';
 }
 
 // for session data management -- end
@@ -92,47 +92,48 @@ $( document ).ready(function()
   var windowHeight = $(window).height();
 
   // for menu -- start
-
-  var menuRowHeight = $('#menuRow').height();
-  // console.log("menuRowHeight : "+menuRowHeight);
-  var menuRowCalculatedTop = ((windowHeight/2) - (menuRowHeight/2));
-  // console.log(menuRowCalculatedTop);
-  document.getElementById("menuRow").style.top = menuRowCalculatedTop+"px";
-
-  if(windowWidth >= 768)
+  if(windowHeight >= 560)
   {
-    var socialMediaBrandingSectionOuterHeight = $('#socialMediaBrandingSection').outerHeight();
-    // var socialMediaBrandingSectionOuterHeight = 0;
+    var menuRowHeight = $('#menuRow').height();
+    // console.log("menuRowHeight : "+menuRowHeight);
+    var menuRowCalculatedTop = ((windowHeight/2) - (menuRowHeight/2));
+    // console.log(menuRowCalculatedTop);
+    document.getElementById("menuRow").style.top = menuRowCalculatedTop+"px";
 
-    var menuLeftColumnOuterHeight = $('#menuLeftColumn').outerHeight();
-    var menuLeftColumnCalculatedTop = ((menuRowHeight/2) - (menuLeftColumnOuterHeight/2));
-    document.getElementById("menuLeftColumn").style.top = menuLeftColumnCalculatedTop+"px";
+    if(windowWidth >= 768)
+    {
+      var socialMediaBrandingSectionOuterHeight = $('#socialMediaBrandingSection').outerHeight();
+      // var socialMediaBrandingSectionOuterHeight = 0;
 
-    var menuLeftColumnULOuterHeight = $('#menuLeftColumnUL').outerHeight();
-    var menuLeftColumnULCalculatedTop = ((menuLeftColumnOuterHeight/2) - (menuLeftColumnULOuterHeight/2));
-    document.getElementById("menuLeftColumnUL").style.top = menuLeftColumnULCalculatedTop+"px";
+      var menuLeftColumnOuterHeight = $('#menuLeftColumn').outerHeight();
+      var menuLeftColumnCalculatedTop = ((menuRowHeight/2) - (menuLeftColumnOuterHeight/2));
+      document.getElementById("menuLeftColumn").style.top = menuLeftColumnCalculatedTop+"px";
 
-    var menuCenterColumnOuterHeight = $('#menuCenterColumn').outerHeight();
-    var menuCenterColumnCalculatedTop = ((menuRowHeight/2) - ((menuCenterColumnOuterHeight-socialMediaBrandingSectionOuterHeight)/2));
-    document.getElementById("menuCenterColumn").style.top = menuCenterColumnCalculatedTop+"px";
+      var menuLeftColumnULOuterHeight = $('#menuLeftColumnUL').outerHeight();
+      var menuLeftColumnULCalculatedTop = ((menuLeftColumnOuterHeight/2) - (menuLeftColumnULOuterHeight/2));
+      document.getElementById("menuLeftColumnUL").style.top = menuLeftColumnULCalculatedTop+"px";
 
-    var menuCenterColumnULOuterHeight = $('#menuCenterColumnUL').outerHeight();
-    var menuCenterColumnULCalculatedTop = ((menuCenterColumnOuterHeight/2) - (menuCenterColumnULOuterHeight/2));
-    document.getElementById("menuCenterColumnUL").style.top = menuCenterColumnULCalculatedTop+"px";
+      var menuCenterColumnOuterHeight = $('#menuCenterColumn').outerHeight();
+      var menuCenterColumnCalculatedTop = ((menuRowHeight/2) - ((menuCenterColumnOuterHeight-socialMediaBrandingSectionOuterHeight)/2));
+      document.getElementById("menuCenterColumn").style.top = menuCenterColumnCalculatedTop+"px";
 
-    var menuRightColumnOuterHeight = $('#menuRightColumn').outerHeight();
-    var menuRightColumnCalculatedTop = ((menuRowHeight/2) - (menuRightColumnOuterHeight/2));
-    document.getElementById("menuRightColumn").style.top = menuRightColumnCalculatedTop+"px";
+      var menuCenterColumnULOuterHeight = $('#menuCenterColumnUL').outerHeight();
+      var menuCenterColumnULCalculatedTop = ((menuCenterColumnOuterHeight/2) - (menuCenterColumnULOuterHeight/2));
+      document.getElementById("menuCenterColumnUL").style.top = menuCenterColumnULCalculatedTop+"px";
 
-    var menuRightColumnULOuterHeight = $('#menuRightColumnUL').outerHeight();
-    var menuRightColumnULCalculatedTop = ((menuRightColumnOuterHeight/2) - (menuRightColumnULOuterHeight/2));
-    document.getElementById("menuRightColumnUL").style.top = menuRightColumnULCalculatedTop+"px";
+      var menuRightColumnOuterHeight = $('#menuRightColumn').outerHeight();
+      var menuRightColumnCalculatedTop = ((menuRowHeight/2) - (menuRightColumnOuterHeight/2));
+      document.getElementById("menuRightColumn").style.top = menuRightColumnCalculatedTop+"px";
 
-    var css = document.createElement("style");
-    css.type = "text/css";
-    css.innerHTML = "#menuLeftColumn::after { top: -"+(menuLeftColumnULOuterHeight/2)+"px; }";
-    document.head.appendChild(css);
+      var menuRightColumnULOuterHeight = $('#menuRightColumnUL').outerHeight();
+      var menuRightColumnULCalculatedTop = ((menuRightColumnOuterHeight/2) - (menuRightColumnULOuterHeight/2));
+      document.getElementById("menuRightColumnUL").style.top = menuRightColumnULCalculatedTop+"px";
 
+      var css = document.createElement("style");
+      css.type = "text/css";
+      css.innerHTML = "#menuLeftColumn::after { top: -"+(menuLeftColumnULOuterHeight/2)+"px; }";
+      document.head.appendChild(css);
+    }
     // for menu -- end
 
   }

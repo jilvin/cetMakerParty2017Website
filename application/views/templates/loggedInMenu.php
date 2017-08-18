@@ -14,7 +14,7 @@
         <li><a href="<?php echo base_url();?>past" class="resumeHenosis">Past</a></li>
         <li><a href="<?php echo base_url();?>team" class="resumeHenosis">Team</a></li>
         <span id="menuUserSection">
-          <li><a href="<?php echo base_url();?>user_authentication" class="resumeHenosis">Apply</a></li>
+          <li><a href="<?php echo base_url();?>apply" class="resumeHenosis">Apply</a></li>
           <li><a href="<?php echo base_url();?>user_authentication" class="resumeHenosis">My Works</a></li>
           <li><a href="<?php echo base_url();?>user_authentication" class="resumeHenosis">My Experiences</a></li>
           <li><a href="<?php echo base_url();?>user_authentication" class="resumeHenosis">My Profile</a></li>

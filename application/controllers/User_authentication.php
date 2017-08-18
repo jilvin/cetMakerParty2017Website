@@ -69,17 +69,17 @@ class User_Authentication extends CI_Controller
 
         // Insert or update user data
         $userID = $this->User->checkUser($userData);
-        if($this->PartyData->checkPartyExists() == 0)
-        {
-
-        }
-        else
-        {
-          if($this->Leadership->checkAdminExists() == 0)
-          {
-            $this->Leadership->insertAdmin($userID);
-          }
-        }
+        // if($this->PartyData->checkPartyExists() == 0)
+        // {
+        //
+        // }
+        // else
+        // {
+        //   if($this->Leadership->checkAdminExists() == 0)
+        //   {
+        //     $this->Leadership->insertAdmin($userID);
+        //   }
+        // }
 
         // Check user data insert or update status
         if(!empty($userID))
@@ -125,10 +125,10 @@ class User_Authentication extends CI_Controller
           // {
           // Insert or update user data
           $userID = $this->User->checkUser($userData);
-          if($this->Leadership->checkAdminExists() == 0)
-          {
-            $this->Leadership->insertAdmin($userID);
-          }
+          // if($this->Leadership->checkAdminExists() == 0)
+          // {
+          //   $this->Leadership->insertAdmin($userID);
+          // }
           $userData['id'] = $userID;
           //get level current level information -- start
           if(!empty($userID))
@@ -155,10 +155,10 @@ class User_Authentication extends CI_Controller
           // $userData['profile_url'] = $userProfile['link'];
           // Insert or update user data
           $userID = $this->User->checkUser($userData);
-          if($this->Leadership->checkAdminExists() == 0)
-          {
-            $this->Leadership->insertAdmin($userID);
-          }
+          // if($this->Leadership->checkAdminExists() == 0)
+          // {
+          //   $this->Leadership->insertAdmin($userID);
+          // }
           //get level current level information -- start
           if(!empty($userID))
           {

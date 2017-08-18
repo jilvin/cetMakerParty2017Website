@@ -304,4 +304,8 @@ a:hover
   }
 }
 
+@media screen and (max-height: 560px)
+{
+
+}
 /*for menu -- end*/
