@@ -1,0 +1,23 @@
+Models
+
+users
+
+CREATE TABLE `users` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `first_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+ `last_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+ `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+ `created` datetime NOT NULL,
+ `modified` datetime NOT NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+partydata
+
+CREATE TABLE `partydata` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `partytime` datetime NOT NULL,
+ `created` datetime NOT NULL,
+ `modified` datetime NOT NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
