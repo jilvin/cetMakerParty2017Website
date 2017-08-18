@@ -1,5 +1,14 @@
 Models
 
+mainconfig
+
+CREATE TABLE `mainconfig` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+ `value` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 users
 
 CREATE TABLE `users` (
