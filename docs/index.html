@@ -30,3 +30,31 @@ CREATE TABLE `partydata` (
  `modified` datetime NOT NULL,
  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+rolesData
+
+CREATE TABLE `rolesdata` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `partyID` int(11) NOT NULL,
+ `roleName` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+ `roleSlug` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+ `created` datetime NOT NULL,
+ `modified` datetime NOT NULL,
+ PRIMARY KEY (`id`),
+ FOREIGN KEY (partyID) REFERENCES partydata(id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+leadership
+
+CREATE TABLE `leadership` (
+`id` int(11) NOT NULL AUTO_INCREMENT,
+`partyID` int(11) NOT NULL,
+`user` int(11) NOT NULL,
+`role` int(11) NOT NULL,
+`created` datetime NOT NULL,
+`modified` datetime NOT NULL,
+PRIMARY KEY (`id`),
+FOREIGN KEY (partyID) REFERENCES partydata(id),
+FOREIGN KEY (user) REFERENCES users(id),
+FOREIGN KEY (role) REFERENCES rolesdata(id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
