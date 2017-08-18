@@ -7,7 +7,8 @@ require("../../../CONSTANTS.php");
 
 #applySection
 {
-  color: rgba(0, 0, 0, 0.4);
+  /*color: rgba(0, 0, 0, 0.4);*/
+  color: #333333;
 }
 
 #applyButtonsRow
