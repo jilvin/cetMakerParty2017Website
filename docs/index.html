@@ -34,15 +34,32 @@ CREATE TABLE `partydata` (
 roles
 
 CREATE TABLE `roles` (
+`id` int(11) NOT NULL AUTO_INCREMENT,
+`roleID` int(11) NOT NULL UNIQUE,
+`partyID` int(11) NOT NULL,
+`roleName` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+`roleSlug` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+`created` datetime NOT NULL,
+`modified` datetime NOT NULL,
+PRIMARY KEY (`id`),
+FOREIGN KEY (partyID) REFERENCES partydata(id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+clubs
+
+CREATE TABLE `clubs` (
  `id` int(11) NOT NULL AUTO_INCREMENT,
  `partyID` int(11) NOT NULL,
- `roleName` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
- `roleSlug` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+ `clubname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+ `clubslug` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+ `roleID` int(11) NOT NULL,
  `created` datetime NOT NULL,
  `modified` datetime NOT NULL,
  PRIMARY KEY (`id`),
- FOREIGN KEY (partyID) REFERENCES partydata(id)
+ FOREIGN KEY (partyID) REFERENCES partydata(id),
+ FOREIGN KEY (roleID) REFERENCES roles(roleID)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 
 leadership
 
@@ -57,4 +74,33 @@ PRIMARY KEY (`id`),
 FOREIGN KEY (partyID) REFERENCES partydata(id),
 FOREIGN KEY (user) REFERENCES users(id),
 FOREIGN KEY (role) REFERENCES roles(id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+artverificationwaitinglist
+
+CREATE TABLE `artverificationwaitinglist` (
+`id` int(11) NOT NULL AUTO_INCREMENT,
+`partyID` int(11) NOT NULL,
+`user` int(11) NOT NULL,
+`artname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+`artdescription` TEXT NOT NULL,
+`clubID` int(11),
+`created` datetime NOT NULL,
+`modified` datetime NOT NULL,
+PRIMARY KEY (`id`),
+FOREIGN KEY (partyID) REFERENCES partydata(id),
+FOREIGN KEY (user) REFERENCES users(id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+artverificationwaitinglistclubsassociation
+
+CREATE TABLE `artverificationwaitinglistclubsassociation` (
+`id` int(11) NOT NULL AUTO_INCREMENT,
+`artverificationwaitinglistID` int(11) NOT NULL,
+`clubID` int(11) NOT NULL,
+`created` datetime NOT NULL,
+`modified` datetime NOT NULL,
+PRIMARY KEY (`id`),
+FOREIGN KEY (artverificationwaitinglistID) REFERENCES artverificationwaitinglist(id),
+FOREIGN KEY (clubID) REFERENCES clubs(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

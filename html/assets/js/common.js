@@ -92,10 +92,10 @@ $( document ).ready(function()
   var windowHeight = $(window).height();
 
   // for menu -- start
-  if(windowHeight >= 560)
+  var menuRowHeight = $('#menuRow').height();
+  // console.log("menuRowHeight : "+menuRowHeight);
+  if(windowHeight >= menuRowHeight)
   {
-    var menuRowHeight = $('#menuRow').height();
-    // console.log("menuRowHeight : "+menuRowHeight);
     var menuRowCalculatedTop = ((windowHeight/2) - (menuRowHeight/2));
     // console.log(menuRowCalculatedTop);
     document.getElementById("menuRow").style.top = menuRowCalculatedTop+"px";

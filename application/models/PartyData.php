@@ -26,6 +26,11 @@ public function checkPartyExists()
   }
 }
 
+public function getCurrentPartyID()
+{
+  return 1;
+}
+
   // public function checkUser($data = array())
   // {
   //   $this->db->select($this->primaryKey);

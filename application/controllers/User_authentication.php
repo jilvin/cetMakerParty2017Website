@@ -69,6 +69,7 @@ class User_Authentication extends CI_Controller
 
         // Insert or update user data
         $userID = $this->User->checkUser($userData);
+        $userData['id'] = $userID;
         // if($this->PartyData->checkPartyExists() == 0)
         // {
         //
@@ -155,6 +156,7 @@ class User_Authentication extends CI_Controller
           // $userData['profile_url'] = $userProfile['link'];
           // Insert or update user data
           $userID = $this->User->checkUser($userData);
+          $userData['id'] = $userID;
           // if($this->Leadership->checkAdminExists() == 0)
           // {
           //   $this->Leadership->insertAdmin($userID);
