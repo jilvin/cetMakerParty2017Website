@@ -31,9 +31,9 @@ CREATE TABLE `partydata` (
  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-rolesData
+roles
 
-CREATE TABLE `rolesdata` (
+CREATE TABLE `roles` (
  `id` int(11) NOT NULL AUTO_INCREMENT,
  `partyID` int(11) NOT NULL,
  `roleName` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -56,5 +56,5 @@ CREATE TABLE `leadership` (
 PRIMARY KEY (`id`),
 FOREIGN KEY (partyID) REFERENCES partydata(id),
 FOREIGN KEY (user) REFERENCES users(id),
-FOREIGN KEY (role) REFERENCES rolesdata(id)
+FOREIGN KEY (role) REFERENCES roles(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

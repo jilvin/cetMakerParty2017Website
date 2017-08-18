@@ -4,7 +4,7 @@ class User_Authentication extends CI_Controller
   function __construct()
   {
     parent::__construct();
-    
+
     // Load facebook library
     $this->load->library('facebook-api-php-codexworld/Facebook');
 
@@ -12,29 +12,24 @@ class User_Authentication extends CI_Controller
     $this->load->model('User');
     //Load PartyData model
     $this->load->model('PartyData');
+    $this->load->model('MainConfig');
+    $this->load->model('Leadership');
   }
 
   public function logout()
   {
-    if($this->PartyData->checkPartyExists() == 1)
-    {
-      // Remove local Facebook session
-      $this->facebook->destroy_session();
-      // Remove user data from session
-      $this->session->unset_userdata('token');
-      $this->session->unset_userdata('userData');
-      // Redirect to login page
-      redirect('/user_authentication');
-    }
-    else
-    {
-      $this->load->view('errors/not_configured');
-    }
+    // Remove local Facebook session
+    $this->facebook->destroy_session();
+    // Remove user data from session
+    $this->session->unset_userdata('token');
+    $this->session->unset_userdata('userData');
+    // Redirect to login page
+    redirect('/user_authentication');
   }
 
   public function index()
   {
-    if($this->PartyData->checkPartyExists() == 1)
+    if($this->MainConfig->checkConfigExists() == 1)
     {
       // $userData = array();
       $data['model_obj'] = $this->User;
@@ -74,6 +69,17 @@ class User_Authentication extends CI_Controller
 
         // Insert or update user data
         $userID = $this->User->checkUser($userData);
+        if($this->PartyData->checkPartyExists() == 0)
+        {
+
+        }
+        else
+        {
+          if($this->Leadership->checkAdminExists() == 0)
+          {
+            $this->Leadership->insertAdmin($userID);
+          }
+        }
 
         // Check user data insert or update status
         if(!empty($userID))
@@ -119,6 +125,10 @@ class User_Authentication extends CI_Controller
           // {
           // Insert or update user data
           $userID = $this->User->checkUser($userData);
+          if($this->Leadership->checkAdminExists() == 0)
+          {
+            $this->Leadership->insertAdmin($userID);
+          }
           $userData['id'] = $userID;
           //get level current level information -- start
           if(!empty($userID))
@@ -145,6 +155,10 @@ class User_Authentication extends CI_Controller
           // $userData['profile_url'] = $userProfile['link'];
           // Insert or update user data
           $userID = $this->User->checkUser($userData);
+          if($this->Leadership->checkAdminExists() == 0)
+          {
+            $this->Leadership->insertAdmin($userID);
+          }
           //get level current level information -- start
           if(!empty($userID))
           {

@@ -7,25 +7,34 @@ class Leadership extends CI_Model
     $this->primaryKey = 'id';
   }
 
-public function checkAdminExists()
-{
-  $this->db->select($this->primaryKey);
-  $this->db->from($this->tableName);
-  $this->db->where(array('id'=>1));
-  $prevQuery = $this->db->get();
-  $prevCheck = $prevQuery->num_rows();
+  public function checkAdminExists()
+  {
+    $this->db->select($this->primaryKey);
+    $this->db->from($this->tableName);
+    $this->db->where(array('id'=>1));
+    $prevQuery = $this->db->get();
+    $prevCheck = $prevQuery->num_rows();
 
-  if($prevCheck > 0)
-  {
-    // admin exists
-    return "1";
+    if($prevCheck > 0)
+    {
+      // admin exists
+      return "1";
+    }
+    else
+    {
+      // admin does not exist
+      return "0";
+    }
   }
-  else
+
+  public function insertAdmin($userID)
   {
-    // admin does not exist
-    return "0";
+    $insertData['created'] = date("Y-m-d H:i:s");
+    $insertData['modified'] = date("Y-m-d H:i:s");
+
+    $insert = $this->db->insert($this->tableName,$data);
+    // $adminID = $this->db->insert_id();
   }
-}
 
   // public function checkUser($data = array())
   // {
