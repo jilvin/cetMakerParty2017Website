@@ -1,6 +1,14 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Main extends CI_Controller {
+
+	function __construct()
+	{
+		parent::__construct();
+		//Load PartyData model
+		$this->load->model('PartyData');
+	}
+
 	/**
 	* Index Page for this controller.
 	*
@@ -18,48 +26,55 @@ class Main extends CI_Controller {
 	*/
 	public function index()
 	{
-		/*
-		Created to change theme for the website randomly.
-		Update of workCount is very impotant.
-		*/
-		require 'required/works.php';
-
-		if($this->session->userdata('userData'))
+		if($this->PartyData->checkPartyExists() == 1)
 		{
-			$data['applyUrl'] = 'apply';
+			/*
+			Created to change theme for the website randomly.
+			Update of workCount is very important.
+			*/
+			require 'required/works.php';
+
+			if($this->session->userdata('userData'))
+			{
+				$data['applyUrl'] = 'apply';
+			}
+			else
+			{
+				$data['applyUrl'] = 'user_authentication';
+			}
+
+			if(is_null($this->session->userdata('selectedTheme')))
+			{
+				$selected = rand(0,$workCount-1);
+				//echo $selected;
+				/*setup session*/
+				$this->session->set_userdata('selectedTheme',$selected);
+			}
+			else
+			{
+				$selected = $this->session->userdata('selectedTheme');
+				//echo "session selected ".$selected;
+			}
+
+			$this->load->view('templates/header');
+			$this->load->view('templates/henosis');
+			$this->load->view('templates/contentStart');
+			$this->load->view('templates/headerRow');
+			$this->load->view('showcase/'.$workCategory[$selected].'/'.$work[$selected].'/showcase',$data);
+			$this->load->view('templates/contentEnd');
+			if($this->session->userdata('userData'))
+			{
+				$this->load->view('templates/loggedInMenu');
+			}
+			else
+			{
+				$this->load->view('templates/menu');
+			}
+			$this->load->view('templates/footer');
 		}
 		else
 		{
-			$data['applyUrl'] = 'user_authentication';
+			$this->load->view('errors/not_configured');
 		}
-
-		if(is_null($this->session->userdata('selectedTheme')))
-		{
-			$selected = rand(0,$workCount-1);
-			//echo $selected;
-			/*setup session*/
-			$this->session->set_userdata('selectedTheme',$selected);
-		}
-		else
-		{
-			$selected = $this->session->userdata('selectedTheme');
-			//echo "session selected ".$selected;
-		}
-
-		$this->load->view('templates/header');
-		$this->load->view('templates/henosis');
-		$this->load->view('templates/contentStart');
-		$this->load->view('templates/headerRow');
-		$this->load->view('showcase/'.$workCategory[$selected].'/'.$work[$selected].'/showcase',$data);
-		$this->load->view('templates/contentEnd');
-		if($this->session->userdata('userData'))
-		{
-			$this->load->view('templates/loggedInMenu');
-		}
-		else
-		{
-			$this->load->view('templates/menu');
-		}
-		$this->load->view('templates/footer');
 	}
 }
