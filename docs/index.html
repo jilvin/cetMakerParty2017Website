@@ -9,6 +9,22 @@ CREATE TABLE `mainconfig` (
  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+art
+
+CREATE TABLE `art` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `partyID` int(11) NOT NULL,
+ `artname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+ `artshortdescription` varchar(127) COLLATE utf8_unicode_ci NOT NULL,
+ `artlongdescription` TEXT NOT NULL,
+ `category` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+ `status` CHAR(1) NOT NULL,
+ `created` datetime NOT NULL,
+ `modified` datetime NOT NULL,
+ PRIMARY KEY (`id`),
+ FOREIGN KEY (partyID) REFERENCES partydata(id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 users
 
 CREATE TABLE `users` (
@@ -26,6 +42,7 @@ partydata
 CREATE TABLE `partydata` (
  `id` int(11) NOT NULL AUTO_INCREMENT,
  `partytime` datetime NOT NULL,
+ `deadline` datetime NOT NULL,
  `created` datetime NOT NULL,
  `modified` datetime NOT NULL,
  PRIMARY KEY (`id`)
@@ -83,7 +100,8 @@ CREATE TABLE `artverificationwaitinglist` (
 `partyID` int(11) NOT NULL,
 `user` int(11) NOT NULL,
 `artname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-`artdescription` TEXT NOT NULL,
+`artshortdescription` varchar(127) COLLATE utf8_unicode_ci NOT NULL,
+`artlongdescription` TEXT NOT NULL,
 `clubID` int(11),
 `created` datetime NOT NULL,
 `modified` datetime NOT NULL,
