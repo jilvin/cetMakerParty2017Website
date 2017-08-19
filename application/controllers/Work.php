@@ -22,7 +22,20 @@ class Work extends CI_Controller {
 			}
 			else
 			{
+				$this->load->view('templates/header');
+				$this->load->view('templates/henosis');
+				$this->load->view('templates/contentStart');
 				$this->load->view('content/displayWork', $this->Art->getWork($this->uri->segment(2)));
+				$this->load->view('templates/contentEnd');
+				if($this->session->userdata('userData'))
+				{
+					$this->load->view('templates/loggedInMenu');
+				}
+				else
+				{
+					$this->load->view('templates/menu');
+				}
+				$this->load->view('templates/footer');
 			}
 		}
 		else

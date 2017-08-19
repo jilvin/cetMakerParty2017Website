@@ -78,7 +78,7 @@ a:hover
   position: absolute;
   width: 100vw;
   height: 100vh;
-  overflow: scroll;
+  overflow: auto;
 }
 
 /*for henosis -- end*/
