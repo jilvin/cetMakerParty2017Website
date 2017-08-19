@@ -25,7 +25,7 @@ require("../../../CONSTANTS.php");
     background: rgba(0,0,0,.42);
     transform:skewY(9deg);
     top:260px;
-    z-index: 9;
+    z-index: 0;
   }
   &:after {
      content:'';
@@ -35,7 +35,7 @@ require("../../../CONSTANTS.php");
     background: linear-gradient(to bottom, rgba(0,16,31,.3) 40%,rgba(0,0,0,.1) 100%);
     transform:skewY(9deg);
     top:180px;
-    z-index: 8;
+    z-index: 0;
   }
 }
 
@@ -43,7 +43,7 @@ require("../../../CONSTANTS.php");
   position: absolute;
   top:40%;
   left:30%;
-  z-index:1000;
+  z-index:0;
 }
 .btn--lrg{
   position:absolute;
@@ -102,7 +102,7 @@ svg.shopping {
      transform: skewY(-8deg);
     background:white;
     position: absolute;
-    z-index:500;
+    z-index:0;
     bottom:-40px;
   }
 }
@@ -112,7 +112,7 @@ svg.shopping {
   position: relative;
   color:#222222;
   background:white;
-  z-index: 10;
+  z-index: 0;
 }
 .c-movie-card__title {
   font-family: $font-family--primary;
