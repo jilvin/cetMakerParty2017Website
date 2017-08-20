@@ -19,8 +19,8 @@ CREATE TABLE `art` (
  `artlongdescription` TEXT NOT NULL,
  `category` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
  `status` CHAR(1) NOT NULL,
- `created` datetime NOT NULL,
- `modified` datetime NOT NULL,
+ `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+ `modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
  PRIMARY KEY (`id`),
  FOREIGN KEY (partyID) REFERENCES partydata(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -32,8 +32,8 @@ CREATE TABLE `users` (
  `first_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
  `last_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
- `created` datetime NOT NULL,
- `modified` datetime NOT NULL,
+ `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+ `modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -43,8 +43,8 @@ CREATE TABLE `artusersassociation` (
  `id` int(11) NOT NULL AUTO_INCREMENT,
  `userID` int(11) NOT NULL,
  `artID` int(11) NOT NULL,
- `created` datetime NOT NULL,
- `modified` datetime NOT NULL,
+ `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+ `modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
  PRIMARY KEY (`id`),
  FOREIGN KEY (userID) REFERENCES users(id),
  FOREIGN KEY (artID) REFERENCES art(id)
@@ -56,8 +56,8 @@ CREATE TABLE `partydata` (
  `id` int(11) NOT NULL AUTO_INCREMENT,
  `partytime` datetime NOT NULL,
  `deadline` datetime NOT NULL,
- `created` datetime NOT NULL,
- `modified` datetime NOT NULL,
+ `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+ `modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -69,8 +69,8 @@ CREATE TABLE `roles` (
 `partyID` int(11) NOT NULL,
 `roleName` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
 `roleSlug` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-`created` datetime NOT NULL,
-`modified` datetime NOT NULL,
+`created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+`modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
 PRIMARY KEY (`id`),
 FOREIGN KEY (partyID) REFERENCES partydata(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -83,8 +83,8 @@ CREATE TABLE `clubs` (
  `clubname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
  `clubslug` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
  `roleID` int(11) NOT NULL,
- `created` datetime NOT NULL,
- `modified` datetime NOT NULL,
+ `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+ `modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
  PRIMARY KEY (`id`),
  FOREIGN KEY (partyID) REFERENCES partydata(id),
  FOREIGN KEY (roleID) REFERENCES roles(roleID)
@@ -98,8 +98,8 @@ CREATE TABLE `leadership` (
 `partyID` int(11) NOT NULL,
 `user` int(11) NOT NULL,
 `role` int(11) NOT NULL,
-`created` datetime NOT NULL,
-`modified` datetime NOT NULL,
+`created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+`modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
 PRIMARY KEY (`id`),
 FOREIGN KEY (partyID) REFERENCES partydata(id),
 FOREIGN KEY (user) REFERENCES users(id),
@@ -116,9 +116,10 @@ CREATE TABLE `artverificationwaitinglist` (
 `artshortdescription` varchar(127) COLLATE utf8_unicode_ci NOT NULL,
 `artlongdescription` TEXT NOT NULL,
 `category` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-`clubID` int(11),
-`created` datetime NOT NULL,
-`modified` datetime NOT NULL,
+`type1imagefilename` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+`type2imagefilename` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+`created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+`modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
 PRIMARY KEY (`id`),
 FOREIGN KEY (partyID) REFERENCES partydata(id),
 FOREIGN KEY (user) REFERENCES users(id)
@@ -130,8 +131,8 @@ CREATE TABLE `artverificationwaitinglistclubsassociation` (
 `id` int(11) NOT NULL AUTO_INCREMENT,
 `artverificationwaitinglistID` int(11) NOT NULL,
 `clubID` int(11) NOT NULL,
-`created` datetime NOT NULL,
-`modified` datetime NOT NULL,
+`created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+`modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
 PRIMARY KEY (`id`),
 FOREIGN KEY (artverificationwaitinglistID) REFERENCES artverificationwaitinglist(id),
 FOREIGN KEY (clubID) REFERENCES clubs(id)
