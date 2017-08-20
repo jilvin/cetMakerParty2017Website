@@ -51,5 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'main';
 $route['work/:any'] = 'work/index';
+$route['works/mine/waiting'] = 'works/mine_waiting';
+$route['experiences/mine/waiting'] = 'experiences/mine_waiting';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

@@ -39,6 +39,23 @@ class ArtVerificationWaitingList extends CI_Model
     }
   }
 
+  public function checkForExperienceUser($currentPartyID, $userID)
+  {
+    $this->db->from($this->tableName);
+    $this->db->where(array('partyID'=>$currentPartyID, 'user'=>$userID,'category'=>'experience'));
+    $prevQuery = $this->db->get();
+    $prevCheck = $prevQuery->num_rows();
+
+    if($prevCheck > 0)
+    {
+      return $prevCheck;
+    }
+    else
+    {
+      return 0;
+    }
+  }
+
   public function nextArtID()
   {
     $this->db->select_max('id');

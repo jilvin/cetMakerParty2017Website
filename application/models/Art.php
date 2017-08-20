@@ -50,6 +50,7 @@ class Art extends CI_Model
   {
     $this->db->from($this->tableName);
     $i=0;
+    $data = NULL;
     foreach ($artIDs as $artIDs)
     {
       $this->db->where(array('id'=>$artIDs,'partyID'=>$current_party,'category'=>'work'));
@@ -118,6 +119,7 @@ class Art extends CI_Model
   {
     $this->db->from($this->tableName);
     $i=0;
+    $data = NULL;
     foreach ($artIDs as $artIDs)
     {
       $this->db->where(array('id'=>$artIDs,'partyID'=>$current_party,'category'=>'experience'));
