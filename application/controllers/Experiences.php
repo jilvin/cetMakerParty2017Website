@@ -119,6 +119,10 @@ class Experiences extends CI_Controller {
 					}
 					$this->load->view('templates/footer');
 				}
+				else
+				{
+					redirect(base_url());
+				}
 			}
 			else
 			{

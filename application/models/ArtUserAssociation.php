@@ -14,10 +14,9 @@ class ArtUserAssociation extends CI_Model
     $this->db->where(array('userID'=>$userID));
     $prevQuery = $this->db->get();
     $prevCheck = $prevQuery->num_rows();
-
     if($prevCheck > 0)
     {
-      $prevResult = $prevQuery->row_array();
+      $prevResult = $prevQuery->result_array();
       return $prevResult;
     }
     else

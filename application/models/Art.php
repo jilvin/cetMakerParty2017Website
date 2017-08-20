@@ -48,19 +48,19 @@ class Art extends CI_Model
 
   public function show_current_works_from_given_artID_list($current_party, $artIDs)
   {
-    $this->db->from($this->tableName);
     $i=0;
     $data = NULL;
-    foreach ($artIDs as $artIDs)
+    foreach ($artIDs as $artID)
     {
-      $this->db->where(array('id'=>$artIDs,'partyID'=>$current_party,'category'=>'work'));
+      $this->db->from($this->tableName);
+      $this->db->where(array('id'=>$artID['artID'],'partyID'=>$current_party,'category'=>'work'));
       $prevQuery = $this->db->get();
       $prevCheck = $prevQuery->num_rows();
       if($prevCheck > 0)
       {
         // $prevResult = $prevQuery->row_array();
         $this->db->from($this->tableName);
-        $this->db->where(array('partyID'=>$current_party,'category'=>'work'));
+        $this->db->where(array('id'=>$artID['artID'], 'partyID'=>$current_party,'category'=>'work'));
         $data[$i] = $this->db->get()->result();
         $i++;
         // return $prevResult;
