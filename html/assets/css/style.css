@@ -40,15 +40,15 @@ a:hover
 
 #headingText a
 {
-  color: #AAAAAA;
-  /*color: #333333;*/
+  /*color: #AAAAAA;*/
+  color: #333333;
   font-family: 'Pacifico', cursive;
 }
 
 #headingCollegeText a
 {
-  color: #A3A3A3;
-  /*color: #333333;*/
+  /*color: #A3A3A3;*/
+  color: #333333;
   font-family: 'Open Sans', sans-serif;
 }
 

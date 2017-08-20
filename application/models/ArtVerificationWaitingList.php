@@ -63,4 +63,38 @@ class ArtVerificationWaitingList extends CI_Model
     $prevQuery = $this->db->get()->result_object();
     return $prevQuery[0]->id+1;
   }
+
+  public function getWorksOfUser($userID)
+  {
+    $this->db->from($this->tableName);
+    $this->db->where(array('user'=>$userID,'category'=>'work'));
+    $prevQuery = $this->db->get();
+    $prevCheck = $prevQuery->num_rows();
+    if($prevCheck > 0)
+    {
+      $prevResult = $prevQuery->result_object();
+      return $prevResult;
+    }
+    else
+    {
+      return NULL;
+    }
+  }
+
+  public function getExperiencesOfUser($userID)
+  {
+    $this->db->from($this->tableName);
+    $this->db->where(array('user'=>$userID,'category'=>'experience'));
+    $prevQuery = $this->db->get();
+    $prevCheck = $prevQuery->num_rows();
+    if($prevCheck > 0)
+    {
+      $prevResult = $prevQuery->result_object();
+      return $prevResult;
+    }
+    else
+    {
+      return NULL;
+    }
+  }
 }

@@ -84,7 +84,7 @@ class Experiences extends CI_Controller {
 						$this->load->view('templates/henosis');
 						$this->load->view('templates/contentStart');
 						$this->load->view('templates/headerRow');
-						$this->load->view('content/worksWaiting');
+						$this->load->view('content/experiencesWaiting');
 						$this->load->view('templates/contentEnd');
 						if($this->session->userdata('userData'))
 						{
@@ -107,7 +107,48 @@ class Experiences extends CI_Controller {
 					$this->load->view('templates/henosis');
 					$this->load->view('templates/contentStart');
 					$this->load->view('templates/headerRow');
-					$this->load->view('content/worksWaiting');
+					$this->load->view('content/experiencesWaiting');
+					$this->load->view('templates/contentEnd');
+					if($this->session->userdata('userData'))
+					{
+						$this->load->view('templates/loggedInMenu');
+					}
+					else
+					{
+						$this->load->view('templates/menu');
+					}
+					$this->load->view('templates/footer');
+				}
+				else
+				{
+					redirect(base_url());
+				}
+			}
+			else
+			{
+				redirect(base_url().'/user_authentication');
+			}
+		}
+		else
+		{
+			$this->load->view('errors/not_configured');
+		}
+	}
+
+	public function mine_waiting()
+	{
+		if($this->PartyData->checkPartyExists() == 1)
+		{
+			if($this->session->userdata['userData']['id'])
+			{
+				$waitingExperiences['artList'] = $this->ArtVerificationWaitingList->getExperiencesOfUser($this->session->userdata['userData']['id']);
+				if($waitingExperiences != NULL)
+				{
+					$this->load->view('templates/header');
+					$this->load->view('templates/henosis');
+					$this->load->view('templates/contentStart');
+					$this->load->view('templates/headerRow');
+					$this->load->view('content/experiences', $waitingExperiences);
 					$this->load->view('templates/contentEnd');
 					if($this->session->userdata('userData'))
 					{

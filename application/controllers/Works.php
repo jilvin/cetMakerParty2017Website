@@ -134,4 +134,45 @@ class Works extends CI_Controller {
 			$this->load->view('errors/not_configured');
 		}
 	}
+
+	public function mine_waiting()
+	{
+		if($this->PartyData->checkPartyExists() == 1)
+		{
+			if($this->session->userdata['userData']['id'])
+			{
+				$waitingWorks['artList'] = $this->ArtVerificationWaitingList->getWorksOfUser($this->session->userdata['userData']['id']);
+				if($waitingWorks != NULL)
+				{
+					$this->load->view('templates/header');
+					$this->load->view('templates/henosis');
+					$this->load->view('templates/contentStart');
+					$this->load->view('templates/headerRow');
+					$this->load->view('content/works', $waitingWorks);
+					$this->load->view('templates/contentEnd');
+					if($this->session->userdata('userData'))
+					{
+						$this->load->view('templates/loggedInMenu');
+					}
+					else
+					{
+						$this->load->view('templates/menu');
+					}
+					$this->load->view('templates/footer');
+				}
+				else
+				{
+					redirect(base_url());
+				}
+			}
+			else
+			{
+				redirect(base_url().'/user_authentication');
+			}
+		}
+		else
+		{
+			$this->load->view('errors/not_configured');
+		}
+	}
 }

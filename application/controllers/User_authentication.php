@@ -194,6 +194,10 @@ class User_Authentication extends CI_Controller
       $this->load->view('templates/header');
       $this->load->view('templates/henosis');
       $this->load->view('templates/contentStart');
+      if(!empty($this->session->userdata['userData']['id']))
+      {
+        $this->load->view('templates/headerRow');
+      }
       // Load login & profile view
       $this->load->view('user_authentication/index',$data);
       $this->load->view('templates/contentEnd');
