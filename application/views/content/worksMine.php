@@ -1,4 +1,6 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/sub/works.css.php">
+<?php foreach ($artArray as $artArray): ?>
+  <?php $artList = $artArray; ?>
 <?php foreach ($artList as $artList): ?>
   <div class="o-wrapper">
     <div class="c-movie-card">
@@ -27,4 +29,5 @@
     </span>
   </div>
 </div>
+<?php endforeach ?>
 <?php endforeach ?>

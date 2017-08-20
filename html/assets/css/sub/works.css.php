@@ -7,7 +7,24 @@ require("../../../CONSTANTS.php");
 .o-wrapper {
   position: relative;
   max-width:380px;
-  margin:50px auto 100px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+@media screen and (min-width: 1000px)
+{
+  .o-wrapper
+  {
+    float: left;
+    position: relative;
+    max-width:380px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
 }
 
 .c-movie-card {
@@ -16,7 +33,7 @@ require("../../../CONSTANTS.php");
   border-radius:4px;
   padding-bottom:20px;
   background:white;
-  // black angled overlay
+  /* black angled overlay*/
   &:before {
     content:'';
     position: absolute;
@@ -28,7 +45,7 @@ require("../../../CONSTANTS.php");
     z-index: 0;
   }
   &:after {
-     content:'';
+    content:'';
     position: absolute;
     width: 100%;
     height:80px;
@@ -86,7 +103,6 @@ svg.shopping {
   top:1.75em;
 }
 
-
 .c-movie-card__img {
   position: relative;
   height:350px;
@@ -94,12 +110,12 @@ svg.shopping {
   background-position:75% 20%;
   border-radius:4px 4px 0 0;
   background-image: url("http://s3.foxfilm.com/foxmovies/production/films/104/images/gallery/martian-gallery3-gallery-image.jpg");
-   &:after{
+  &:after{
     content:'';
     display:block;
     width: 100%;
     height: 20%;
-     transform: skewY(-8deg);
+    transform: skewY(-8deg);
     background:white;
     position: absolute;
     z-index:0;

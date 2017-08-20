@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class Works extends CI_Controller {
+class Experiences extends CI_Controller {
 
 	function __construct()
 	{
@@ -9,21 +9,20 @@ class Works extends CI_Controller {
 		$this->load->model('PartyData');
 		$this->load->model('Art');
 		$this->load->model('ArtUserAssociation');
-		$this->load->model('ArtVerificationWaitingList');
 	}
 
 	public function index()
 	{
 		if($this->PartyData->checkPartyExists() == 1)
 		{
-			$data['artList'] = $this->Art->show_current_works($this->PartyData->getCurrentPartyID());
+			$data['artList'] = $this->Art->show_current_experiences($this->PartyData->getCurrentPartyID());
 			if($data['artList'] != NULL)
 			{
 				$this->load->view('templates/header');
 				$this->load->view('templates/henosis');
 				$this->load->view('templates/contentStart');
 				$this->load->view('templates/headerRow');
-				$this->load->view('content/works', $data);
+				$this->load->view('content/experiences', $data);
 				$this->load->view('templates/contentEnd');
 				if($this->session->userdata('userData'))
 				{
@@ -55,17 +54,14 @@ class Works extends CI_Controller {
 				$artIDs = $this->ArtUserAssociation->getArtIDs($this->session->userdata['userData']['id']);
 				if($artIDs != NULL)
 				{
-					$data['artArray'] = $this->Art->show_current_works_from_given_artID_list($this->PartyData->getCurrentPartyID(), $artIDs);
+					$data['artArray'] = $this->Art->show_current_experiences_from_given_artID_list($this->PartyData->getCurrentPartyID(), $artIDs);
 					if($data['artArray'] != NULL)
 					{
 						$this->load->view('templates/header');
 						$this->load->view('templates/henosis');
 						$this->load->view('templates/contentStart');
 						$this->load->view('templates/headerRow');
-						if($this->ArtVerificationWaitingList->checkForWorkUser($this->PartyData->getCurrentPartyID(), $this->session->userdata['userData']['id']) > 0)
-						{
-							$this->load->view('content/worksWaiting');
-						}
+						$this->load->view('content/experiencesWaiting');
 						$this->load->view('content/worksMine', $data);
 						$this->load->view('templates/contentEnd');
 						if($this->session->userdata('userData'))

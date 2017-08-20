@@ -120,10 +120,12 @@ class Apply extends CI_Controller {
 				{
 					// work
 					$artName = $this->input->post("workName");
-					$artDescription = $this->input->post("workDescription");
+					$artShortDescription = $this->input->post("workShortDescription");
+					$artLongDescription = $this->input->post("workLongDescription");
 					$partyID = $this->PartyData->getCurrentPartyID();
 					$patronClub = $this->input->post("clubID");
-					$artID = $this->ArtVerificationWaitingList->newArt($partyID, $this->session->userdata['userData']['id'], $artName, $artDescription);
+					$category = "work";
+					$artID = $this->ArtVerificationWaitingList->newArt($partyID, $this->session->userdata['userData']['id'], $artName, $artShortDescription, $artLongDescription, $category);
 					if($patronClub != NULL)
 					{
 						$this->ArtVerificationWaitingListClubsAssociation->newAssociation($artID, $patronClub);
@@ -148,10 +150,12 @@ class Apply extends CI_Controller {
 				{
 					// experience
 					$artName = $this->input->post("experienceName");
-					$artDescription = $this->input->post("experienceDescription");
+					$artShortDescription = $this->input->post("experienceShortDescription");
+					$artLongDescription = $this->input->post("experienceLongDescription");
 					$partyID = $this->PartyData->getCurrentPartyID();
 					$patronClub = $this->input->post("clubID");
-					$artID = $this->ArtVerificationWaitingList->newArt($partyID, $this->session->userdata['userData']['id'], $artName, $artDescription);
+					$category = "experience";
+					$artID = $this->ArtVerificationWaitingList->newArt($partyID, $this->session->userdata['userData']['id'], $artName, $artShortDescription, $artLongDescription, $category);
 					if($patronClub != NULL)
 					{
 						$this->ArtVerificationWaitingListClubsAssociation->newAssociation($artID, $patronClub);

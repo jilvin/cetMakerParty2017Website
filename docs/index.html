@@ -37,6 +37,19 @@ CREATE TABLE `users` (
  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+artusersassociation
+
+CREATE TABLE `artusersassociation` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `userID` int(11) NOT NULL,
+ `artID` int(11) NOT NULL,
+ `created` datetime NOT NULL,
+ `modified` datetime NOT NULL,
+ PRIMARY KEY (`id`),
+ FOREIGN KEY (userID) REFERENCES users(id),
+ FOREIGN KEY (artID) REFERENCES art(id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 partydata
 
 CREATE TABLE `partydata` (
@@ -102,6 +115,7 @@ CREATE TABLE `artverificationwaitinglist` (
 `artname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
 `artshortdescription` varchar(127) COLLATE utf8_unicode_ci NOT NULL,
 `artlongdescription` TEXT NOT NULL,
+`category` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
 `clubID` int(11),
 `created` datetime NOT NULL,
 `modified` datetime NOT NULL,
