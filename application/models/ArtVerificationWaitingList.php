@@ -97,4 +97,23 @@ class ArtVerificationWaitingList extends CI_Model
       return NULL;
     }
   }
+
+  public function getWorkWithUserCheck($userID, $waitingArtID)
+  {
+    $this->db->from($this->tableName);
+    // echo $waitingArtID;
+    $this->db->where(array('id'=>$waitingArtID, 'user'=>$userID, 'category'=>'work'));
+    $prevQuery = $this->db->get();
+    $prevCheck = $prevQuery->num_rows();
+    // echo $prevCheck;
+    if($prevCheck > 0)
+    {
+      $prevResult = $prevQuery->row_array();
+      return $prevResult;
+    }
+    else
+    {
+      return NULL;
+    }
+  }
 }

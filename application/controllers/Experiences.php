@@ -64,7 +64,7 @@ class Experiences extends CI_Controller {
 						$this->load->view('templates/headerRow');
 						if($this->ArtVerificationWaitingList->checkForExperienceUser($this->PartyData->getCurrentPartyID(), $this->session->userdata['userData']['id']) > 0)
 						{
-							$this->load->view('content/experiencesWaiting');
+							$this->load->view('content/experiencesWaitingAlert');
 						}
 						$this->load->view('content/worksMine', $data);
 						$this->load->view('templates/contentEnd');
@@ -84,7 +84,7 @@ class Experiences extends CI_Controller {
 						$this->load->view('templates/henosis');
 						$this->load->view('templates/contentStart');
 						$this->load->view('templates/headerRow');
-						$this->load->view('content/experiencesWaiting');
+						$this->load->view('content/experiencesWaitingAlert');
 						$this->load->view('templates/contentEnd');
 						if($this->session->userdata('userData'))
 						{
@@ -107,7 +107,7 @@ class Experiences extends CI_Controller {
 					$this->load->view('templates/henosis');
 					$this->load->view('templates/contentStart');
 					$this->load->view('templates/headerRow');
-					$this->load->view('content/experiencesWaiting');
+					$this->load->view('content/experiencesWaitingAlert');
 					$this->load->view('templates/contentEnd');
 					if($this->session->userdata('userData'))
 					{
@@ -148,7 +148,7 @@ class Experiences extends CI_Controller {
 					$this->load->view('templates/henosis');
 					$this->load->view('templates/contentStart');
 					$this->load->view('templates/headerRow');
-					$this->load->view('content/experiences', $waitingExperiences);
+					$this->load->view('content/experiencesWaiting', $waitingExperiences);
 					$this->load->view('templates/contentEnd');
 					if($this->session->userdata('userData'))
 					{

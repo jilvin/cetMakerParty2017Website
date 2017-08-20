@@ -43,4 +43,51 @@ class Work extends CI_Controller {
 			$this->load->view('errors/not_configured');
 		}
 	}
+
+	public function waiting()
+	{
+		if($this->PartyData->checkPartyExists() == 1)
+		{
+			if($this->session->userdata['userData']['id'])
+			{
+				if($this->uri->segment(3) != NULL)
+				{
+					$data = $this->ArtVerificationWaitingList->getWorkWithUserCheck($this->session->userdata['userData']['id'], $this->uri->segment(3));
+					if($data != NULL)
+					{
+						$this->load->view('templates/header');
+						$this->load->view('templates/henosis');
+						$this->load->view('templates/contentStart');
+						$this->load->view('content/displayWaitingWork', $data);
+						$this->load->view('templates/contentEnd');
+						if($this->session->userdata('userData'))
+						{
+							$this->load->view('templates/loggedInMenu');
+						}
+						else
+						{
+							$this->load->view('templates/menu');
+						}
+						$this->load->view('templates/footer');
+					}
+					else
+					{
+						// redirect(base_url());
+					}
+				}
+				else
+				{
+					redirect(base_url().'works');
+				}
+			}
+			else
+			{
+				redirect(base_url().'user_authentication');
+			}
+		}
+		else
+		{
+			$this->load->view('errors/not_configured');
+		}
+	}
 }

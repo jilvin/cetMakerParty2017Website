@@ -50,7 +50,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'main';
-$route['work/:any'] = 'work/index';
+$route['work/:num'] = 'work/index';
+$route['experience/:num'] = 'experience/index';
+$route['work/waiting/:num'] = 'work/waiting';
+$route['experience/waiting/:num'] = 'experience/waiting';
 $route['works/mine/waiting'] = 'works/mine_waiting';
 $route['experiences/mine/waiting'] = 'experiences/mine_waiting';
 $route['404_override'] = '';

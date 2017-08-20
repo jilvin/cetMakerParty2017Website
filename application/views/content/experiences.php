@@ -12,7 +12,7 @@
       </div>
       <span class="c-icons__arow">
 
-        <a href="<?php echo base_url()?>work/<?php echo $artList->id ?>">
+        <a href="<?php echo base_url()?>experience/<?php echo $artList->id ?>">
           <svg version="1.1"
           viewBox="0 0 28.6 8">
           <style type="text/css">
