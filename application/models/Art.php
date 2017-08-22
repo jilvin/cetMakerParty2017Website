@@ -7,6 +7,25 @@ class Art extends CI_Model
     $this->primaryKey = 'id';
   }
 
+  public function getArt($artID)
+  {
+    $this->db->from($this->tableName);
+    $this->db->where(array('id'=>$artID));
+    $prevQuery = $this->db->get();
+    $prevCheck = $prevQuery->num_rows();
+
+    if($prevCheck > 0)
+    {
+      $prevResult = $prevQuery->row_array();
+      // echo serialize($prevResult);
+      return $prevResult;
+    }
+    else
+    {
+      return NULL;
+    }
+  }
+
   public function getWork($workID)
   {
     $this->db->from($this->tableName);

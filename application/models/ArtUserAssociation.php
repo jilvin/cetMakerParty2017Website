@@ -24,4 +24,20 @@ class ArtUserAssociation extends CI_Model
       return NULL;
     }
   }
+
+  public function checkIfOwnArt($artID, $userID)
+  {
+    $this->db->from($this->tableName);
+    $this->db->where(array('artID'=> $artID,'userID'=>$userID));
+    $prevQuery = $this->db->get();
+    $prevCheck = $prevQuery->num_rows();
+    if($prevCheck > 0)
+    {
+      return 1;
+    }
+    else
+    {
+      return 0;
+    }
+  }
 }
