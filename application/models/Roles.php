@@ -54,4 +54,22 @@ class Roles extends CI_Model
       return NULL;
     }
   }
+
+  public function getAdminRole($partyID)
+  {
+    $this->db->from($this->tableName);
+    $this->db->where(array('partyID'=>$partyID, 'roleType'=>1));
+    $prevQuery = $this->db->get();
+    $prevCheck = $prevQuery->num_rows();
+
+    if($prevCheck > 0)
+    {
+      // echo serialize($prevQuery->result_object());
+      return $prevQuery->result_object()[0]->id;
+    }
+    else
+    {
+      return NULL;
+    }
+  }
 }

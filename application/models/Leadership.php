@@ -68,4 +68,28 @@ class Leadership extends CI_Model
       return NULL;
     }
   }
+
+  public function checkIfAdmin($userID, $adminRole)
+  {
+    $this->db->from($this->tableName);
+    $this->db->where(array('role'=>$adminRole));
+    $prevQuery = $this->db->get();
+    $prevCheck = $prevQuery->num_rows();
+    if($prevCheck > 0)
+    {
+      if($userID == $prevQuery->result_object()[0]->user)
+      {
+        // admin
+        return 1;
+      }
+      else
+      {
+        return 0;
+      }
+    }
+    else
+    {
+      return NULL;
+    }
+  }
 }

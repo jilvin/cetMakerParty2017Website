@@ -14,6 +14,7 @@ class User_Authentication extends CI_Controller
     $this->load->model('PartyData');
     $this->load->model('MainConfig');
     $this->load->model('Leadership');
+    $this->load->model('Roles');
   }
 
   public function logout()
@@ -197,6 +198,10 @@ class User_Authentication extends CI_Controller
       if(!empty($this->session->userdata['userData']['id']))
       {
         $this->load->view('templates/headerRow');
+        if($this->Leadership->checkIfAdmin($this->session->userdata['userData']['id'], $this->Roles->getAdminRole($this->PartyData->getCurrentPartyID())) == 1)
+        {
+          // $this->load->view('administration/adminPanel');
+        }
       }
       // Load login & profile view
       $this->load->view('user_authentication/index',$data);
