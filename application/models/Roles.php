@@ -14,4 +14,44 @@ class Roles extends CI_Model
     $data['roleSlug'] = 'admin';
     $update = $this->db->update($this->tableName,$data);
   }
+
+  public function getCurrentRoles($partyID)
+  {
+    $this->db->from($this->tableName);
+    $this->db->where(array('partyID'=>$partyID));
+    $prevQuery = $this->db->get();
+    $prevCheck = $prevQuery->num_rows();
+
+    if($prevCheck > 0)
+    {
+      $prevResult = $prevQuery->result_array();
+      // echo serialize($prevResult);
+      // webmaster returned at the end -- start
+      // $i = 0;
+      // foreach ($prevResult as $prevResult)
+      // {
+      //   if($prevResult['roleType'] == 1)
+      //   {
+      //     $saveRoleForLater = $prevResult;
+      //   }
+      //   else
+      //   {
+      //     $newResult[$i] = $prevResult;
+      //     $i++;
+      //   }
+      // }
+      // if(!empty($saveRoleForLater))
+      // {
+      //   $newResult[$i] = $saveRoleForLater;
+      // }
+      // return $newResult;
+      // webmaster returned at the end -- end
+      // echo serialize($newResult);
+      return $prevResult;
+    }
+    else
+    {
+      return NULL;
+    }
+  }
 }
