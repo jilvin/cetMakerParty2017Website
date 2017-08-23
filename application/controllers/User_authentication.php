@@ -135,10 +135,10 @@ class User_Authentication extends CI_Controller
           //get level current level information -- start
           if(!empty($userID))
           {
-            // $data['level'] = $this->User->returnLevel($userID);
-            // $data['levelcheckintime'] = $this->User->returnLevelCheckInTime($userID);
-            // $data['collegename'] = $this->User->returnCollegeName($userID);
-            // $data['mobilenumber'] = $this->User->returnMobileNumber($userID);
+            $data['stream'] = $this->User->returnStream($userID);
+            $data['branch'] = $this->User->returnBranch($userID);
+            $data['semester'] = $this->User->returnSemester($userID);
+            $data['mobilenumber'] = $this->User->returnMobileNumber($userID);
           }
           //get level current level information -- end
           $this->session->set_userdata('userData',$userData);
@@ -165,10 +165,10 @@ class User_Authentication extends CI_Controller
           //get level current level information -- start
           if(!empty($userID))
           {
-            // $data['level'] = $this->User->returnLevel($userID);
-            // $data['levelcheckintime'] = $this->User->returnLevelCheckInTime($userID);
-            // $data['collegename'] = $this->User->returnCollegeName($userID);
-            // $data['mobilenumber'] = $this->User->returnMobileNumber($userID);
+            $data['stream'] = $this->User->returnStream($userID);
+            $data['branch'] = $this->User->returnBranch($userID);
+            $data['semester'] = $this->User->returnSemester($userID);
+            $data['mobilenumber'] = $this->User->returnMobileNumber($userID);
           }
           //get level current level information -- end
           if(!empty($userID))
@@ -198,6 +198,10 @@ class User_Authentication extends CI_Controller
       if(!empty($this->session->userdata['userData']['id']))
       {
         $this->load->view('templates/headerRow');
+        if($this->User->returnCheckValueAdditional() != 1)
+        {
+          redirect(base_url()."more_details");
+        }
         if($this->Leadership->checkIfAdmin($this->session->userdata['userData']['id'], $this->Roles->getAdminRole($this->PartyData->getCurrentPartyID())) == 1)
         {
           // $this->load->view('administration/adminPanel');

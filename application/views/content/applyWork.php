@@ -26,6 +26,19 @@
           <input id="inputWorkName" type="text" required="true" placeholder="Name of your work." value="<?php echo $artName; ?>" name="workName">
           <input id="inputWorkName" type="text" required="true" placeholder="Short description." value="<?php echo $artShortDescription; ?>" name="workShortDescription">
           <textarea id="textareaWorkDescription" required="true" placeholder="Long description." name="workLongDescription" type="text"><?php echo $artLongDescription; ?></textarea>
+          <?php if(!empty($clubs)) {?>
+          <p style="margin-top: 20px;">Select your patron club (if any)</p>
+          <select name="patronClub">
+            <option value="">None</option>
+            <?php foreach($clubs as $club)
+            {
+              ?>
+              <option value="<?php echo $club['id']; ?>"><?php echo $club['clubname']; ?></option>
+              <?php
+            }
+          ?>
+          </select>
+          <?php } ?>
           <p style="margin-top: 20px;">Upload an image with ratio: 38:35. Upload high quality image if possible.</p>
           <span style="color:red;"><?php echo $error1;?></span>
           <input type="file" name="userfile1" required="true" size="20" />

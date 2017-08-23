@@ -8,6 +8,7 @@ class Apply extends CI_Controller {
 		$this->load->helper(array('form', 'url'));
 
 		$this->load->model('PartyData');
+		$this->load->model('Clubs');
 		$this->load->model('ArtVerificationWaitingList');
 		$this->load->model('ArtVerificationWaitingListClubsAssociation');
 	}
@@ -55,7 +56,8 @@ class Apply extends CI_Controller {
 				$this->load->view('templates/henosis');
 				$this->load->view('templates/contentStart');
 				$this->load->view('templates/headerRow');
-				$this->load->view('content/applyWork', array('error1' => ' ', 'error2' => ' '));
+				$clubs = $this->Clubs->returnClubs($this->PartyData->getCurrentPartyID());
+				$this->load->view('content/applyWork', array('clubs' => $clubs,'error1' => ' ', 'error2' => ' '));
 				$this->load->view('templates/contentEnd');
 				if($this->session->userdata('userData'))
 				{
@@ -88,7 +90,8 @@ class Apply extends CI_Controller {
 				$this->load->view('templates/henosis');
 				$this->load->view('templates/contentStart');
 				$this->load->view('templates/headerRow');
-				$this->load->view('content/applyExperience', array('error1' => ' ', 'error2' => ' '));
+				$clubs = $this->Clubs->returnClubs($this->PartyData->getCurrentPartyID());
+				$this->load->view('content/applyExperience', array('clubs' => $clubs,'error1' => ' ', 'error2' => ' '));
 				$this->load->view('templates/contentEnd');
 				if($this->session->userdata('userData'))
 				{
@@ -159,7 +162,7 @@ class Apply extends CI_Controller {
 					$artName = $this->input->post("workName");
 					$artShortDescription = $this->input->post("workShortDescription");
 					$artLongDescription = $this->input->post("workLongDescription");
-					$patronClub = $this->input->post("clubID");
+					$patronClub = $this->input->post("patronClub");
 					if($error1 == NULL && $error2 == NULL)
 					{
 						// work
@@ -192,7 +195,8 @@ class Apply extends CI_Controller {
 						$this->load->view('templates/henosis');
 						$this->load->view('templates/contentStart');
 						$this->load->view('templates/headerRow');
-						$this->load->view('content/applyWork', $error = array('error1' => $error1, 'error2' => $error2, 'artName'=>$artName, 'artShortDescription'=>$artShortDescription, 'artLongDescription'=>$artLongDescription, 'patronClub'=>$patronClub));
+						$clubs = $this->Clubs->returnClubs($this->PartyData->getCurrentPartyID());
+						$this->load->view('content/applyWork', $error = array('clubs' => $clubs,'error1' => $error1, 'error2' => $error2, 'artName'=>$artName, 'artShortDescription'=>$artShortDescription, 'artLongDescription'=>$artLongDescription, 'patronClub'=>$patronClub));
 						$this->load->view('templates/contentEnd');
 						if($this->session->userdata('userData'))
 						{
