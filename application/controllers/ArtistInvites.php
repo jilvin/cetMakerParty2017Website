@@ -28,7 +28,7 @@ class ArtistInvites extends CI_Controller
 				$invitedArtIDs = $this->ArtistInvitesModel->getInvitedArtIDs($this->User->returnEmail($this->session->userdata['userData']['id']));
 				$this->load->view('content/artistInvites', array('invites' => $this->Art->getArts($invitedArtIDs)));
 				$this->load->view('templates/contentEnd');
-				$this->load->view('templates/loggedInMenu');
+				require_once 'required/menu.php';
 				$this->load->view('templates/footer');
 			}
 			else
@@ -65,7 +65,7 @@ class ArtistInvites extends CI_Controller
 								$this->load->view('templates/headerRow');
 								$this->load->view('content/inviteSuccessfulAddition');
 								$this->load->view('templates/contentEnd');
-								$this->load->view('templates/loggedInMenu');
+								require_once 'required/menu.php';
 								$this->load->view('templates/footer');
 							}
 							else
@@ -122,7 +122,7 @@ class ArtistInvites extends CI_Controller
 							$this->load->view('templates/headerRow');
 							$this->load->view('content/inviteSuccessfulRejection');
 							$this->load->view('templates/contentEnd');
-							$this->load->view('templates/loggedInMenu');
+							require_once 'required/menu.php';
 							$this->load->view('templates/footer');
 						}
 						else

@@ -10,6 +10,7 @@ class User_Authentication extends CI_Controller
 
     //Load user model
     $this->load->model('User');
+    $this->load->model('Art');
     //Load PartyData model
     $this->load->model('PartyData');
     $this->load->model('MainConfig');
@@ -223,14 +224,7 @@ class User_Authentication extends CI_Controller
       // Load login & profile view
       $this->load->view('user_authentication/index',$data);
       $this->load->view('templates/contentEnd');
-      if($this->session->userdata('userData'))
-      {
-        $this->load->view('templates/loggedInMenu');
-      }
-      else
-      {
-        $this->load->view('templates/menu');
-      }
+      require_once 'required/menu.php';
       $this->load->view('templates/footer');
     }
     else

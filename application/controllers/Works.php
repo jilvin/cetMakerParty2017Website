@@ -25,14 +25,7 @@ class Works extends CI_Controller {
 				$this->load->view('templates/headerRow');
 				$this->load->view('content/works', $data);
 				$this->load->view('templates/contentEnd');
-				if($this->session->userdata('userData'))
-				{
-					$this->load->view('templates/loggedInMenu');
-				}
-				else
-				{
-					$this->load->view('templates/menu');
-				}
+				require_once 'required/menu.php';
 				$this->load->view('templates/footer');
 			}
 			else
@@ -68,14 +61,7 @@ class Works extends CI_Controller {
 						}
 						$this->load->view('content/worksMine', $data);
 						$this->load->view('templates/contentEnd');
-						if($this->session->userdata('userData'))
-						{
-							$this->load->view('templates/loggedInMenu');
-						}
-						else
-						{
-							$this->load->view('templates/menu');
-						}
+						require_once 'required/menu.php';
 						$this->load->view('templates/footer');
 					}
 					else if($this->ArtVerificationWaitingList->checkForWorkUser($this->PartyData->getCurrentPartyID(), $this->session->userdata['userData']['id']) > 0)
@@ -86,14 +72,7 @@ class Works extends CI_Controller {
 						$this->load->view('templates/headerRow');
 						$this->load->view('content/worksWaitingAlert');
 						$this->load->view('templates/contentEnd');
-						if($this->session->userdata('userData'))
-						{
-							$this->load->view('templates/loggedInMenu');
-						}
-						else
-						{
-							$this->load->view('templates/menu');
-						}
+						require_once 'required/menu.php';
 						$this->load->view('templates/footer');
 					}
 					else
@@ -109,14 +88,7 @@ class Works extends CI_Controller {
 					$this->load->view('templates/headerRow');
 					$this->load->view('content/worksWaitingAlert');
 					$this->load->view('templates/contentEnd');
-					if($this->session->userdata('userData'))
-					{
-						$this->load->view('templates/loggedInMenu');
-					}
-					else
-					{
-						$this->load->view('templates/menu');
-					}
+					require_once 'required/menu.php';
 					$this->load->view('templates/footer');
 				}
 				else
@@ -150,14 +122,7 @@ class Works extends CI_Controller {
 					$this->load->view('templates/headerRow');
 					$this->load->view('content/worksWaiting', $waitingWorks);
 					$this->load->view('templates/contentEnd');
-					if($this->session->userdata('userData'))
-					{
-						$this->load->view('templates/loggedInMenu');
-					}
-					else
-					{
-						$this->load->view('templates/menu');
-					}
+					require_once 'required/menu.php';
 					$this->load->view('templates/footer');
 				}
 				else

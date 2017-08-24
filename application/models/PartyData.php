@@ -31,6 +31,26 @@ public function getCurrentPartyID()
   return 1;
 }
 
+public function getPartyDate($partyID)
+{
+  $this->db->from($this->tableName);
+  $this->db->where(array('id' => $partyID));
+  $prevQuery = $this->db->get();
+  $prevCheck = $prevQuery->num_rows();
+
+  if($prevCheck > 0)
+  {
+    // echo serialize($prevQuery->result_array()[0]['partytime']);
+    $timestamp = $prevQuery->result_array()[0]['partytime'];
+    $convertedTimestamp = date_format(date_create($timestamp), 'F d Y');
+    // echo $convertedTimestamp;
+    return $convertedTimestamp;
+  }
+  else
+  {
+    return NULL;
+  }
+}
   // public function checkUser($data = array())
   // {
   //   $this->db->select($this->primaryKey);

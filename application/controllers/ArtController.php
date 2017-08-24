@@ -34,7 +34,7 @@ class ArtController extends CI_Controller
 						$this->load->view('templates/headerRow');
 						$this->load->view('content/addArtist', $this->Art->getArt($this->uri->segment(2)));
 						$this->load->view('templates/contentEnd');
-						$this->load->view('templates/loggedInMenu');
+						require_once 'required/menu.php';
 						$this->load->view('templates/footer');
 					}
 					else

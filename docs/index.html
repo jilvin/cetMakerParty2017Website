@@ -9,6 +9,17 @@ CREATE TABLE `mainconfig` (
  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+partydata
+
+CREATE TABLE `partydata` (
+`id` int(11) NOT NULL AUTO_INCREMENT,
+`partytime` datetime NOT NULL,
+`deadline` datetime NOT NULL,
+`created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+`modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 art
 
 CREATE TABLE `art` (
@@ -54,17 +65,6 @@ CREATE TABLE `artusersassociation` (
  PRIMARY KEY (`id`),
  FOREIGN KEY (userID) REFERENCES users(id),
  FOREIGN KEY (artID) REFERENCES art(id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-partydata
-
-CREATE TABLE `partydata` (
- `id` int(11) NOT NULL AUTO_INCREMENT,
- `partytime` datetime NOT NULL,
- `deadline` datetime NOT NULL,
- `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
- `modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
- PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 roles

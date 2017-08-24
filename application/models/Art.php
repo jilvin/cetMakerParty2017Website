@@ -187,4 +187,24 @@ class Art extends CI_Model
       return NULL;
     }
   }
+
+  public function returnWorksCount($partyID)
+  {
+    $this->db->from($this->tableName);
+    $this->db->where(array('partyID'=>$partyID,'category'=>'work'));
+    $prevQuery = $this->db->get();
+    $prevCheck = $prevQuery->num_rows();
+
+    return $prevCheck;
+  }
+
+  public function returnExperiencesCount($partyID)
+  {
+    $this->db->from($this->tableName);
+    $this->db->where(array('partyID'=>$partyID,'category'=>'experience'));
+    $prevQuery = $this->db->get();
+    $prevCheck = $prevQuery->num_rows();
+
+    return $prevCheck;
+  }
 }

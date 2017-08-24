@@ -5,9 +5,10 @@ class Main extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
-		
+
 		//Load PartyData model
 		$this->load->model('PartyData');
+		$this->load->model('Art');
 	}
 
 	/**
@@ -63,14 +64,7 @@ class Main extends CI_Controller {
 			$this->load->view('templates/headerRow');
 			$this->load->view('showcase/'.$workCategory[$selected].'/'.$work[$selected].'/showcase',$data);
 			$this->load->view('templates/contentEnd');
-			if($this->session->userdata('userData'))
-			{
-				$this->load->view('templates/loggedInMenu');
-			}
-			else
-			{
-				$this->load->view('templates/menu');
-			}
+			require_once 'required/menu.php';
 			$this->load->view('templates/footer');
 		}
 		else

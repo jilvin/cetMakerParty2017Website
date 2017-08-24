@@ -8,6 +8,7 @@ class Apply extends CI_Controller {
 		$this->load->helper(array('form', 'url'));
 
 		$this->load->model('PartyData');
+		$this->load->model('Art');
 		$this->load->model('Clubs');
 		$this->load->model('ArtVerificationWaitingList');
 		$this->load->model('ArtVerificationWaitingListClubsAssociation');
@@ -25,14 +26,7 @@ class Apply extends CI_Controller {
 				$this->load->view('templates/headerRow');
 				$this->load->view('content/apply');
 				$this->load->view('templates/contentEnd');
-				if($this->session->userdata('userData'))
-				{
-					$this->load->view('templates/loggedInMenu');
-				}
-				else
-				{
-					$this->load->view('templates/menu');
-				}
+				require_once 'required/menu.php';
 				$this->load->view('templates/footer');
 			}
 			else
@@ -59,14 +53,7 @@ class Apply extends CI_Controller {
 				$clubs = $this->Clubs->returnClubs($this->PartyData->getCurrentPartyID());
 				$this->load->view('content/applyWork', array('clubs' => $clubs,'error1' => ' ', 'error2' => ' '));
 				$this->load->view('templates/contentEnd');
-				if($this->session->userdata('userData'))
-				{
-					$this->load->view('templates/loggedInMenu');
-				}
-				else
-				{
-					$this->load->view('templates/menu');
-				}
+				require_once 'required/menu.php';
 				$this->load->view('templates/footer');
 			}
 			else
@@ -93,14 +80,7 @@ class Apply extends CI_Controller {
 				$clubs = $this->Clubs->returnClubs($this->PartyData->getCurrentPartyID());
 				$this->load->view('content/applyExperience', array('clubs' => $clubs,'error1' => ' ', 'error2' => ' '));
 				$this->load->view('templates/contentEnd');
-				if($this->session->userdata('userData'))
-				{
-					$this->load->view('templates/loggedInMenu');
-				}
-				else
-				{
-					$this->load->view('templates/menu');
-				}
+				require_once 'required/menu.php';
 				$this->load->view('templates/footer');
 			}
 			else
@@ -179,14 +159,7 @@ class Apply extends CI_Controller {
 						$this->load->view('templates/headerRow');
 						$this->load->view('content/applicationRecieved', $data = array('data1' => $data1, 'data2' => $data2));
 						$this->load->view('templates/contentEnd');
-						if($this->session->userdata('userData'))
-						{
-							$this->load->view('templates/loggedInMenu');
-						}
-						else
-						{
-							$this->load->view('templates/menu');
-						}
+						require_once 'required/menu.php';
 						$this->load->view('templates/footer');
 					}
 					else
@@ -198,14 +171,7 @@ class Apply extends CI_Controller {
 						$clubs = $this->Clubs->returnClubs($this->PartyData->getCurrentPartyID());
 						$this->load->view('content/applyWork', $error = array('clubs' => $clubs,'error1' => $error1, 'error2' => $error2, 'artName'=>$artName, 'artShortDescription'=>$artShortDescription, 'artLongDescription'=>$artLongDescription, 'patronClub'=>$patronClub));
 						$this->load->view('templates/contentEnd');
-						if($this->session->userdata('userData'))
-						{
-							$this->load->view('templates/loggedInMenu');
-						}
-						else
-						{
-							$this->load->view('templates/menu');
-						}
+						require_once 'required/menu.php';
 						$this->load->view('templates/footer');
 					}
 				}
@@ -268,14 +234,7 @@ class Apply extends CI_Controller {
 						$this->load->view('templates/headerRow');
 						$this->load->view('content/applicationRecieved', $data = array('data1' => $data1, 'data2' => $data2));
 						$this->load->view('templates/contentEnd');
-						if($this->session->userdata('userData'))
-						{
-							$this->load->view('templates/loggedInMenu');
-						}
-						else
-						{
-							$this->load->view('templates/menu');
-						}
+						require_once 'required/menu.php';
 						$this->load->view('templates/footer');
 					}
 					else
@@ -286,14 +245,7 @@ class Apply extends CI_Controller {
 						$this->load->view('templates/headerRow');
 						$this->load->view('content/applyExperience', $error = array('error1' => $error1, 'error2' => $error2, 'artName'=>$artName, 'artShortDescription'=>$artShortDescription, 'artLongDescription'=>$artLongDescription, 'patronClub'=>$patronClub));
 						$this->load->view('templates/contentEnd');
-						if($this->session->userdata('userData'))
-						{
-							$this->load->view('templates/loggedInMenu');
-						}
-						else
-						{
-							$this->load->view('templates/menu');
-						}
+						require_once 'required/menu.php';
 						$this->load->view('templates/footer');
 					}
 				}

@@ -2,8 +2,15 @@
   <div id="menuRow" class="row">
     <div id="menuLeftColumn" class="col-sm-4 text-center">
       <ul id="menuLeftColumnUL">
-        <li>30+ Works</li>
-        <li>2+ Experiences</li>
+        <?php if($worksCount == 0 && $experiencesCount == 0) { ?>
+          <li>Start working on your Magnum Opus.</li>
+          <?php } else { ?>
+        <?php if($worksCount != 0) { ?>
+        <li><?php echo $worksCount; ?>+ Works</li>
+        <?php } ?>
+        <?php if($experiencesCount != 0) { ?>
+        <li><?php echo $experiencesCount; ?>+ Experiences</li>
+        <?php }} ?>
       </ul>
     </div>
     <div id="menuCenterColumn" class="col-sm-4 text-center">
@@ -24,7 +31,7 @@
     </div>
     <div id="menuRightColumn" class="col-sm-4 text-center">
       <ul id="menuRightColumnUL">
-        <li>October 2 2017</li>
+        <li><?php echo $currentPartyDate; ?></li>
       </ul>
     </div>
   </div>

@@ -46,7 +46,7 @@ class Invite extends CI_Controller {
 									$this->load->view('templates/headerRow');
 									$this->load->view('content/addArtistComplete');
 									$this->load->view('templates/contentEnd');
-									$this->load->view('templates/loggedInMenu');
+									require_once 'required/menu.php';
 									$this->load->view('templates/footer');
 								}
 								else if($inviteReturn == "inviteAlreadyExists")
@@ -57,7 +57,7 @@ class Invite extends CI_Controller {
 									$this->load->view('templates/headerRow');
 									$this->load->view('content/inviteAlreadyExists');
 									$this->load->view('templates/contentEnd');
-									$this->load->view('templates/loggedInMenu');
+									require_once 'required/menu.php';
 									$this->load->view('templates/footer');
 								}
 							}
@@ -74,7 +74,7 @@ class Invite extends CI_Controller {
 							$this->load->view('templates/headerRow');
 							$this->load->view('content/inviteUserAlreadyAssociated');
 							$this->load->view('templates/contentEnd');
-							$this->load->view('templates/loggedInMenu');
+							require_once 'required/menu.php';
 							$this->load->view('templates/footer');
 						}
 					}

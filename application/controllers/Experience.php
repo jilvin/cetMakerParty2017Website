@@ -36,14 +36,7 @@ class Experience extends CI_Controller {
 				}
 				$this->load->view('content/displayExperience', array('experience' => $this->Art->getExperience($this->uri->segment(2)), 'ownArt' => $ownArt));
 				$this->load->view('templates/contentEnd');
-				if($this->session->userdata('userData'))
-				{
-					$this->load->view('templates/loggedInMenu');
-				}
-				else
-				{
-					$this->load->view('templates/menu');
-				}
+				require_once 'required/menu.php';
 				$this->load->view('templates/footer');
 			}
 		}
@@ -69,14 +62,7 @@ class Experience extends CI_Controller {
 						$this->load->view('templates/contentStart');
 						$this->load->view('content/displayWaitingExperience', $data);
 						$this->load->view('templates/contentEnd');
-						if($this->session->userdata('userData'))
-						{
-							$this->load->view('templates/loggedInMenu');
-						}
-						else
-						{
-							$this->load->view('templates/menu');
-						}
+						require_once 'required/menu.php';
 						$this->load->view('templates/footer');
 					}
 					else
