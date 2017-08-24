@@ -101,4 +101,55 @@ class ArtistInvites extends CI_Controller
 			$this->load->view('errors/not_configured');
 		}
 	}
+
+	public function reject()
+	{
+		if($this->PartyData->checkPartyExists() == 1)
+		{
+			if (!empty($this->session->userdata['userData']['id'])  && $this->ArtistInvitesModel->checkIfArtInviteWaiting($this->User->returnEmail($this->session->userdata['userData']['id'])) == 1)
+			{
+				if(!empty($this->input->post("artID")))
+				{
+					if($this->ArtistInvitesModel->checkIfValid($this->input->post("artID"), $this->User->returnEmail($this->session->userdata['userData']['id'])) == 1)
+					{
+						// valid
+						if($this->ArtistInvitesModel->deleteInvite($this->input->post("artID"), $this->User->returnEmail($this->session->userdata['userData']['id'])) == 1)
+						{
+							// deletion successful
+							$this->load->view('templates/header');
+							$this->load->view('templates/henosis');
+							$this->load->view('templates/contentStart');
+							$this->load->view('templates/headerRow');
+							$this->load->view('content/inviteSuccessfulRejection');
+							$this->load->view('templates/contentEnd');
+							$this->load->view('templates/loggedInMenu');
+							$this->load->view('templates/footer');
+						}
+						else
+						{
+							// failed
+							redirect(base_url());
+						}
+					}
+					else
+					{
+						// invalid
+						redirect(base_url());
+					}
+				}
+				else
+				{
+					redirect(base_url()."artistInvites");
+				}
+			}
+			else
+			{
+				redirect('user_authentication');
+			}
+		}
+		else
+		{
+			$this->load->view('errors/not_configured');
+		}
+	}
 }
