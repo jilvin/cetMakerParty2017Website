@@ -53,6 +53,7 @@ $route['default_controller'] = 'main';
 $route['work/:num'] = 'work/index';
 $route['work/:num/addArtist'] = 'artController/addArtist';
 $route['experience/:num'] = 'experience/index';
+$route['experience/:num/addArtist'] = 'artController/addArtist';
 $route['work/waiting/:num'] = 'work/waiting';
 $route['experience/waiting/:num'] = 'experience/waiting';
 $route['works/mine/waiting'] = 'works/mine_waiting';
