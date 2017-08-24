@@ -4,7 +4,7 @@
 <?php foreach ($artList as $artList): ?>
   <div class="o-wrapper">
     <div class="c-movie-card">
-      <div class="c-movie-card__img"></div>
+      <div class="c-movie-card__img" style="background-image: url('<?php echo base_url(); ?>uploads/images/art/approved/<?php echo $artList->type1imagefilename; ?>');"></div>
       <div class="c-movie-card__btn-cont">
       </div>
       <div class="c-movie-card__content ">
