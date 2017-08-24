@@ -15,6 +15,7 @@ class User_Authentication extends CI_Controller
     $this->load->model('MainConfig');
     $this->load->model('Leadership');
     $this->load->model('Roles');
+    $this->load->model('ArtistInvites');
   }
 
   public function logout()
@@ -71,6 +72,14 @@ class User_Authentication extends CI_Controller
         // Insert or update user data
         $userID = $this->User->checkUser($userData);
         $userData['id'] = $userID;
+
+        if(!empty($userID))
+        {
+          // $data['stream'] = $this->User->returnStream($userID);
+          // $data['branch'] = $this->User->returnBranch($userID);
+          // $data['semester'] = $this->User->returnSemester($userID);
+          // $data['mobilenumber'] = $this->User->returnMobileNumber($userID);
+        }
         // if($this->PartyData->checkPartyExists() == 0)
         // {
         //
@@ -135,10 +144,10 @@ class User_Authentication extends CI_Controller
           //get level current level information -- start
           if(!empty($userID))
           {
-            $data['stream'] = $this->User->returnStream($userID);
-            $data['branch'] = $this->User->returnBranch($userID);
-            $data['semester'] = $this->User->returnSemester($userID);
-            $data['mobilenumber'] = $this->User->returnMobileNumber($userID);
+            // $data['stream'] = $this->User->returnStream($userID);
+            // $data['branch'] = $this->User->returnBranch($userID);
+            // $data['semester'] = $this->User->returnSemester($userID);
+            // $data['mobilenumber'] = $this->User->returnMobileNumber($userID);
           }
           //get level current level information -- end
           $this->session->set_userdata('userData',$userData);
@@ -165,10 +174,10 @@ class User_Authentication extends CI_Controller
           //get level current level information -- start
           if(!empty($userID))
           {
-            $data['stream'] = $this->User->returnStream($userID);
-            $data['branch'] = $this->User->returnBranch($userID);
-            $data['semester'] = $this->User->returnSemester($userID);
-            $data['mobilenumber'] = $this->User->returnMobileNumber($userID);
+            // $data['stream'] = $this->User->returnStream($userID);
+            // $data['branch'] = $this->User->returnBranch($userID);
+            // $data['semester'] = $this->User->returnSemester($userID);
+            // $data['mobilenumber'] = $this->User->returnMobileNumber($userID);
           }
           //get level current level information -- end
           if(!empty($userID))
@@ -205,6 +214,10 @@ class User_Authentication extends CI_Controller
         if($this->Leadership->checkIfAdmin($this->session->userdata['userData']['id'], $this->Roles->getAdminRole($this->PartyData->getCurrentPartyID())) == 1)
         {
           // $this->load->view('administration/adminPanel');
+        }
+        if($this->ArtistInvites->checkIfArtInviteWaiting($this->User->returnEmail($this->session->userdata['userData']['id'])) == 1)
+        {
+          redirect(base_url()."artistInvites");
         }
       }
       // Load login & profile view

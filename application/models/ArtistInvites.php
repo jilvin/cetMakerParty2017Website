@@ -30,4 +30,21 @@ class ArtistInvites extends CI_Model
       }
     }
   }
+
+  public function checkIfArtInviteWaiting($emailID)
+  {
+    $this->db->from($this->tableName);
+    $this->db->where(array('inviteEmail'=>$emailID));
+    $prevQuery = $this->db->get();
+    $prevCheck = $prevQuery->num_rows();
+
+    if($prevCheck > 0)
+    {
+      return 1;
+    }
+    else
+    {
+      return 0;
+    }
+  }
 }

@@ -69,4 +69,22 @@ class User extends CI_Model
       return NULL;
     }
   }
+
+  public function returnEmail($userID)
+  {
+    $this->db->from($this->tableName);
+    $this->db->where(array('id'=>$userID));
+    $prevQuery = $this->db->get();
+    $prevCheck = $prevQuery->num_rows();
+
+    if($prevCheck > 0)
+    {
+      // echo $prevQuery->result_object()[0]->email;
+      return $prevQuery->result_object()[0]->email;
+    }
+    else
+    {
+      return NULL;
+    }
+  }
 }
