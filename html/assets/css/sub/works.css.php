@@ -106,7 +106,7 @@ svg.shopping {
 .c-movie-card__img {
   position: relative;
   height:350px;
-  background-size:280%;
+  background-size: contain;
   background-position:75% 20%;
   border-radius:4px 4px 0 0;
   background-image: url("http://s3.foxfilm.com/foxmovies/production/films/104/images/gallery/martian-gallery3-gallery-image.jpg");

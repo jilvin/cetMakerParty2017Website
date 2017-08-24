@@ -8,6 +8,7 @@ class Experience extends CI_Controller {
 
 		$this->load->model('PartyData');
 		$this->load->model('Art');
+		$this->load->model('ArtUserAssociation');
 		$this->load->model('ArtVerificationWaitingList');
 		$this->load->model('ArtVerificationWaitingListClubsAssociation');
 	}
@@ -25,7 +26,15 @@ class Experience extends CI_Controller {
 				$this->load->view('templates/header');
 				$this->load->view('templates/henosis');
 				$this->load->view('templates/contentStart');
-				$this->load->view('content/displayExperience', $this->Art->getExperience($this->uri->segment(2)));
+				if($this->session->userdata['userData']['id'])
+				{
+					$ownArt = $this->ArtUserAssociation->checkIfOwnArt($this->uri->segment(2), $this->session->userdata['userData']['id']);
+				}
+				else
+				{
+					$ownArt = 0;
+				}
+				$this->load->view('content/displayExperience', array('experience' => $this->Art->getExperience($this->uri->segment(2)), 'ownArt' => $ownArt));
 				$this->load->view('templates/contentEnd');
 				if($this->session->userdata('userData'))
 				{

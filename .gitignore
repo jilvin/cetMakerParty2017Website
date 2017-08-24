@@ -31,4 +31,4 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 # Specific to cetMakerParty2017Website project.
 application/config/database.php
 application/config/config.php
-html/uploads/images/art/waiting/*
+html/uploads/*
