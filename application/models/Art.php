@@ -26,6 +26,30 @@ class Art extends CI_Model
     }
   }
 
+  public function getArts($artIDs)
+  {
+    $i = 0;
+    $data = NULL;
+    foreach($artIDs as $artID)
+    {
+      // echo serialize($artID['artID']);
+      $this->db->from($this->tableName);
+      $this->db->where(array('id'=>$artID['artID']));
+      $prevQuery = $this->db->get();
+      $prevCheck = $prevQuery->num_rows();
+
+      if($prevCheck > 0)
+      {
+        $prevResult = $prevQuery->row_array();
+        // echo serialize($prevResult);
+        // return $prevResult;
+        $data[$i] = $prevResult;
+        $i++;
+      }
+    }
+    return $data;
+  }
+
   public function getWork($workID)
   {
     $this->db->from($this->tableName);

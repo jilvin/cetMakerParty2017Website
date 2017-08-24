@@ -9,10 +9,11 @@ class Invite extends CI_Controller {
 
 		$this->load->model('PartyData');
 		$this->load->model('Art');
+		$this->load->model('User');
 		$this->load->model('ArtUserAssociation');
 		$this->load->model('ArtVerificationWaitingList');
 		$this->load->model('ArtVerificationWaitingListClubsAssociation');
-		$this->load->model('ArtistInvites');
+		$this->load->model('ArtistInvitesModel');
 	}
 
 	public function index()
@@ -30,37 +31,51 @@ class Invite extends CI_Controller {
 				{
 					if($this->ArtUserAssociation->checkIfOwnArt($this->input->post("id"), $this->session->userdata['userData']['id']) == 1)
 					{
-						$artID = $this->input->post("id");
-						$inviteEmail = $this->input->post("email");
-						if(valid_email($inviteEmail))
+						if($this->ArtUserAssociation->checkIfAlreadyAssociated($this->User->returnUserIDIfExists($this->input->post("email")) , $this->input->post("id")) == 0)
 						{
-							$inviteReturn = $this->ArtistInvites->newArtistInvite($artID, $inviteEmail);
-							if($inviteReturn == "inviteAccepted")
+							$artID = $this->input->post("id");
+							$inviteEmail = $this->input->post("email");
+							if(valid_email($inviteEmail))
 							{
-								$this->load->view('templates/header');
-								$this->load->view('templates/henosis');
-								$this->load->view('templates/contentStart');
-								$this->load->view('templates/headerRow');
-								$this->load->view('content/addArtistComplete');
-								$this->load->view('templates/contentEnd');
-								$this->load->view('templates/loggedInMenu');
-								$this->load->view('templates/footer');
+								$inviteReturn = $this->ArtistInvitesModel->newArtistInvite($artID, $inviteEmail);
+								if($inviteReturn == "inviteAccepted")
+								{
+									$this->load->view('templates/header');
+									$this->load->view('templates/henosis');
+									$this->load->view('templates/contentStart');
+									$this->load->view('templates/headerRow');
+									$this->load->view('content/addArtistComplete');
+									$this->load->view('templates/contentEnd');
+									$this->load->view('templates/loggedInMenu');
+									$this->load->view('templates/footer');
+								}
+								else if($inviteReturn == "inviteAlreadyExists")
+								{
+									$this->load->view('templates/header');
+									$this->load->view('templates/henosis');
+									$this->load->view('templates/contentStart');
+									$this->load->view('templates/headerRow');
+									$this->load->view('content/inviteAlreadyExists');
+									$this->load->view('templates/contentEnd');
+									$this->load->view('templates/loggedInMenu');
+									$this->load->view('templates/footer');
+								}
 							}
-							else if($inviteReturn == "inviteAlreadyExists")
+							else
 							{
-								$this->load->view('templates/header');
-								$this->load->view('templates/henosis');
-								$this->load->view('templates/contentStart');
-								$this->load->view('templates/headerRow');
-								$this->load->view('content/inviteAlreadyExists');
-								$this->load->view('templates/contentEnd');
-								$this->load->view('templates/loggedInMenu');
-								$this->load->view('templates/footer');
+								echo "INVALID EMAIL";
 							}
 						}
 						else
 						{
-							echo "INVALID EMAIL";
+							$this->load->view('templates/header');
+							$this->load->view('templates/henosis');
+							$this->load->view('templates/contentStart');
+							$this->load->view('templates/headerRow');
+							$this->load->view('content/inviteUserAlreadyAssociated');
+							$this->load->view('templates/contentEnd');
+							$this->load->view('templates/loggedInMenu');
+							$this->load->view('templates/footer');
 						}
 					}
 					else

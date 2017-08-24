@@ -40,4 +40,28 @@ class ArtUserAssociation extends CI_Model
       return 0;
     }
   }
+
+  public function checkIfAlreadyAssociated($userID, $artID)
+  {
+    $this->db->from($this->tableName);
+    $this->db->where(array('artID'=> $artID,'userID'=>$userID));
+    $prevQuery = $this->db->get();
+    $prevCheck = $prevQuery->num_rows();
+    if($prevCheck > 0)
+    {
+      return 1;
+    }
+    else
+    {
+      return 0;
+    }
+  }
+
+  public function insertAssociation($userID, $artID)
+  {
+    if($userID != NULL && $artID != NULL)
+    {
+
+    }
+  }
 }

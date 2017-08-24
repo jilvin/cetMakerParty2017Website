@@ -87,4 +87,21 @@ class User extends CI_Model
       return NULL;
     }
   }
+
+  public function returnUserIDIfExists($emailID)
+  {
+    $this->db->from($this->tableName);
+    $this->db->where(array('email'=>$emailID));
+    $prevQuery = $this->db->get();
+    $prevCheck = $prevQuery->num_rows();
+    if($prevCheck > 0)
+    {
+      // echo serialize($prevQuery->result_object()[0]->id);
+      return $prevQuery->result_object()[0]->id;
+    }
+    else
+    {
+      return NULL;
+    }
+  }
 }

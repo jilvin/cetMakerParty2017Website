@@ -1,5 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-class ArtistInvites extends CI_Model
+class ArtistInvitesModel extends CI_Model
 {
   function __construct()
   {
@@ -35,6 +35,41 @@ class ArtistInvites extends CI_Model
   {
     $this->db->from($this->tableName);
     $this->db->where(array('inviteEmail'=>$emailID));
+    $prevQuery = $this->db->get();
+    $prevCheck = $prevQuery->num_rows();
+
+    if($prevCheck > 0)
+    {
+      return 1;
+    }
+    else
+    {
+      return 0;
+    }
+  }
+
+  public function getInvitedArtIDs($emailID)
+  {
+    $this->db->select('artID');
+    $this->db->from($this->tableName);
+    $this->db->where(array('inviteEmail'=>$emailID));
+    $prevQuery = $this->db->get();
+    $prevCheck = $prevQuery->num_rows();
+
+    if($prevCheck > 0)
+    {
+      return $prevQuery->result_array();
+    }
+    else
+    {
+      return NULL;
+    }
+  }
+
+  public function checkIfValid($artID, $emailID)
+  {
+    $this->db->from($this->tableName);
+    $this->db->where(array('artID' => $artID, 'inviteEmail'=>$emailID));
     $prevQuery = $this->db->get();
     $prevCheck = $prevQuery->num_rows();
 

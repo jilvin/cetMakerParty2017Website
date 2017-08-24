@@ -15,7 +15,7 @@ class User_Authentication extends CI_Controller
     $this->load->model('MainConfig');
     $this->load->model('Leadership');
     $this->load->model('Roles');
-    $this->load->model('ArtistInvites');
+    $this->load->model('ArtistInvitesModel');
   }
 
   public function logout()
@@ -215,7 +215,7 @@ class User_Authentication extends CI_Controller
         {
           // $this->load->view('administration/adminPanel');
         }
-        if($this->ArtistInvites->checkIfArtInviteWaiting($this->User->returnEmail($this->session->userdata['userData']['id'])) == 1)
+        if($this->ArtistInvitesModel->checkIfArtInviteWaiting($this->User->returnEmail($this->session->userdata['userData']['id'])) == 1)
         {
           redirect(base_url()."artistInvites");
         }
