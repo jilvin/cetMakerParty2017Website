@@ -82,4 +82,20 @@ class ArtistInvitesModel extends CI_Model
       return 0;
     }
   }
+
+  public function deleteInvite($artID, $inviteEmail)
+  {
+    $this->db->from($this->tableName);
+    $this->db->where(array('artID' => $artID, 'inviteEmail'=>$inviteEmail));
+    $delete = $this->db->delete();
+
+    if($delete)
+    {
+      return 1;
+    }
+    else
+    {
+      return 0;
+    }
+  }
 }

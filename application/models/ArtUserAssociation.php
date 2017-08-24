@@ -61,7 +61,17 @@ class ArtUserAssociation extends CI_Model
   {
     if($userID != NULL && $artID != NULL)
     {
-
+      $data['userID'] = $userID;
+      $data['artID'] = $artID;
+      $insert = $this->db->insert($this->tableName,$data);
+      if($insert)
+      {
+        return 1;
+      }
+      else
+      {
+        return 0;
+      }
     }
   }
 }

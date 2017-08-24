@@ -53,7 +53,32 @@ class ArtistInvites extends CI_Controller
 					if($this->ArtistInvitesModel->checkIfValid($this->input->post("artID"), $this->User->returnEmail($this->session->userdata['userData']['id'])) == 1)
 					{
 						// valid
-						$this->ArtUserAssociation->insertAssociation($this->session->userdata['userData']['id'], $this->input->post("artID"));
+						if($this->ArtUserAssociation->insertAssociation($this->session->userdata['userData']['id'], $this->input->post("artID")) == 1)
+						{
+							// insertion successful
+							if($this->ArtistInvitesModel->deleteInvite($this->input->post("artID"), $this->User->returnEmail($this->session->userdata['userData']['id'])) == 1)
+							{
+								// deletion successful
+								$this->load->view('templates/header');
+								$this->load->view('templates/henosis');
+								$this->load->view('templates/contentStart');
+								$this->load->view('templates/headerRow');
+								$this->load->view('content/inviteSuccessfulAddition');
+								$this->load->view('templates/contentEnd');
+								$this->load->view('templates/loggedInMenu');
+								$this->load->view('templates/footer');
+							}
+							else
+							{
+								// failed
+								redirect(base_url());
+							}
+						}
+						else
+						{
+							// failed
+							redirect(base_url());
+						}
 					}
 					else
 					{
