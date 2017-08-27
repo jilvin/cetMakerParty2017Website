@@ -4,13 +4,30 @@ header("Content-type: text/css; charset: UTF-8");
 require("../../../CONSTANTS.php");
 
 ?>
-.o-wrapper {
-  position: relative;
-  max-width:380px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 50px;
-  margin-bottom: 50px;
+@media screen and (max-width: 440px) {
+
+  .o-wrapper {
+    position: relative;
+    width: 260px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+}
+
+
+@media screen and (min-width: 440px) {
+
+  .o-wrapper {
+    position: relative;
+    width:380px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
 }
 
 @media screen and (min-width: 1000px)
@@ -103,27 +120,55 @@ svg.shopping {
   top:1.75em;
 }
 
-.c-movie-card__img {
-  position: relative;
-  height:350px;
-  width: 380px;
-  background-size: contain;
-  background-position:75% 20%;
-  border-radius:4px 4px 0 0;
-  background-image: url("http://s3.foxfilm.com/foxmovies/production/films/104/images/gallery/martian-gallery3-gallery-image.jpg");
-  &:after{
-    content:'';
-    display:block;
-    width: 100%;
-    height: 20%;
-    transform: skewY(-8deg);
-    background:white;
-    position: absolute;
-    z-index:0;
-    bottom:-40px;
+@media screen and (max-width: 440px) {
+
+  .c-movie-card__img {
+    position: relative;
+    height: 239.5px;
+    width: 260px;
+    background-size: contain;
+    background-position:75% 20%;
+    border-radius:4px 4px 0 0;
+    background-image: url("http://s3.foxfilm.com/foxmovies/production/films/104/images/gallery/martian-gallery3-gallery-image.jpg");
+    &:after{
+      content:'';
+      display:block;
+      width: 100%;
+      height: 20%;
+      transform: skewY(-8deg);
+      background:white;
+      position: absolute;
+      z-index:0;
+      bottom:-40px;
+    }
   }
+
 }
 
+@media screen and (min-width: 440px) {
+
+  .c-movie-card__img {
+    position: relative;
+    height:350px;
+    width: 380px;
+    background-size: contain;
+    background-position:75% 20%;
+    border-radius:4px 4px 0 0;
+    background-image: url("http://s3.foxfilm.com/foxmovies/production/films/104/images/gallery/martian-gallery3-gallery-image.jpg");
+    &:after{
+      content:'';
+      display:block;
+      width: 100%;
+      height: 20%;
+      transform: skewY(-8deg);
+      background:white;
+      position: absolute;
+      z-index:0;
+      bottom:-40px;
+    }
+  }
+
+}
 .c-movie-card__content {
   padding-top:2rem;
   position: relative;
