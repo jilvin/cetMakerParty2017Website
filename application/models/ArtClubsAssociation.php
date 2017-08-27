@@ -1,24 +1,17 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-class ArtVerificationWaitingListClubsAssociation extends CI_Model
+class ArtClubsAssociation extends CI_Model
 {
   function __construct()
   {
-    $this->tableName = 'artverificationwaitinglistclubsassociation';
+    $this->tableName = 'artclubsassociation';
     $this->primaryKey = 'id';
-  }
-
-  public function newAssociation($artverificationwaitinglistID, $clubID)
-  {
-    $data['artverificationwaitinglistID'] = $artverificationwaitinglistID;
-    $data['clubID'] = $clubID;
-    $insert = $this->db->insert($this->tableName,$data);
   }
 
   public function getPatronClubID($artID)
   {
     $this->db->select('clubID');
     $this->db->from($this->tableName);
-    $this->db->where(array('artverificationwaitinglistID'=>$artID));
+    $this->db->where(array('artID'=>$artID));
     $prevQuery = $this->db->get();
     $prevCheck = $prevQuery->num_rows();
     if($prevCheck > 0)

@@ -1,9 +1,12 @@
 <?php
+if(!empty($experience['status']))
+{
   switch($experience['status'])
   {
     case 'w': $experience['status'] = "Practicing.";
     break;
   }
+}
  ?>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/sub/displayWork.css.php">
 <div id="artDisplayImageRow" class="row" style="width: 100vw; height: 18.75vw; background-image: url('<?php echo base_url(); ?>uploads/images/art/approved/<?php echo $experience['type2imagefilename']; ?>');">
@@ -19,6 +22,10 @@
           echo '<p>'. $experience['artlongdescription'].'</p>';
           echo '<div id="workDetails" style="margin-top:30px;">';
           echo '<p><b>Current Status : </b>' .$experience['status'].'</p>';
+          if(!empty($patronClubName))
+          {
+            echo '<p><b>Patron Club : </b>' .$patronClubName.'</p>';
+          }
           echo '<p><b>Party ID : </b>' .$experience['partyID'].'</p>';
           echo '</div>'
           ?>

@@ -8,6 +8,8 @@ class Work extends CI_Controller {
 
 		$this->load->model('PartyData');
 		$this->load->model('Art');
+		$this->load->model('Clubs');
+		$this->load->model('ArtClubsAssociation');
 		$this->load->model('ArtUserAssociation');
 		$this->load->model('ArtVerificationWaitingList');
 		$this->load->model('ArtVerificationWaitingListClubsAssociation');
@@ -34,7 +36,9 @@ class Work extends CI_Controller {
 				{
 					$ownArt = 0;
 				}
-				$this->load->view('content/displayWork', array('work'=>$this->Art->getWork($this->uri->segment(2)), 'ownArt' => $ownArt));
+				$patronClubID = $this->ArtClubsAssociation->getPatronClubID($this->uri->segment(2));
+				$patronClubName = $this->Clubs->getClubName($patronClubID);
+				$this->load->view('content/displayWork', array('work'=>$this->Art->getWork($this->uri->segment(2)), 'ownArt' => $ownArt, 'patronClubName' => $patronClubName ));
 				$this->load->view('templates/contentEnd');
 				require_once 'required/menu.php';
 				$this->load->view('templates/footer');
@@ -60,7 +64,17 @@ class Work extends CI_Controller {
 						$this->load->view('templates/header');
 						$this->load->view('templates/henosis');
 						$this->load->view('templates/contentStart');
-						$this->load->view('content/displayWaitingWork', $data);
+						// if($this->session->userdata['userData']['id'] == $data['user'])
+						// {
+						// 	$ownArt = 1;
+						// }
+						// else
+						// {
+						// 	$ownArt = 0;
+						// }
+						$patronClubID = $this->ArtVerificationWaitingListClubsAssociation->getPatronClubID($this->uri->segment(3));
+						$patronClubName = $this->Clubs->getClubName($patronClubID);
+						$this->load->view('content/displayWaitingWork', array('work'=>$data, 'patronClubName' => $patronClubName ));
 						$this->load->view('templates/contentEnd');
 						require_once 'required/menu.php';
 						$this->load->view('templates/footer');

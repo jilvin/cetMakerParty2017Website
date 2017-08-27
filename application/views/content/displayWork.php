@@ -1,8 +1,11 @@
 <?php
-switch($work['status'])
+if(!empty($work['status']))
 {
-  case 'w': $work['status'] = "Under development.";
-  break;
+  switch($work['status'])
+  {
+    case 'w': $work['status'] = "Under development.";
+    break;
+  }
 }
 ?>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/sub/displayWork.css.php">
@@ -19,6 +22,10 @@ switch($work['status'])
       echo '<p>'. $work['artlongdescription'].'</p>';
       echo '<div id="workDetails" style="margin-top:30px;">';
       echo '<p><b>Current Status : </b>' .$work['status'].'</p>';
+      if(!empty($patronClubName))
+      {
+        echo '<p><b>Patron Club : </b>' .$patronClubName.'</p>';
+      }
       echo '<p><b>Party ID : </b>' .$work['partyID'].'</p>';
       echo '</div>'
       ?>
