@@ -106,6 +106,7 @@ svg.shopping {
 .c-movie-card__img {
   position: relative;
   height:350px;
+  width: 380px;
   background-size: contain;
   background-position:75% 20%;
   border-radius:4px 4px 0 0;
