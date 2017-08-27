@@ -16,6 +16,7 @@
     <div id="menuCenterColumn" class="col-sm-4 text-center">
       <ul id="menuCenterColumnUL">
         <li><a href="<?php echo base_url();?>" class="resumeHenosis">Home</a></li>
+        <li><a href="<?php echo base_url();?>about" class="resumeHenosis">About</a></li>
         <li><a href="<?php echo base_url();?>works" class="resumeHenosis">Works</a></li>
         <li><a href="<?php echo base_url();?>experiences" class="resumeHenosis">Experiences</a></li>
         <!-- <li><a href="<?php echo base_url();?>past" class="resumeHenosis">Past</a></li> -->
