@@ -28,7 +28,7 @@ class Experience extends CI_Controller {
 				$this->load->view('templates/header');
 				$this->load->view('templates/henosis');
 				$this->load->view('templates/contentStart');
-				if($this->session->userdata['userData']['id'])
+				if(!empty($this->session->userdata['userData']['id']))
 				{
 					$ownArt = $this->ArtUserAssociation->checkIfOwnArt($this->uri->segment(2), $this->session->userdata['userData']['id']);
 				}
