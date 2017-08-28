@@ -9,6 +9,8 @@ class Main extends CI_Controller {
 		//Load PartyData model
 		$this->load->model('PartyData');
 		$this->load->model('Art');
+
+		$this->load->helper('cookie');
 	}
 
 	/**
@@ -58,14 +60,43 @@ class Main extends CI_Controller {
 				//echo "session selected ".$selected;
 			}
 
-			$this->load->view('templates/header');
-			$this->load->view('templates/henosis');
-			$this->load->view('templates/contentStart');
-			$this->load->view('templates/headerRow');
-			$this->load->view('showcase/'.$workCategory[$selected].'/'.$work[$selected].'/showcase',$data);
-			$this->load->view('templates/contentEnd');
-			require_once 'required/menu.php';
-			$this->load->view('templates/footer');
+			$this->input->cookie('returningVisitor', TRUE);
+		  $returningVisitorCookie = get_cookie('returningVisitor');
+		  if(!empty($returningVisitorCookie))
+		  {
+				// echo serialize($returningVisitorCookie);
+		    if($returningVisitorCookie == TRUE)
+		    {
+					$this->load->view('templates/header');
+					$this->load->view('additional/annoJSCSS');
+					$this->load->view('templates/henosis');
+					$this->load->view('templates/contentStart');
+					$this->load->view('templates/headerRow');
+					$this->load->view('showcase/'.$workCategory[$selected].'/'.$work[$selected].'/showcase',$data);
+					$this->load->view('templates/contentEnd');
+					require_once 'required/menu.php';
+					$this->load->view('templates/footer');
+		    }
+				$timeInSeconds = 60 * 60 * 24 * 365; // nearly 1 year
+				set_cookie('returningVisitor','TRUE', $timeInSeconds);
+		  }
+		  else
+		  {
+				$timeInSeconds = 60 * 60 * 24 * 365; // nearly 1 year
+		    set_cookie('returningVisitor','TRUE', $timeInSeconds);
+				$this->load->view('templates/header');
+				$this->load->view('additional/annoJSCSS');
+				$this->load->view('templates/henosis');
+				$this->load->view('additional/henosisDupe');
+				$this->load->view('templates/contentStart');
+				$this->load->view('templates/headerRow');
+				$this->load->view('showcase/'.$workCategory[$selected].'/'.$work[$selected].'/showcase',$data);
+				$this->load->view('templates/contentEnd');
+				require_once 'required/menu.php';
+				$this->load->view('additional/annoJSJS');
+				$this->load->view('templates/footer');
+		  }
+
 		}
 		else
 		{
