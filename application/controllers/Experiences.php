@@ -59,7 +59,7 @@ class Experiences extends CI_Controller {
 						{
 							$this->load->view('content/experiencesWaitingAlert');
 						}
-						$this->load->view('content/worksMine', $data);
+						$this->load->view('content/experiencesMine', $data);
 						$this->load->view('templates/contentEnd');
 						require_once 'required/menu.php';
 						$this->load->view('templates/footer');

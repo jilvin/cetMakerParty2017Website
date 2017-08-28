@@ -37,7 +37,8 @@ class Invite extends CI_Controller {
 							$inviteEmail = $this->input->post("email");
 							if(valid_email($inviteEmail))
 							{
-								$inviteReturn = $this->ArtistInvitesModel->newArtistInvite($artID, $inviteEmail);
+								$hostID = $this->session->userdata['userData']['id'];
+								$inviteReturn = $this->ArtistInvitesModel->newArtistInvite($artID, $hostID, $inviteEmail);
 								if($inviteReturn == "inviteAccepted")
 								{
 									$this->load->view('templates/header');

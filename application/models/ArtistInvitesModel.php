@@ -7,7 +7,7 @@ class ArtistInvitesModel extends CI_Model
     $this->primaryKey = 'id';
   }
 
-  public function newArtistInvite($artID, $inviteEmail)
+  public function newArtistInvite($artID, $hostID, $inviteEmail)
   {
 
     $this->db->from($this->tableName);
@@ -22,6 +22,7 @@ class ArtistInvitesModel extends CI_Model
     else
     {
       $data['artID'] = $artID;
+      $data['host'] = $hostID;
       $data['inviteEmail'] = $inviteEmail;
       $insert = $this->db->insert($this->tableName,$data);
       if($insert)
