@@ -113,7 +113,7 @@ class Experiences extends CI_Controller {
 		{
 			if($this->session->userdata['userData']['id'])
 			{
-				$waitingExperiences['artList'] = $this->ArtVerificationWaitingList->getExperiencesOfUser($this->session->userdata['userData']['id']);
+				$waitingExperiences['artList'] = $this->ArtVerificationWaitingList->getExperiencesOfUser($this->PartyData->getCurrentPartyID(), $this->session->userdata['userData']['id']);
 				if($waitingExperiences != NULL)
 				{
 					$this->load->view('templates/header');

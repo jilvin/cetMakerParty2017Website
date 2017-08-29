@@ -12,16 +12,19 @@ class About extends CI_Controller
 		$this->load->model('ArtVerificationWaitingList');
 		$this->load->model('ArtVerificationWaitingListClubsAssociation');
 	}
-
+	
 	public function index()
 	{
-		$this->load->view('templates/header');
-		$this->load->view('templates/henosis');
-		$this->load->view('templates/contentStart');
-		// $this->load->view('templates/headerRow');
-		$this->load->view('content/about');
-		$this->load->view('templates/contentEnd');
-		require_once 'required/menu.php';
-		$this->load->view('templates/footer');
+		if($this->PartyData->checkPartyExists() == 1)
+		{
+			$this->load->view('templates/header');
+			$this->load->view('templates/henosis');
+			$this->load->view('templates/contentStart');
+			// $this->load->view('templates/headerRow');
+			$this->load->view('content/about');
+			$this->load->view('templates/contentEnd');
+			require_once 'required/menu.php';
+			$this->load->view('templates/footer');
+		}
 	}
 }

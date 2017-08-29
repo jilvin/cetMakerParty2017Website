@@ -64,10 +64,10 @@ class ArtVerificationWaitingList extends CI_Model
     return $prevQuery[0]->id+1;
   }
 
-  public function getWorksOfUser($userID)
+  public function getWorksOfUser($partyID, $userID)
   {
     $this->db->from($this->tableName);
-    $this->db->where(array('user'=>$userID,'category'=>'work'));
+    $this->db->where(array('partyID' => $partyID, 'user'=>$userID,'category'=>'work'));
     $prevQuery = $this->db->get();
     $prevCheck = $prevQuery->num_rows();
     if($prevCheck > 0)
@@ -81,10 +81,10 @@ class ArtVerificationWaitingList extends CI_Model
     }
   }
 
-  public function getExperiencesOfUser($userID)
+  public function getExperiencesOfUser($partyID, $userID)
   {
     $this->db->from($this->tableName);
-    $this->db->where(array('user'=>$userID,'category'=>'experience'));
+    $this->db->where(array('partyID' => $partyID, 'user'=>$userID,'category'=>'experience'));
     $prevQuery = $this->db->get();
     $prevCheck = $prevQuery->num_rows();
     if($prevCheck > 0)
@@ -122,6 +122,78 @@ class ArtVerificationWaitingList extends CI_Model
     $this->db->from($this->tableName);
     // echo $waitingArtID;
     $this->db->where(array('id'=>$waitingArtID, 'user'=>$userID, 'category'=>'experience'));
+    $prevQuery = $this->db->get();
+    $prevCheck = $prevQuery->num_rows();
+    // echo $prevCheck;
+    if($prevCheck > 0)
+    {
+      $prevResult = $prevQuery->row_array();
+      return $prevResult;
+    }
+    else
+    {
+      return NULL;
+    }
+  }
+
+  public function getAllWaitingArts($partyID)
+  {
+    $this->db->from($this->tableName);
+    $this->db->where(array('partyID' => $partyID));
+    $prevQuery = $this->db->get();
+    $prevCheck = $prevQuery->num_rows();
+    if($prevCheck > 0)
+    {
+      $prevResult = $prevQuery->result_object();
+      return $prevResult;
+    }
+    else
+    {
+      return NULL;
+    }
+  }
+
+  public function getWorkWithoutUserCheck($waitingArtID)
+  {
+    $this->db->from($this->tableName);
+    // echo $waitingArtID;
+    $this->db->where(array('id'=>$waitingArtID, 'category'=>'work'));
+    $prevQuery = $this->db->get();
+    $prevCheck = $prevQuery->num_rows();
+    // echo $prevCheck;
+    if($prevCheck > 0)
+    {
+      $prevResult = $prevQuery->row_array();
+      return $prevResult;
+    }
+    else
+    {
+      return NULL;
+    }
+  }
+
+  public function checkArt($currentPartyID, $artID)
+  {
+    $this->db->from($this->tableName);
+    $this->db->where(array('partyID'=>$currentPartyID, 'id'=>$artID));
+    $prevQuery = $this->db->get();
+    $prevCheck = $prevQuery->num_rows();
+
+    if($prevCheck > 0)
+    {
+      return $prevCheck;
+    }
+    else
+    {
+      return 0;
+    }
+  }
+
+  public function getArt($waitingArtID)
+  {
+    $this->db->from($this->tableName);
+    // echo $waitingArtID;
+    $this->db->where(array('id'=>$waitingArtID));
     $prevQuery = $this->db->get();
     $prevCheck = $prevQuery->num_rows();
     // echo $prevCheck;

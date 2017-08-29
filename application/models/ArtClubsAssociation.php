@@ -25,4 +25,22 @@ class ArtClubsAssociation extends CI_Model
       return NULL;
     }
   }
+
+  public function insertAssociation($artID, $clubID)
+  {
+    if($artID != NULL && $clubID != NULL)
+    {
+      $data['artID'] = $artID;
+      $data['clubID'] = $clubID;
+      $insert = $this->db->insert($this->tableName,$data);
+      if($insert)
+      {
+        return 1;
+      }
+      else
+      {
+        return 0;
+      }
+    }
+  }
 }

@@ -207,4 +207,27 @@ class Art extends CI_Model
 
     return $prevCheck;
   }
+
+  public function newArt($partyID, $artName, $artShortDescription, $artLongDescription, $category, $type1ImageFileName, $type2ImageFileName)
+  {
+    $data['partyID'] = $partyID;
+    $data['artname'] = $artName;
+    $data['artshortdescription'] = $artShortDescription;
+    $data['artlongdescription'] = $artLongDescription;
+    $data['category'] = $category;
+    $data['status'] = 'w';
+    $data['type1imagefilename'] = $type1ImageFileName;
+    $data['type2imagefilename'] = $type2ImageFileName;
+    $insert = $this->db->insert($this->tableName,$data);
+    $id = $this->db->insert_id();
+    return $id;
+  }
+
+  public function nextArtID()
+  {
+    $this->db->select_max('id');
+    $this->db->from($this->tableName);
+    $prevQuery = $this->db->get()->result_object();
+    return $prevQuery[0]->id+1;
+  }
 }

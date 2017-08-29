@@ -113,7 +113,7 @@ class Works extends CI_Controller {
 		{
 			if($this->session->userdata['userData']['id'])
 			{
-				$waitingWorks['artList'] = $this->ArtVerificationWaitingList->getWorksOfUser($this->session->userdata['userData']['id']);
+				$waitingWorks['artList'] = $this->ArtVerificationWaitingList->getWorksOfUser($this->PartyData->getCurrentPartyID(), $this->session->userdata['userData']['id']);
 				if($waitingWorks != NULL)
 				{
 					$this->load->view('templates/header');

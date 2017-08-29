@@ -214,7 +214,7 @@ class User_Authentication extends CI_Controller
         }
         if($this->Leadership->checkIfAdmin($this->session->userdata['userData']['id'], $this->Roles->getAdminRole($this->PartyData->getCurrentPartyID())) == 1)
         {
-          // $this->load->view('administration/adminPanel');
+          redirect(base_url()."admin");
         }
         if($this->ArtistInvitesModel->checkIfArtInviteWaiting($this->User->returnEmail($this->session->userdata['userData']['id'])) == 1)
         {
