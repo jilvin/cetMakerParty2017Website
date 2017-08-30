@@ -27,6 +27,15 @@
           echo '</div>'
           ?>
         </div>
+        <?php if($artist != NULL) { ?>
+          <div style="margin-top: 25px;">
+            <?php
+            // echo serialize($artist[0][0]->first_name);
+              echo "<span style=\"padding-bottom: 1px; display: inline-block;\"><b>Artist</b></span><br>";
+              echo "<p style=\"margin-top: 5px; margin-bottom: 5px;\">".$artist[0][0]->first_name." ".$artist[0][0]->last_name."</p>";
+              ?>
+          </div>
+        <?php } ?>
       </div>
     </div>
   </div>

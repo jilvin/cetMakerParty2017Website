@@ -92,7 +92,19 @@ class Experience extends CI_Controller {
 						// }
 						$patronClubID = $this->ArtVerificationWaitingListClubsAssociation->getPatronClubID($this->uri->segment(3));
 						$patronClubName = $this->Clubs->getClubName($patronClubID);
-						$this->load->view('content/displayWaitingExperience', array('experience'=>$data, 'patronClubName' => $patronClubName ));
+						// echo serialize($data['user']);
+						if($this->Leadership->checkIfAdmin($this->session->userdata['userData']['id'], $this->Roles->getAdminRoles($this->PartyData->getCurrentPartyID())) == 1)
+						{
+							// both admin and owner
+							$artist = $this->User->returnUsersInfo(array($data['user']));
+						}
+						else
+						{
+							// owner of work
+							$artist = NULL;
+						}
+						// echo serialize($artist);
+						$this->load->view('content/displayWaitingExperience', array('experience'=>$data, 'patronClubName' => $patronClubName , 'artist' => $artist));
 						if($this->Leadership->checkIfAdmin($this->session->userdata['userData']['id'], $this->Roles->getAdminRoles($this->PartyData->getCurrentPartyID())) == 1)
 						{
 							$this->load->view('administration/adminButtonsSection', array('artID' => $this->uri->segment(3)));
@@ -119,7 +131,10 @@ class Experience extends CI_Controller {
 							// }
 							$patronClubID = $this->ArtVerificationWaitingListClubsAssociation->getPatronClubID($this->uri->segment(3));
 							$patronClubName = $this->Clubs->getClubName($patronClubID);
-							$this->load->view('content/displayWaitingExperience', array('experience'=>$data, 'patronClubName' => $patronClubName ));
+							// echo serialize($data['user']);
+							$artist = $this->User->returnUsersInfo(array($data['user']));
+							// echo serialize($artist);
+							$this->load->view('content/displayWaitingExperience', array('experience'=>$data, 'patronClubName' => $patronClubName , 'artist' => $artist));
 							$this->load->view('administration/adminButtonsSection', array('artID' => $this->uri->segment(3)));
 							$this->load->view('templates/contentEnd');
 							require_once 'required/menu.php';
