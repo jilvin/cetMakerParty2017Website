@@ -55,7 +55,7 @@ class Roles extends CI_Model
     }
   }
 
-  public function getAdminRole($partyID)
+  public function getAdminRoles($partyID)
   {
     $this->db->from($this->tableName);
     $this->db->where(array('partyID'=>$partyID, 'roleType'=>1));
@@ -65,7 +65,7 @@ class Roles extends CI_Model
     if($prevCheck > 0)
     {
       // echo serialize($prevQuery->result_object());
-      return $prevQuery->result_object()[0]->id;
+      return $prevQuery->result_object();
     }
     else
     {

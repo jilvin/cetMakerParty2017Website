@@ -23,7 +23,7 @@ class Admin extends CI_Controller
 		{
 			if(!empty($this->session->userdata['userData']['id']))
 			{
-				if($this->Leadership->checkIfAdmin($this->session->userdata['userData']['id'], $this->Roles->getAdminRole($this->PartyData->getCurrentPartyID())) == 1)
+				if($this->Leadership->checkIfAdmin($this->session->userdata['userData']['id'], $this->Roles->getAdminRoles($this->PartyData->getCurrentPartyID())) == 1)
 				{
 					$userData['id'] = $this->session->userdata['userData']['id'];
 					$userData['first_name'] = $this->session->userdata['userData']['first_name'];
@@ -59,7 +59,7 @@ class Admin extends CI_Controller
 		{
 			if(!empty($this->session->userdata['userData']['id']))
 			{
-				if($this->Leadership->checkIfAdmin($this->session->userdata['userData']['id'], $this->Roles->getAdminRole($this->PartyData->getCurrentPartyID())) == 1)
+				if($this->Leadership->checkIfAdmin($this->session->userdata['userData']['id'], $this->Roles->getAdminRoles($this->PartyData->getCurrentPartyID())) == 1)
 				{
 					$waitingArts['artList'] = $this->ArtVerificationWaitingList->getAllWaitingArts($this->PartyData->getCurrentPartyID());
 					if($waitingArts != NULL)
@@ -96,7 +96,7 @@ class Admin extends CI_Controller
 		{
 			if(!empty($this->session->userdata['userData']['id']))
 			{
-				if($this->Leadership->checkIfAdmin($this->session->userdata['userData']['id'], $this->Roles->getAdminRole($this->PartyData->getCurrentPartyID())) == 1)
+				if($this->Leadership->checkIfAdmin($this->session->userdata['userData']['id'], $this->Roles->getAdminRoles($this->PartyData->getCurrentPartyID())) == 1)
 				{
 					if(!empty($this->input->post("artID")))
 					{

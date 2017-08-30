@@ -212,7 +212,7 @@ class User_Authentication extends CI_Controller
         {
           redirect(base_url()."more_details");
         }
-        if($this->Leadership->checkIfAdmin($this->session->userdata['userData']['id'], $this->Roles->getAdminRole($this->PartyData->getCurrentPartyID())) == 1)
+        if($this->Leadership->checkIfAdmin($this->session->userdata['userData']['id'], $this->Roles->getAdminRoles($this->PartyData->getCurrentPartyID())) == 1)
         {
           redirect(base_url()."admin");
         }

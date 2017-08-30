@@ -77,7 +77,7 @@ class Experience extends CI_Controller {
 						$patronClubID = $this->ArtVerificationWaitingListClubsAssociation->getPatronClubID($this->uri->segment(3));
 						$patronClubName = $this->Clubs->getClubName($patronClubID);
 						$this->load->view('content/displayWaitingExperience', array('experience'=>$data, 'patronClubName' => $patronClubName ));
-						if($this->Leadership->checkIfAdmin($this->session->userdata['userData']['id'], $this->Roles->getAdminRole($this->PartyData->getCurrentPartyID())) == 1)
+						if($this->Leadership->checkIfAdmin($this->session->userdata['userData']['id'], $this->Roles->getAdminRoles($this->PartyData->getCurrentPartyID())) == 1)
 						{
 							$this->load->view('administration/adminButtonsSection', array('artID' => $this->uri->segment(3)));
 						}
@@ -85,7 +85,7 @@ class Experience extends CI_Controller {
 						require_once 'required/menu.php';
 						$this->load->view('templates/footer');
 					}
-					else if($this->Leadership->checkIfAdmin($this->session->userdata['userData']['id'], $this->Roles->getAdminRole($this->PartyData->getCurrentPartyID())) == 1)
+					else if($this->Leadership->checkIfAdmin($this->session->userdata['userData']['id'], $this->Roles->getAdminRoles($this->PartyData->getCurrentPartyID())) == 1)
 					{
 						$data = $this->ArtVerificationWaitingList->getExperienceWithoutUserCheck($this->uri->segment(3));
 						if($data != NULL)
