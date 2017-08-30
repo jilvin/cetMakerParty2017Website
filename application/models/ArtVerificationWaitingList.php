@@ -172,6 +172,25 @@ class ArtVerificationWaitingList extends CI_Model
     }
   }
 
+  public function getExperienceWithoutUserCheck($waitingArtID)
+  {
+    $this->db->from($this->tableName);
+    // echo $waitingArtID;
+    $this->db->where(array('id'=>$waitingArtID, 'category'=>'experience'));
+    $prevQuery = $this->db->get();
+    $prevCheck = $prevQuery->num_rows();
+    // echo $prevCheck;
+    if($prevCheck > 0)
+    {
+      $prevResult = $prevQuery->row_array();
+      return $prevResult;
+    }
+    else
+    {
+      return NULL;
+    }
+  }
+
   public function checkArt($currentPartyID, $artID)
   {
     $this->db->from($this->tableName);
@@ -221,6 +240,23 @@ class ArtVerificationWaitingList extends CI_Model
     else
     {
       return 0;
+    }
+  }
+
+  public function checkEmptyTable()
+  {
+    $this->db->from($this->tableName);
+    $prevQuery = $this->db->get();
+    $prevCheck = $prevQuery->num_rows();
+
+    if($prevCheck > 0)
+    {
+      return 0;
+    }
+    else
+    {
+      // empty table
+      return 1;
     }
   }
 }

@@ -22,7 +22,14 @@
       //echo '<p><b>FB Profile Link : </b>' . $userData['profile_url'].'</p>';
       // echo '<p><b>Your account is linked with : </b>Facebook</p>';
       echo '<br>';
+      if($checkEmptyArtVerificationWaitingListTable != 1)
+      {
       echo '<p><a href="'.base_url().'admin/check">Check Applied Arts</a></p>';
+      }
+      else
+      {
+        echo '<p>No art waiting for verification.</p>';
+      }
       echo '</div>';
       echo '<div style="margin-top: 20px;">';
       echo '<p><a href="'.base_url().'works/mine">My Works</a></p>';

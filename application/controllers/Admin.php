@@ -31,6 +31,7 @@ class Admin extends CI_Controller
 					$userData['email'] = $this->session->userdata['userData']['email'];
 
 					$data['userData'] = $userData;
+					$data['checkEmptyArtVerificationWaitingListTable'] = $this->ArtVerificationWaitingList->checkEmptyTable();
 
 					$this->load->view('templates/header');
 					$this->load->view('templates/henosis');
@@ -62,7 +63,7 @@ class Admin extends CI_Controller
 				if($this->Leadership->checkIfAdmin($this->session->userdata['userData']['id'], $this->Roles->getAdminRoles($this->PartyData->getCurrentPartyID())) == 1)
 				{
 					$waitingArts['artList'] = $this->ArtVerificationWaitingList->getAllWaitingArts($this->PartyData->getCurrentPartyID());
-					if($waitingArts != NULL)
+					if($waitingArts['artList'] != NULL)
 					{
 						$this->load->view('templates/header');
 						$this->load->view('templates/henosis');
@@ -75,7 +76,7 @@ class Admin extends CI_Controller
 					}
 					else
 					{
-						redirect(base_url());
+						redirect(base_url().'user_authentication');
 					}
 				}
 				else
@@ -150,6 +151,55 @@ class Admin extends CI_Controller
 							{
 								echo 'Failed';
 							}
+						}
+						else
+						{
+							redirect(base_url());
+						}
+					}
+					else
+					{
+						redirect(base_url());
+					}
+				}
+				else
+				{
+					redirect(base_url());
+				}
+			}
+			else
+			{
+				redirect(base_url());
+			}
+		}
+	}
+
+	public function reject()
+	{
+		if($this->PartyData->checkPartyExists() == 1)
+		{
+			if(!empty($this->session->userdata['userData']['id']))
+			{
+				if($this->Leadership->checkIfAdmin($this->session->userdata['userData']['id'], $this->Roles->getAdminRoles($this->PartyData->getCurrentPartyID())) == 1)
+				{
+					if(!empty($this->input->post("artID")))
+					{
+						if($this->ArtVerificationWaitingList->checkArt($this->PartyData->getCurrentPartyID(), $this->input->post("artID")) != 0)
+						{
+							$art = $this->ArtVerificationWaitingList->getArt($this->input->post("artID"));
+							$patronClub = $this->ArtVerificationWaitingListClubsAssociation->getPatronClubID($this->input->post("artID"));
+
+							$this->ArtVerificationWaitingListClubsAssociation->deleteAssociation($art['id']);
+							$this->ArtVerificationWaitingList->deleteArt($art['id']);
+
+							$this->load->view('templates/header');
+							$this->load->view('templates/henosis');
+							$this->load->view('templates/contentStart');
+							$this->load->view('templates/headerRow');
+							$this->load->view('content/artRejected');
+							$this->load->view('templates/contentEnd');
+							require_once 'required/menu.php';
+							$this->load->view('templates/footer');
 						}
 						else
 						{

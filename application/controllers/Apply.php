@@ -217,7 +217,7 @@ class Apply extends CI_Controller {
 					$artName = $this->input->post("experienceName");
 					$artShortDescription = $this->input->post("experienceShortDescription");
 					$artLongDescription = $this->input->post("experienceLongDescription");
-					$patronClub = $this->input->post("clubID");
+					$patronClub = $this->input->post("patronClub");
 					if($error1 == NULL && $error2 == NULL)
 					{
 						// experience
