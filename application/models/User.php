@@ -42,27 +42,34 @@ class User extends CI_Model
   {
     $i=0;
     $data = NULL;
-    // echo serialize($userIDs);
-    foreach ($userIDs as $userID)
+    if($userIDs != NULL)
     {
-      // echo $userID;
-      $this->db->from($this->tableName);
-      $this->db->where(array('id'=>$userID));
-      $prevQuery = $this->db->get();
-      $prevCheck = $prevQuery->num_rows();
-      if($prevCheck > 0)
+      // echo serialize($userIDs);
+      foreach ($userIDs as $userID)
       {
-        // $prevResult = $prevQuery->row_array();
+        // echo $userID;
         $this->db->from($this->tableName);
         $this->db->where(array('id'=>$userID));
-        $data[$i] = $this->db->get()->result();
-        $i++;
-        // return $prevResult;
+        $prevQuery = $this->db->get();
+        $prevCheck = $prevQuery->num_rows();
+        if($prevCheck > 0)
+        {
+          // $prevResult = $prevQuery->row_array();
+          $this->db->from($this->tableName);
+          $this->db->where(array('id'=>$userID));
+          $data[$i] = $this->db->get()->result();
+          $i++;
+          // return $prevResult;
+        }
       }
-    }
-    if($data != NULL)
-    {
-      return $data;
+      if($data != NULL)
+      {
+        return $data;
+      }
+      else
+      {
+        return NULL;
+      }
     }
     else
     {

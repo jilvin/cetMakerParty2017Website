@@ -45,10 +45,13 @@ class Work extends CI_Controller {
 				// echo serialize($associatedUserIDs);
 				$i = 0;
 				$alteredAssociatedUserIDs = NULL;
-				foreach($associatedUserIDs as $associatedUserID)
+				if($associatedUserIDs != NULL)
 				{
-					$alteredAssociatedUserIDs[$i] = $associatedUserID['userID'];
-					$i++;
+					foreach($associatedUserIDs as $associatedUserID)
+					{
+						$alteredAssociatedUserIDs[$i] = $associatedUserID['userID'];
+						$i++;
+					}
 				}
 				// echo serialize($alteredAssociatedUserIDs);
 				$artists = $this->User->returnUsersInfo($alteredAssociatedUserIDs);
