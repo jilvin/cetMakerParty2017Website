@@ -32,4 +32,20 @@ class ArtVerificationWaitingListClubsAssociation extends CI_Model
       return NULL;
     }
   }
+
+  public function deleteAssociation($artID)
+  {
+    $this->db->from($this->tableName);
+    $this->db->where(array('artverificationwaitinglistID' => $artID));
+    $delete = $this->db->delete();
+
+    if($delete)
+    {
+      return 1;
+    }
+    else
+    {
+      return 0;
+    }
+  }
 }

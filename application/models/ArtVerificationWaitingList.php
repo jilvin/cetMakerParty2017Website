@@ -207,4 +207,20 @@ class ArtVerificationWaitingList extends CI_Model
       return NULL;
     }
   }
+
+  public function deleteArt($artID)
+  {
+    $this->db->from($this->tableName);
+    $this->db->where(array('id' => $artID));
+    $delete = $this->db->delete();
+
+    if($delete)
+    {
+      return 1;
+    }
+    else
+    {
+      return 0;
+    }
+  }
 }

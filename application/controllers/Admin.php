@@ -115,13 +115,26 @@ class Admin extends CI_Controller
 
 							$rename1Status = rename(FCPATH.'uploads/images/art/waiting/'.$art['type1imagefilename'], FCPATH.'uploads/images/art/approved/'.$type1ImageFileNameNew);
 							$rename2Status = rename(FCPATH.'uploads/images/art/waiting/'.$art['type2imagefilename'], FCPATH.'uploads/images/art/approved/'.$type2ImageFileNameNew);
-
+							if($rename1Status == FALSE || $rename2Status == FALSE)
+							{
+								if($rename1Status == TRUE)
+								{
+									rename(FCPATH.'uploads/images/art/approved/'.$type1ImageFileNameNew, FCPATH.'uploads/images/art/waiting/'.$art['type1imagefilename']);
+								}
+								if($rename2Status == TRUE)
+								{
+									rename(FCPATH.'uploads/images/art/approved/'.$type2ImageFileNameNew, FCPATH.'uploads/images/art/waiting/'.$art['type2imagefilename']);
+								}
+							}
 							if($rename1Status == TRUE && $rename2Status == TRUE)
 							{
 
 								$insertedArtID = $this->Art->newArt($art['partyID'], $art['artname'], $art['artshortdescription'], $art['artlongdescription'], $art['category'], $type1ImageFileNameNew, $type2ImageFileNameNew);
 								$this->ArtUserAssociation->insertAssociation($art['user'], $insertedArtID);
 								$this->ArtClubsAssociation->insertAssociation($insertedArtID, $patronClub);
+
+								$this->ArtVerificationWaitingListClubsAssociation->deleteAssociation($art['id']);
+								$this->ArtVerificationWaitingList->deleteArt($art['id']);
 
 								$this->load->view('templates/header');
 								$this->load->view('templates/henosis');
