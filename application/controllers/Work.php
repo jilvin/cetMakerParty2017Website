@@ -11,6 +11,7 @@ class Work extends CI_Controller {
 		$this->load->model('Clubs');
 		$this->load->model('Leadership');
 		$this->load->model('Roles');
+		$this->load->model('User');
 		$this->load->model('ArtClubsAssociation');
 		$this->load->model('ArtUserAssociation');
 		$this->load->model('ArtVerificationWaitingList');
@@ -40,7 +41,19 @@ class Work extends CI_Controller {
 				}
 				$patronClubID = $this->ArtClubsAssociation->getPatronClubID($this->uri->segment(2));
 				$patronClubName = $this->Clubs->getClubName($patronClubID);
-				$this->load->view('content/displayWork', array('work'=>$this->Art->getWork($this->uri->segment(2)), 'ownArt' => $ownArt, 'patronClubName' => $patronClubName ));
+				$associatedUserIDs = $this->ArtUserAssociation->getAssociatedUserIDs($this->uri->segment(2));
+				// echo serialize($associatedUserIDs);
+				$i = 0;
+				$alteredAssociatedUserIDs = NULL;
+				foreach($associatedUserIDs as $associatedUserID)
+				{
+					$alteredAssociatedUserIDs[$i] = $associatedUserID['userID'];
+					$i++;
+				}
+				// echo serialize($alteredAssociatedUserIDs);
+				$artists = $this->User->returnUsersInfo($alteredAssociatedUserIDs);
+				// echo serialize($artists);
+				$this->load->view('content/displayWork', array('work'=>$this->Art->getWork($this->uri->segment(2)), 'ownArt' => $ownArt, 'patronClubName' => $patronClubName , 'artists' => $artists));
 				$this->load->view('templates/contentEnd');
 				require_once 'required/menu.php';
 				$this->load->view('templates/footer');
