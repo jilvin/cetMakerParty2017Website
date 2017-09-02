@@ -23,8 +23,8 @@ if(empty($patronClub))
       <h3 class="heading">Apply for your experience.<span></span></h3>
       <div class="form">
         <form action="<?php echo base_url() ?>apply/complete" method="post" id="applicationForm" name="applicationForm" enctype="multipart/form-data" accept-charset="utf-8">
-          <input id="inputWorkName" type="text" required="true" placeholder="Suggested name." value="<?php echo $artName; ?>" name="experienceName">
-          <input id="inputWorkName" type="text" required="true" placeholder="Short description." value="<?php echo $artShortDescription; ?>" name="experienceShortDescription">
+          <input id="inputWorkName" type="text" required="true" placeholder="Suggested name." value="<?php echo $artName; ?>" name="experienceName" maxlength="20">
+          <input id="inputWorkName" type="text" required="true" placeholder="Short description." value="<?php echo $artShortDescription; ?>" name="experienceShortDescription" maxlength="43">
           <textarea id="textareaWorkDescription" required="true" placeholder="Long description." name="experienceLongDescription" type="text"><?php echo $artLongDescription; ?></textarea>
           <?php if(!empty($clubs)) {?>
           <p style="margin-top: 20px;">Select your patron club (if any)</p>
