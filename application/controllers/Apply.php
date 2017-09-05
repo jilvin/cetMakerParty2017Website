@@ -50,7 +50,7 @@ class Apply extends CI_Controller {
 				$this->load->view('templates/henosis');
 				$this->load->view('templates/contentStart');
 				$this->load->view('templates/headerRow');
-				$clubs = $this->Clubs->returnClubs($this->PartyData->getCurrentPartyID());
+				$clubs = $this->Clubs->returnClubsInAscendingOrder($this->PartyData->getCurrentPartyID());
 				$this->load->view('content/applyWork', array('clubs' => $clubs,'error1' => ' ', 'error2' => ' '));
 				$this->load->view('templates/contentEnd');
 				require_once 'required/menu.php';
@@ -77,7 +77,7 @@ class Apply extends CI_Controller {
 				$this->load->view('templates/henosis');
 				$this->load->view('templates/contentStart');
 				$this->load->view('templates/headerRow');
-				$clubs = $this->Clubs->returnClubs($this->PartyData->getCurrentPartyID());
+				$clubs = $this->Clubs->returnClubsInAscendingOrder($this->PartyData->getCurrentPartyID());
 				$this->load->view('content/applyExperience', array('clubs' => $clubs,'error1' => ' ', 'error2' => ' '));
 				$this->load->view('templates/contentEnd');
 				require_once 'required/menu.php';
@@ -168,7 +168,7 @@ class Apply extends CI_Controller {
 						$this->load->view('templates/henosis');
 						$this->load->view('templates/contentStart');
 						$this->load->view('templates/headerRow');
-						$clubs = $this->Clubs->returnClubs($this->PartyData->getCurrentPartyID());
+						$clubs = $this->Clubs->returnClubsInAscendingOrder($this->PartyData->getCurrentPartyID());
 						$this->load->view('content/applyWork', $error = array('clubs' => $clubs,'error1' => $error1, 'error2' => $error2, 'artName'=>$artName, 'artShortDescription'=>$artShortDescription, 'artLongDescription'=>$artLongDescription, 'patronClub'=>$patronClub));
 						$this->load->view('templates/contentEnd');
 						require_once 'required/menu.php';

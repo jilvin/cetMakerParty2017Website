@@ -7,10 +7,11 @@ class Clubs extends CI_Model
     $this->primaryKey = 'id';
   }
 
-  public function returnClubs($partyID)
+  public function returnClubsInAscendingOrder($partyID)
   {
     $this->db->from($this->tableName);
     $this->db->where(array('partyID'=>$partyID));
+    $this->db->order_by("clubname", "asc");
     $prevQuery = $this->db->get();
     $prevCheck = $prevQuery->num_rows();
     if($prevCheck > 0)
