@@ -6,7 +6,13 @@
   <div class="row">
     <div class="col-md-12 wrapper">
       <h1>About</h1>
-      <span style="margin-top: 10px; display: inline-block;">CET Maker Party is the congregation of the best minds of CET, to celebrate the art of making. By maker we mean anybody who creates, be it art, tech, music or in other words artists.<br><br>Calling all artists of CET to join us in this renaissance of making.<br><br>Start working on your magnum opus.<br><br><a href="<?php echo base_url() ?>apply"><b>Apply Now</b></a></span>
+      <span style="margin-top: 10px; display: inline-block;">CET Maker Party is the congregation of the best minds of CET, to celebrate the art of making. By maker we mean anybody who creates, be it art, tech, music or in other words artists.
+        <br><br>
+        Calling all artists of CET to join us in this renaissance of making.
+        <br><br>
+        Start working on your magnum opus.<br><br><a href="<?php echo base_url() ?>apply"><b>Apply Now</b></a></span>
+        <br><br>
+        This event is open <b>only to CETians</b> (including alumni).
     </div>
   </div>
 </div>
