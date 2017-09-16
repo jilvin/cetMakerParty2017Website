@@ -23,7 +23,7 @@
       <h3 class="heading">Apply for your work.<span></span></h3>
       <div class="form">
         <form action="<?php echo base_url() ?>apply/complete" method="post" id="applicationForm" name="applicationForm" enctype="multipart/form-data" accept-charset="utf-8">
-          <input id="inputWorkName" type="text" required="true" placeholder="Name of your work." value="<?php echo $artName; ?>" name="workName" maxlength="20">
+          <input id="inputWorkName" type="text" required="true" placeholder="Name of your work." value="<?php echo $artName; ?>" name="workName" maxlength="19">
           <input id="inputWorkName" type="text" required="true" placeholder="Short description." value="<?php echo $artShortDescription; ?>" name="workShortDescription" maxlength="43">
           <textarea id="textareaWorkDescription" required="true" placeholder="Long description." name="workLongDescription" type="text"><?php echo $artLongDescription; ?></textarea>
           <?php if(!empty($clubs)) {?>
