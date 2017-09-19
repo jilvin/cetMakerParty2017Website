@@ -15,6 +15,10 @@ require("../../../CONSTANTS.php");
 {
   /*position: absolute;*/
   width: 100%;
+  display: flex;
+  margin: 0;
+  justify-content: center;
+  align-items: center;
 }
 
 #workApplyButton, #experienceApplyButton
@@ -24,7 +28,7 @@ require("../../../CONSTANTS.php");
 
 #applyLine
 {
-  padding: 10px;
+  padding-top: 10px;
 }
 
 #inputWorkName

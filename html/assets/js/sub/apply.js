@@ -1,20 +1,17 @@
 var windowHeight = $(window).height();
 // console.log(windowHeight);
-var headerRowHeight = $("#headerRow").height();
+var headerRowHeight = $("#headerRow").outerHeight();
 // console.log(headerRowHeight);
 
-var applyButtonsRowHeight = (windowHeight - headerRowHeight);
-// console.log(applyButtonsRowHeight);
-document.getElementById("applyButtonsRow").style.height = applyButtonsRowHeight + "px";
+var applySectionHeight = (windowHeight) - (headerRowHeight);
+document.getElementById("applySection").style.height = applySectionHeight+"px";
 
-// var applyButtonsRowOuterHeight = $("#applyButtonsRow").outerHeight();
-var applyButtonsRowOuterHeight = applyButtonsRowHeight;
-// console.log(applyButtonsRowOuterHeight);
-var workApplyButtonOuterHeight = $("#workApplyButton").outerHeight();
-var experienceApplyButtonOuterHeight = $("#experienceApplyButton").outerHeight();
 
-var workApplyButtonCalculatedTop = (applyButtonsRowOuterHeight/2) - (workApplyButtonOuterHeight/2);
-document.getElementById("workApplyButton").style.top = workApplyButtonCalculatedTop+"px";
+var applyLineHeight = $("#applyLine").outerHeight();
+// document.getElementById("applyLine").style.marginTop = applyLineHeight+"px";
 
-var experienceApplyButtonCalculatedTop = (applyButtonsRowOuterHeight/2) - (experienceApplyButtonOuterHeight/2);
-document.getElementById("experienceApplyButton").style.top = experienceApplyButtonCalculatedTop+"px";
+// document.getElementById("applyButtonsRowWrap").style.marginTop = "-"+applyLineHeight+"px";
+var applyButtonsRowHeight = (applySectionHeight) - (applyLineHeight);
+document.getElementById("applyButtonsRow").style.height = applyButtonsRowHeight+"px";
+
+// document.getElementById("workApplyButton").style.marginTop = "-"+((headerRowHeight+applyLineHeight)/2)+"px";
