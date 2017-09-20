@@ -212,13 +212,13 @@ class User_Authentication extends CI_Controller
         {
           redirect(base_url()."more_details");
         }
-        if($this->Leadership->checkIfAdmin($this->session->userdata['userData']['id'], $this->Roles->getAdminRoles($this->PartyData->getCurrentPartyID())) == 1)
-        {
-          redirect(base_url()."admin");
-        }
         if($this->ArtistInvitesModel->checkIfArtInviteWaiting($this->User->returnEmail($this->session->userdata['userData']['id'])) == 1)
         {
           redirect(base_url()."artistInvites");
+        }
+        if($this->Leadership->checkIfAdmin($this->session->userdata['userData']['id'], $this->Roles->getAdminRoles($this->PartyData->getCurrentPartyID())) == 1)
+        {
+          redirect(base_url()."admin");
         }
       }
       // Load login & profile view
