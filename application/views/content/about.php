@@ -14,6 +14,19 @@
         <br><br>
         This event is open <b>only to CETians</b> (including alumni).
     </div>
+    <div id="evolve" class="col-md-12">
+      <br>
+      <a id="evolveToggle" href="#evolve"><b>Know about E-volve from EDC CET.</b></a>
+      <div id="evolveContent" style="display: none;">
+        <br>Edventure has been a milestone in opening up the young minds of CET to venture out and as the next step we introduce E-volve.<br><br>
+        Evolve is a year long programme to develop products and to give first taste in venturing out for students.
+        Through E-volve, EDC helps you from the first stage of idea development to a proper incubation of your startup. Tailor-made sessions and workshops from various industry leaders to help in better understanding your product, tools and opportunities.<br><br>
+        Contact for more detials<br>
+        Hrithu: +91 94468 37803<br>
+        Pruthul: +91 98950 50693
+      </div>
+    </div>
   </div>
 </div>
 </div>
+<script src="<?php echo base_url();?>assets/js/sub/about.js" defer></script>
