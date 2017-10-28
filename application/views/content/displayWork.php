@@ -5,6 +5,8 @@ if(!empty($work['status']))
   {
     case 'w': $work['status'] = "Under development.";
     break;
+    case 'd': $work['status'] = "Discontinued.";
+    break;
   }
 }
 ?>

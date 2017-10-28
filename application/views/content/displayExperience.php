@@ -5,6 +5,8 @@ if(!empty($experience['status']))
   {
     case 'w': $experience['status'] = "Practicing.";
     break;
+    case 'd': $experience['status'] = "Plans dropped.";
+    break;
   }
 }
 ?>
