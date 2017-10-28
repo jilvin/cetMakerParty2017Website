@@ -70,8 +70,12 @@ class Art extends CI_Model
 
   public function show_current_works($current_party)
   {
+    // status types to be displayed for current listing
+    $currentValidStatuses = array('w', 'c', 'p');
+
     $this->db->from($this->tableName);
     $this->db->where(array('partyID'=>$current_party,'category'=>'work'));
+    $this->db->where_in('status', $currentValidStatuses);
     $prevQuery = $this->db->get();
     $prevCheck = $prevQuery->num_rows();
 
@@ -80,6 +84,7 @@ class Art extends CI_Model
       // $prevResult = $prevQuery->row_array();
       $this->db->from($this->tableName);
       $this->db->where(array('partyID'=>$current_party,'category'=>'work'));
+      $this->db->where_in('status', $currentValidStatuses);
       $prevResult = $this->db->get()->result();
       return $prevResult;
     }
@@ -139,8 +144,12 @@ class Art extends CI_Model
 
   public function show_current_experiences($current_party)
   {
+    // status types to be displayed for current listing
+    $currentValidStatuses = array('w', 'c', 'p');
+
     $this->db->from($this->tableName);
     $this->db->where(array('partyID'=>$current_party,'category'=>'experience'));
+    $this->db->where_in('status', $currentValidStatuses);
     $prevQuery = $this->db->get();
     $prevCheck = $prevQuery->num_rows();
 
@@ -149,6 +158,7 @@ class Art extends CI_Model
       // $prevResult = $prevQuery->row_array();
       $this->db->from($this->tableName);
       $this->db->where(array('partyID'=>$current_party,'category'=>'experience'));
+      $this->db->where_in('status', $currentValidStatuses);
       $prevResult = $this->db->get()->result();
       return $prevResult;
     }
@@ -190,8 +200,12 @@ class Art extends CI_Model
 
   public function returnWorksCount($partyID)
   {
+    // status types to be displayed for current listing
+    $currentValidStatuses = array('w', 'c', 'p');
+
     $this->db->from($this->tableName);
     $this->db->where(array('partyID'=>$partyID,'category'=>'work'));
+    $this->db->where_in('status', $currentValidStatuses);
     $prevQuery = $this->db->get();
     $prevCheck = $prevQuery->num_rows();
 
@@ -200,8 +214,12 @@ class Art extends CI_Model
 
   public function returnExperiencesCount($partyID)
   {
+    // status types to be displayed for current listing
+    $currentValidStatuses = array('w', 'c', 'p');
+
     $this->db->from($this->tableName);
     $this->db->where(array('partyID'=>$partyID,'category'=>'experience'));
+    $this->db->where_in('status', $currentValidStatuses);
     $prevQuery = $this->db->get();
     $prevCheck = $prevQuery->num_rows();
 
