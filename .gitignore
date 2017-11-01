@@ -33,3 +33,4 @@ application/config/database.php
 application/config/config.php
 html/uploads/*
 html/downloads/*
+html/assets/images/launch/*
