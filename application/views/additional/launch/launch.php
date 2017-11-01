@@ -183,6 +183,16 @@
   </div> -->
 </span>
 </section>
+
+<?php foreach ($artList as $artList): ?>
+  <section>
+    <div style="font-family: 'Raleway', sans-serif;
+    font-size: 36px;
+    padding-bottom: 30px;"><?php echo $artList->artname ?></div>
+    <div class="fragment" data-autoslide="1500"><?php echo $artList->artshortdescription ?></div>
+  </section>
+<?php endforeach ?>
+
 </div>
 </div>
 
@@ -290,7 +300,8 @@ function stageZero()
       79: null, // o
       190: null
     },
-    center: false
+    center: false,
+    autoSlideStoppable: false
   });
 }
 
@@ -329,13 +340,18 @@ Reveal.addEventListener( 'slidechanged', function( event ) {
         76: null, // l
         79: null, // o
         190: null
-      }
+      },
+      autoSlide: 0
     });
+  }
+  else if(event.indexh == 2)
+  {
+    Reveal.configure({ autoSlide: 5000 });
   }
 } );
 
 Reveal.addEventListener( 'fragmentshown', function( event ) {
-	// event.fragment = the fragment DOM element
+  // event.fragment = the fragment DOM element
   // alert(event.fragment.id);
   if(event.fragment.id === "nextIsInaugurationSlide")
   {
@@ -351,7 +367,8 @@ Reveal.addEventListener( 'fragmentshown', function( event ) {
         76: null, // l
         79: null, // o
         190: null
-      }
+      },
+      center: true
     });
   }
 } );

@@ -68,6 +68,32 @@ class Art extends CI_Model
     }
   }
 
+  public function show_current_arts($current_party)
+  {
+    // status types to be displayed for current listing
+    $currentValidStatuses = array('w', 'c', 'p');
+
+    $this->db->from($this->tableName);
+    $this->db->where(array('partyID'=>$current_party));
+    $this->db->where_in('status', $currentValidStatuses);
+    $prevQuery = $this->db->get();
+    $prevCheck = $prevQuery->num_rows();
+
+    if($prevCheck > 0)
+    {
+      // $prevResult = $prevQuery->row_array();
+      $this->db->from($this->tableName);
+      $this->db->where(array('partyID'=>$current_party));
+      $this->db->where_in('status', $currentValidStatuses);
+      $prevResult = $this->db->get()->result();
+      return $prevResult;
+    }
+    else
+    {
+      return NULL;
+    }
+  }
+
   public function show_current_works($current_party)
   {
     // status types to be displayed for current listing
