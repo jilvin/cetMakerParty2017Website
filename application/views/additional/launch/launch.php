@@ -193,6 +193,17 @@
   </section>
 <?php endforeach ?>
 
+<section style="padding: 0px;">
+  <div style="font-family: 'Pacifico', cursive;
+  font-size: 48px;
+  padding-bottom: 40px;
+  ">Maker Party</div>
+
+  <div style="font-family: 'Open Sans', sans-serif;
+  font-size: 24px;
+  ">College of Engineering Trivandrum</div>
+</section>
+
 </div>
 </div>
 
