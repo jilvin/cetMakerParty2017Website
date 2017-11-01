@@ -207,6 +207,18 @@
 </div>
 </div>
 
+<audio id="waitTimeAudio" loop>
+  <!-- <source src="horse.ogg" type="audio/ogg"> -->
+  <source src="<?php echo base_url();?>assets/music/launch/1/Troposphere.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+<audio id="inaugurationAudio" loop>
+  <!-- <source src="horse.ogg" type="audio/ogg"> -->
+  <source src="<?php echo base_url();?>assets/music/launch/1/Fearless.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!-- Latest compiled and minified JavaScript - Bootstrap -->
@@ -298,6 +310,11 @@ Reveal.initialize({
 
 function stageZero()
 {
+  var x = document.getElementById("waitTimeAudio");
+
+  // play inaugurationAudio
+  x.play();
+
   Reveal.configure({
     keyboard: {
       13: 'next', // go to the next slide when the ENTER key is pressed
@@ -321,6 +338,11 @@ Reveal.addEventListener( 'slidechanged', function( event ) {
   // alert("gets here"+event.indexh+event.indexv);
   if(event.indexh == 0)
   {
+    var x = document.getElementById("waitTimeAudio");
+
+    // play inaugurationAudio
+    x.play();
+
     Reveal.configure({
       keyboard: {
         13: 'next', // go to the next slide when the ENTER key is pressed
@@ -338,6 +360,18 @@ Reveal.addEventListener( 'slidechanged', function( event ) {
   }
   else if(event.indexh == 1)
   {
+    var x = document.getElementById("inaugurationAudio");
+
+    // stop inaugurationAudio
+    x.pause();
+    x.currentTime = 0;
+
+    var y = document.getElementById("waitTimeAudio");
+
+    // play waitTimeAudio
+    y.pause();
+    y.currentTime = 0;
+
     // alert("gets here");
     Reveal.configure({
       keyboard: {
@@ -357,6 +391,11 @@ Reveal.addEventListener( 'slidechanged', function( event ) {
   }
   else if(event.indexh == 2)
   {
+    var x = document.getElementById("inaugurationAudio");
+
+    // play inaugurationAudio
+    x.play();
+
     Reveal.configure({ autoSlide: 5000 });
   }
 } );

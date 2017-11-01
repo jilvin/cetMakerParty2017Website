@@ -34,3 +34,4 @@ application/config/config.php
 html/uploads/*
 html/downloads/*
 html/assets/images/launch/*
+html/assets/music/launch/*
