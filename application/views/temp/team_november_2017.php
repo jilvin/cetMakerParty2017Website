@@ -110,6 +110,14 @@ td, th {
           </tr>
           <tr>
             <td>
+              Amal Ashok
+            </td>
+            <td>
+              Collaborator
+            </td>
+          </tr>
+          <tr>
+            <td>
               Vaishnav J
             </td>
             <td>
