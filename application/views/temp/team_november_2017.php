@@ -69,6 +69,14 @@ td, th {
           </tr>
           <tr>
             <td>
+              Goutham Krishna
+            </td>
+            <td>
+              Organiser
+            </td>
+          </tr>
+          <tr>
+            <td>
               Jilvin Jacob
             </td>
             <td>
