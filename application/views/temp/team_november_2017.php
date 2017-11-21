@@ -94,6 +94,14 @@ td, th {
           </tr>
           <tr>
             <td>
+              Rohit Damodar
+            </td>
+            <td>
+              Organiser
+            </td>
+          </tr>
+          <tr>
+            <td>
               Saharsh Pruthi
             </td>
             <td>
